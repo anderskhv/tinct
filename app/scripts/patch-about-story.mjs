@@ -38,18 +38,7 @@ for (const f of ['about-v21.css', 'about-v21.js', 'assets/devices-transparent-v1
 }
 
 const PILL_HTML = '<a class="floating-read" href="/library"><span class="cta-escape">Escape</span><span class="cta-read">Start reading</span></a>';
-const FOOTER_HTML =
-  '<footer class="about-footer"><span class="about-footer-mark">Tinct</span>' +
-  '<nav aria-label="Footer"><a href="/library">Start reading</a><a href="/privacy">Privacy</a>' +
-  '<a href="mailto:anders@tinct.app">Contact</a></nav></footer>';
 const PILL_ROW = ',["$","a",null,{"className":"floating-read","href":"/library","children":[["$","span",null,{"className":"cta-escape","children":"Escape"}],["$","span",null,{"className":"cta-read","children":"Start reading"}]]}]';
-const FOOTER_ROW =
-  ',["$","footer",null,{"className":"about-footer","children":[' +
-  '["$","span",null,{"className":"about-footer-mark","children":"Tinct"}],' +
-  '["$","nav",null,{"aria-label":"Footer","children":[' +
-  '["$","a",null,{"href":"/library","children":"Start reading"}],' +
-  '["$","a",null,{"href":"/privacy","children":"Privacy"}],' +
-  '["$","a",null,{"href":"mailto:anders@tinct.app","children":"Contact"}]]}]]}]';
 // The payload is JSON inside a JS string literal, so every quote is escaped.
 const esc = s => s.replaceAll('"', '\\"');
 
@@ -88,10 +77,13 @@ const edits = [
   ['html', 'product fonts for the Talk panel', '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/>',
     '<link rel="stylesheet" href="/assets/about-v20/about-v21.css"/><link rel="stylesheet" href="/fonts/tinct-fonts.css"/>', 1, 'tinct-fonts.css'],
   ['html', 'behaviour script', 'id="_R_" async=""></script>', 'id="_R_" async=""></script><script src="/assets/about-v20/about-v21.js" defer=""></script>', 1, 'about-v21.js'],
-  // Persistent exit ("Escape" until the reveal, then "Start reading") and a footer, mirrored in HTML and payload.
-  ['html', 'floating pill + footer', '</main>', PILL_HTML + FOOTER_HTML + '</main>', 1, 'about-footer'],
-  ['payload', 'floating pill + footer', esc('{"cinematic":true,"bookshelf":true}]]}]'),
-    esc('{"cinematic":true,"bookshelf":true}]') + esc(PILL_ROW) + esc(FOOTER_ROW) + esc(']}]'), 1, 'about-footer'],
+  // A persistent exit, mirrored in HTML and payload: "Escape" until the reveal has been seen, then
+  // "Start reading". 2026-09-12 (Anders, "just want ppl to click read"): the footer bar that used to follow it
+  // - the Tinct wordmark with Start reading, Privacy and Contact - is gone. At the end of the story the only
+  // thing on offer is starting to read, so the closing section's own button and this pill are all there is.
+  ['html', 'floating pill', '</main>', PILL_HTML + '</main>', 1, 'floating-read'],
+  ['payload', 'floating pill', esc('{"cinematic":true,"bookshelf":true}]]}]'),
+    esc('{"cinematic":true,"bookshelf":true}]') + esc(PILL_ROW) + esc(']}]'), 1, 'floating-read'],
   // Recap -> audio transition: the calendar must not come back while the recap fades; the book fades with the beat.
   ['story', 'calendar stays gone', 'className:`recap-calendar`,style:{opacity:1-p}', 'className:`recap-calendar`,style:{opacity:(1-Q(u,.52,.64))*(1-f)}', 1],
   ['story', 'exit and recap fade variables', 'style:{"--answer":p,"--reveal":d}', 'style:{"--answer":p,"--reveal":d,"--exit":f,"--gone":n.index===0?Q(u,.36,.56):0}', 1],

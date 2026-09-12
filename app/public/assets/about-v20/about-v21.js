@@ -28,19 +28,16 @@
   }, { passive: true });
   update();
 
-  // The pill steps aside while the footer or the closing section's own Start reading button is on screen.
-  if ('IntersectionObserver' in window) {
-    var covering = {};
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { covering[e.target.className] = e.isIntersecting; });
-      var any = Object.keys(covering).some(function (k) { return covering[k]; });
-      if (any) root.setAttribute('data-tinct-footer', 'visible'); else root.removeAttribute('data-tinct-footer');
-    });
-    // Phones (round 2): the pill stays through the closing section; only the footer hides it.
-    var phone = window.matchMedia && window.matchMedia('(max-width:760px)').matches;
-    (phone ? ['footer.about-footer'] : ['footer.about-footer', '.final-read-link']).forEach(function (sel) {
-      var el = document.querySelector(sel); if (el) io.observe(el);
-    });
+  // The pill steps aside while the closing section's own Start reading button is on screen, so the two never
+  // sit on top of each other. On phones it stays put: the closing button is the page's last word and the pill
+  // is how you leave from anywhere. (2026-09-12: the footer bar is gone, so nothing else hides the pill.)
+  var closing = document.querySelector('.final-read-link');
+  var phone = window.matchMedia && window.matchMedia('(max-width:760px)').matches;
+  if ('IntersectionObserver' in window && closing && !phone) {
+    new IntersectionObserver(function (entries) {
+      var covered = entries.some(function (e) { return e.isIntersecting; });
+      if (covered) root.setAttribute('data-tinct-footer', 'visible'); else root.removeAttribute('data-tinct-footer');
+    }).observe(closing);
   }
 
   // Talk panel: a slowly turning globe of ink dots (the Talk concept), drawn into the panel's orbit
