@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "6122177d3a69977d7bf11f5890fb90011eedf259b868ef50b3a3f6658e323545",
+  "attempts": [
+    {
+      "asr_seconds": 0.2234733259829227,
+      "alignment_seconds": 0.00048404900007881224,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Book V. Of The Revenue Of The Sovereign Or Commonwealth",
+        "hotwords": "Book, V, Of, The, Revenue, Sovereign, Or, Commonwealth"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Book V. Of The Revenue Of The Sovereign Or Commonwealth",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " Book",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.68310546875
+            },
+            {
+              "text": " V.",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.712890625
+            },
+            {
+              "text": " Of",
+              "start": 1.09,
+              "end": 1.19,
+              "probability": 0.462890625
+            },
+            {
+              "text": " The",
+              "start": 1.19,
+              "end": 1.31,
+              "probability": 0.1993408203125
+            },
+            {
+              "text": " Revenue",
+              "start": 1.31,
+              "end": 1.57,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Of",
+              "start": 1.57,
+              "end": 1.99,
+              "probability": 0.59619140625
+            },
+            {
+              "text": " The",
+              "start": 1.99,
+              "end": 2.13,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Sovereign",
+              "start": 2.13,
+              "end": 2.43,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Or",
+              "start": 2.43,
+              "end": 2.67,
+              "probability": 0.673828125
+            },
+            {
+              "text": " Commonwealth",
+              "start": 2.67,
+              "end": 3.19,
+              "probability": 0.662109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Book",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "V.",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "Of",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "raw": "The",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "raw": "Revenue",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "raw": "Of",
+          "start": 1.57,
+          "end": 1.99
+        },
+        {
+          "raw": "The",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "raw": "Sovereign",
+          "start": 2.13,
+          "end": 2.43
+        },
+        {
+          "raw": "Or",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "raw": "Commonwealth",
+          "start": 2.67,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "Book",
+        "V.",
+        "Of",
+        "The",
+        "Revenue",
+        "Of",
+        "The",
+        "Sovereign",
+        "Or",
+        "Commonwealth"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Book",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "book",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "V.",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "v",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.09,
+          "end": 1.19,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.19,
+          "end": 1.31,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Revenue",
+          "start": 1.31,
+          "end": 1.57,
+          "key": "revenue",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Of",
+          "start": 1.57,
+          "end": 1.99,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 1.99,
+          "end": 2.13,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Sovereign",
+          "start": 2.13,
+          "end": 2.43,
+          "key": "sovereign",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Or",
+          "start": 2.43,
+          "end": 2.67,
+          "key": "or",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Commonwealth",
+          "start": 2.67,
+          "end": 3.19,
+          "key": "commonwealth",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Book",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "V.",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "Of",
+          "start": 1.09,
+          "end": 1.19
+        },
+        {
+          "text": "The",
+          "start": 1.19,
+          "end": 1.31
+        },
+        {
+          "text": "Revenue",
+          "start": 1.31,
+          "end": 1.57
+        },
+        {
+          "text": "Of",
+          "start": 1.57,
+          "end": 1.99
+        },
+        {
+          "text": "The",
+          "start": 1.99,
+          "end": 2.13
+        },
+        {
+          "text": "Sovereign",
+          "start": 2.13,
+          "end": 2.43
+        },
+        {
+          "text": "Or",
+          "start": 2.43,
+          "end": 2.67
+        },
+        {
+          "text": "Commonwealth",
+          "start": 2.67,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22415306497714482
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "70847c02b79b1adcb6b30756313abb5c11db83c7e5158900d9bdb27f51ab2a89",
+  "selected_reasons": []
+}

@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "7c48c18dede077cfbe02a585627e434325158fb9562d42af8c3bd1b3056f026c",
+  "attempts": [
+    {
+      "asr_seconds": 2.4090167449903674,
+      "alignment_seconds": 0.0003691239980980754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Appendix To Book Iv",
+        "hotwords": "Appendix, To, Book, Iv"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Appendix, To, Book, Iv Appendix To Book Iv",
+          "start": 0.44,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Appendix,",
+              "start": 0.44,
+              "end": 0.68,
+              "probability": 0.449951171875
+            },
+            {
+              "text": " To,",
+              "start": 1.0,
+              "end": 1.0,
+              "probability": 0.005916595458984375
+            },
+            {
+              "text": " Book,",
+              "start": 1.1,
+              "end": 1.12,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " Iv",
+              "start": 1.24,
+              "end": 1.34,
+              "probability": 7.605552673339844e-05
+            },
+            {
+              "text": " Appendix",
+              "start": 1.34,
+              "end": 1.98,
+              "probability": 2.384185791015625e-07
+            },
+            {
+              "text": " To",
+              "start": 1.98,
+              "end": 1.98,
+              "probability": 0.03509521484375
+            },
+            {
+              "text": " Book",
+              "start": 1.98,
+              "end": 1.98,
+              "probability": 0.0570068359375
+            },
+            {
+              "text": " Iv",
+              "start": 1.98,
+              "end": 1.98,
+              "probability": 0.023834228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Appendix,",
+          "start": 0.44,
+          "end": 0.68
+        },
+        {
+          "raw": "To,",
+          "start": 1.0,
+          "end": 1.0
+        },
+        {
+          "raw": "Book,",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "raw": "Iv",
+          "start": 1.24,
+          "end": 1.34
+        },
+        {
+          "raw": "Appendix",
+          "start": 1.34,
+          "end": 1.98
+        },
+        {
+          "raw": "To",
+          "start": 1.98,
+          "end": 1.98
+        },
+        {
+          "raw": "Book",
+          "start": 1.98,
+          "end": 1.98
+        },
+        {
+          "raw": "Iv",
+          "start": 1.98,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Appendix",
+        "To",
+        "Book",
+        "Iv"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "insert",
+          4,
+          4,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          4,
+          4,
+          4,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Appendix,",
+          "start": 0.44,
+          "end": 0.68,
+          "key": "appendix",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "To,",
+          "start": 1.0,
+          "end": 1.0,
+          "key": "to",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Book,",
+          "start": 1.1,
+          "end": 1.12,
+          "key": "book",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Iv",
+          "start": 1.24,
+          "end": 1.34,
+          "key": "iv",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Appendix",
+          "start": 1.34,
+          "end": 1.98,
+          "key": "appendix",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "To",
+          "start": 1.98,
+          "end": 1.98,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Book",
+          "start": 1.98,
+          "end": 1.98,
+          "key": "book",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Iv",
+          "start": 1.98,
+          "end": 1.98,
+          "key": "iv",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Appendix",
+          "start": 0.44,
+          "end": 0.68
+        },
+        {
+          "text": "To",
+          "start": 1.0,
+          "end": 1.0
+        },
+        {
+          "text": "Book",
+          "start": 1.1,
+          "end": 1.12
+        },
+        {
+          "text": "Iv",
+          "start": 1.24,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 8,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.4095691879920196
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f901a9665cb11bf469da91766cc3166a9ecbf47c85c3cd31bc0432b854908ee8",
+  "selected_reasons": []
+}

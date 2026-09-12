@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "4cb94950bc493f996066f54e97d73234705fe649a8990d9a76a0a80bd3af32aa",
+  "attempts": [
+    {
+      "asr_seconds": 0.24361426700488664,
+      "alignment_seconds": 0.00041764898924157023,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Foreign Salt Scotch Salt delivered Period imported from the Works Bushels Bushels",
+        "hotwords": "Foreign, Salt, Scotch, Period, Works, Bushels"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Foreign Salt Scotch Salt delivered Period imported from the Works Bushels Bushels",
+          "start": 0.05,
+          "end": 5.51,
+          "words": [
+            {
+              "text": " Foreign",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.38525390625
+            },
+            {
+              "text": " Salt",
+              "start": 0.73,
+              "end": 1.05,
+              "probability": 0.1844482421875
+            },
+            {
+              "text": " Scotch",
+              "start": 1.05,
+              "end": 1.39,
+              "probability": 0.859375
+            },
+            {
+              "text": " Salt",
+              "start": 1.39,
+              "end": 1.83,
+              "probability": 0.324951171875
+            },
+            {
+              "text": " delivered",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.09417724609375
+            },
+            {
+              "text": " Period",
+              "start": 2.19,
+              "end": 2.81,
+              "probability": 0.017425537109375
+            },
+            {
+              "text": " imported",
+              "start": 2.81,
+              "end": 3.53,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " from",
+              "start": 3.53,
+              "end": 3.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.85,
+              "end": 3.97,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " Works",
+              "start": 3.97,
+              "end": 4.15,
+              "probability": 0.14599609375
+            },
+            {
+              "text": " Bushels",
+              "start": 4.15,
+              "end": 4.69,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " Bushels",
+              "start": 4.69,
+              "end": 5.51,
+              "probability": 0.7752278645833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Foreign",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Salt",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "raw": "Scotch",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "raw": "Salt",
+          "start": 1.39,
+          "end": 1.83
+        },
+        {
+          "raw": "delivered",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "raw": "Period",
+          "start": 2.19,
+          "end": 2.81
+        },
+        {
+          "raw": "imported",
+          "start": 2.81,
+          "end": 3.53
+        },
+        {
+          "raw": "from",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "raw": "the",
+          "start": 3.85,
+          "end": 3.97
+        },
+        {
+          "raw": "Works",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "raw": "Bushels",
+          "start": 4.15,
+          "end": 4.69
+        },
+        {
+          "raw": "Bushels",
+          "start": 4.69,
+          "end": 5.51
+        }
+      ],
+      "expected_tokens": [
+        "Foreign",
+        "Salt",
+        "Scotch",
+        "Salt",
+        "delivered",
+        "Period",
+        "imported",
+        "from",
+        "the",
+        "Works",
+        "Bushels",
+        "Bushels"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Foreign",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "foreign",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Salt",
+          "start": 0.73,
+          "end": 1.05,
+          "key": "salt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Scotch",
+          "start": 1.05,
+          "end": 1.39,
+          "key": "scotch",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Salt",
+          "start": 1.39,
+          "end": 1.83,
+          "key": "salt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "delivered",
+          "start": 1.83,
+          "end": 2.19,
+          "key": "delivered",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Period",
+          "start": 2.19,
+          "end": 2.81,
+          "key": "period",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "imported",
+          "start": 2.81,
+          "end": 3.53,
+          "key": "imported",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "from",
+          "start": 3.53,
+          "end": 3.85,
+          "key": "from",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.85,
+          "end": 3.97,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Works",
+          "start": 3.97,
+          "end": 4.15,
+          "key": "works",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bushels",
+          "start": 4.15,
+          "end": 4.69,
+          "key": "bushels",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Bushels",
+          "start": 4.69,
+          "end": 5.51,
+          "key": "bushels",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Foreign",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Salt",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "text": "Scotch",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "text": "Salt",
+          "start": 1.39,
+          "end": 1.83
+        },
+        {
+          "text": "delivered",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "text": "Period",
+          "start": 2.19,
+          "end": 2.81
+        },
+        {
+          "text": "imported",
+          "start": 2.81,
+          "end": 3.53
+        },
+        {
+          "text": "from",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "text": "the",
+          "start": 3.85,
+          "end": 3.97
+        },
+        {
+          "text": "Works",
+          "start": 3.97,
+          "end": 4.15
+        },
+        {
+          "text": "Bushels",
+          "start": 4.15,
+          "end": 4.69
+        },
+        {
+          "text": "Bushels",
+          "start": 4.69,
+          "end": 5.51
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2441969370120205
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7df02d0ac3e2dbb53acea731cc47e4bafeebe5f7de5d63d2ef1e18fdd0a2e399",
+  "selected_reasons": []
+}
