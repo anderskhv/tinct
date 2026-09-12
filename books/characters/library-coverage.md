@@ -1,6 +1,6 @@
 # Character content: library coverage
 
-Snapshot: 2026-09-11. Regenerate with `python3 books/characters/inventory.py`.
+Snapshot: 2026-09-12. Regenerate with `python3 books/characters/inventory.py`.
 
 Only published BOOKS entries are included. Existing Threads content is not evidence of spoiler-safe character readiness.
 
@@ -44,7 +44,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Iliad (`iliad`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the two Ajaxes and the four things named Xanthus in production |
 | Nicomachean Ethics (`nicomachean-ethics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Prince (`the-prince`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Beyond Good and Evil (`beyond-good-and-evil`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Beyond Good and Evil (`beyond-good-and-evil`) | in-progress | Lane A authoring claimed: build entity inventory from both English editions, author cards, run editorial checks before validated-package |
 | Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
 | Beowulf (`beowulf`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Candide (`candide`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
