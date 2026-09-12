@@ -3,13 +3,15 @@ from __future__ import annotations
 import importlib.util
 import argparse,dataclasses,difflib,hashlib,importlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time
 from pathlib import Path
-import pinned_words_sidecar_lib_v2 as lib
+import pinned_words_sidecar_lib_v3 as lib
 from spoken_policy import validate_map
 GATE=.85
 # Pinned helper revisions (provenance in PINS.md). v1 is the verbatim f5b23de7 helper the
 # acceptance results were measured against; v2 adds the approved expected-side markup
-# normalisation (DECISIONS.md 2026-09-11). Default v2; --helper v1 reproduces run 1 exactly.
-HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2'};DEFAULT_HELPER='v2'
+# normalisation (DECISIONS.md 2026-09-11); v3 adds gluing, the mirror case and the
+# contraction table (run 3, 2026-09-12). Default v3; --helper v1 reproduces run 1 exactly
+# and --helper v2 reproduces run 2.
+HELPERS={'v1':'pinned_words_sidecar_lib','v2':'pinned_words_sidecar_lib_v2','v3':'pinned_words_sidecar_lib_v3'};DEFAULT_HELPER='v3'
 def select_helper(name):
  global lib;lib=importlib.import_module(HELPERS[name]);return lib
 
@@ -37,7 +39,7 @@ def attempt(model,audio,text,mode):
  alignment_start=time.monotonic();normalisation={}
  if hasattr(lib,'align_tokens_detailed'):
   detailed=lib.align_tokens_detailed(expected,heard);aligned,stats,opcodes,observed=detailed.words,detailed.stats,detailed.opcodes,detailed.observed
-  unspoken=set(detailed.unspoken);normalisation=dict(spoken_expected_indexes=detailed.spoken,unspoken_expected_indexes=detailed.unspoken,compared_heard=[dict(raw=h.raw,start=h.start,end=h.end,key=h.key,pieces=list(h.pieces)) for h in detailed.heard],merges=detailed.merges)
+  unspoken=set(detailed.unspoken);normalisation=dict(spoken_expected_indexes=detailed.spoken,unspoken_expected_indexes=detailed.unspoken,compared_heard=[dict(raw=h.raw,start=h.start,end=h.end,key=h.key,pieces=list(h.pieces)) for h in detailed.heard],merges=detailed.merges,groups=getattr(detailed,'groups',[]))
  else:
   aligned,stats=lib.align_tokens_with_stats(expected,heard);unspoken=set()
   opcodes=list(difflib.SequenceMatcher(None,[lib.canonical_alignment_token(t) for t in expected],[lib.canonical_alignment_token(w.raw) for w in heard],autojunk=False).get_opcodes())

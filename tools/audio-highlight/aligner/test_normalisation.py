@@ -113,8 +113,10 @@ class Pins(unittest.TestCase):
   pins=(Path(__file__).parent/'PINS.md').read_text()
   for module in (v1,v2):
    digest=hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest();self.assertIn(digest,pins,module.__name__)
- def test_default_pin_is_v2_and_v1_selectable(self):
-  self.assertEqual(trial.DEFAULT_HELPER,'v2');self.assertIs(trial.select_helper('v1'),v1);self.assertIs(trial.select_helper('v2'),v2)
+ def test_v2_is_selectable_and_reproduces_itself(self):
+  # The default moved to v3 in run 3 (test_normalisation_v3.Pins); v2 must still
+  # be selectable and must still be the module these cases measure.
+  self.assertIs(trial.select_helper('v2'),v2);self.assertIs(trial.select_helper('v1'),v1);trial.select_helper('v2')
  def test_paragraph_without_markup_is_identical_under_both_pins(self):
   text='I write a few lines in haste to say that I am safe—and well advanced on my voyage. This letter will reach England by a merchantman; more fortunate than I, who may not see my native land, perhaps, for many years.'
   expected=v2.chapter_words_from_text(v2.clean_text(text))
