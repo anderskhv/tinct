@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "904322a3cca2d4710408aa7aed8e241ad4cebdebdf5737b4b7e60fe4014c20f7",
+  "attempts": [
+    {
+      "asr_seconds": 0.32943155989050865,
+      "alignment_seconds": 0.0005386229604482651,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Benedick. In my chamber window lies a book; bring it hither to me in the orchard.",
+        "hotwords": "Benedick"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Benedick. In my chamber window lies a book. Bring it hither to me in the orchard.",
+          "start": 0.6,
+          "end": 4.86,
+          "words": [
+            {
+              "text": " Benedick.",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.414398193359375
+            },
+            {
+              "text": " In",
+              "start": 1.4,
+              "end": 1.48,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " my",
+              "start": 1.48,
+              "end": 1.62,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " chamber",
+              "start": 1.62,
+              "end": 1.94,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " window",
+              "start": 1.94,
+              "end": 2.36,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " lies",
+              "start": 2.36,
+              "end": 2.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " a",
+              "start": 2.66,
+              "end": 2.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " book.",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Bring",
+              "start": 3.56,
+              "end": 3.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it",
+              "start": 3.64,
+              "end": 3.76,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hither",
+              "start": 3.76,
+              "end": 3.92,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " to",
+              "start": 3.92,
+              "end": 4.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " me",
+              "start": 4.1,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 4.24,
+              "end": 4.34,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 4.34,
+              "end": 4.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " orchard.",
+              "start": 4.46,
+              "end": 4.86,
+              "probability": 0.97314453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedick.",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "raw": "In",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "raw": "chamber",
+          "start": 1.62,
+          "end": 1.94
+        },
+        {
+          "raw": "window",
+          "start": 1.94,
+          "end": 2.36
+        },
+        {
+          "raw": "lies",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "raw": "book.",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "Bring",
+          "start": 3.56,
+          "end": 3.64
+        },
+        {
+          "raw": "it",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "raw": "hither",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "raw": "me",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "raw": "in",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "raw": "orchard.",
+          "start": 4.46,
+          "end": 4.86
+        }
+      ],
+      "expected_tokens": [
+        "Benedick.",
+        "In",
+        "my",
+        "chamber",
+        "window",
+        "lies",
+        "a",
+        "book;",
+        "bring",
+        "it",
+        "hither",
+        "to",
+        "me",
+        "in",
+        "the",
+        "orchard."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedick.",
+          "start": 0.6,
+          "end": 1.0,
+          "key": "benedick",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "In",
+          "start": 1.4,
+          "end": 1.48,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.48,
+          "end": 1.62,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "chamber",
+          "start": 1.62,
+          "end": 1.94,
+          "key": "chamber",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "window",
+          "start": 1.94,
+          "end": 2.36,
+          "key": "window",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "lies",
+          "start": 2.36,
+          "end": 2.66,
+          "key": "lies",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.66,
+          "end": 2.86,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "book.",
+          "start": 2.86,
+          "end": 3.08,
+          "key": "book",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Bring",
+          "start": 3.56,
+          "end": 3.64,
+          "key": "bring",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.64,
+          "end": 3.76,
+          "key": "it",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "hither",
+          "start": 3.76,
+          "end": 3.92,
+          "key": "hither",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.92,
+          "end": 4.1,
+          "key": "to",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 4.1,
+          "end": 4.24,
+          "key": "me",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.24,
+          "end": 4.34,
+          "key": "in",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.34,
+          "end": 4.46,
+          "key": "the",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "orchard.",
+          "start": 4.46,
+          "end": 4.86,
+          "key": "orchard",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.6,
+          "end": 1.0
+        },
+        {
+          "text": "In",
+          "start": 1.4,
+          "end": 1.48
+        },
+        {
+          "text": "my",
+          "start": 1.48,
+          "end": 1.62
+        },
+        {
+          "text": "chamber",
+          "start": 1.62,
+          "end": 1.94
+        },
+        {
+          "text": "window",
+          "start": 1.94,
+          "end": 2.36
+        },
+        {
+          "text": "lies",
+          "start": 2.36,
+          "end": 2.66
+        },
+        {
+          "text": "a",
+          "start": 2.66,
+          "end": 2.86
+        },
+        {
+          "text": "book;",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "bring",
+          "start": 3.56,
+          "end": 3.64
+        },
+        {
+          "text": "it",
+          "start": 3.64,
+          "end": 3.76
+        },
+        {
+          "text": "hither",
+          "start": 3.76,
+          "end": 3.92
+        },
+        {
+          "text": "to",
+          "start": 3.92,
+          "end": 4.1
+        },
+        {
+          "text": "me",
+          "start": 4.1,
+          "end": 4.24
+        },
+        {
+          "text": "in",
+          "start": 4.24,
+          "end": 4.34
+        },
+        {
+          "text": "the",
+          "start": 4.34,
+          "end": 4.46
+        },
+        {
+          "text": "orchard.",
+          "start": 4.46,
+          "end": 4.86
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33019737154245377
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "95d191b254b67c726e8bf2d12dcfbc4ad9ec78499d78fcaf5b5cd3f309d27dc5",
+  "selected_reasons": []
+}

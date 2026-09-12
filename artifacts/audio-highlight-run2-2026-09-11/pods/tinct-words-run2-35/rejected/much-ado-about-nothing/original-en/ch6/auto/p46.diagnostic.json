@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "d5bdbbaf39bafccbf41945bc57a34065d8deebf6bdcf934e45106a61cfbf6d3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11468027532100677,
+      "alignment_seconds": 0.00010155327618122101,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Claudio.",
+        "hotwords": "Claudio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Claudio.",
+          "start": 0.08,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " Claudio.",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.9140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio.",
+          "start": 0.08,
+          "end": 0.78
+        }
+      ],
+      "expected_tokens": [
+        "Claudio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio.",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.08,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1148161068558693
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "42c8f4ca71b80558989aa91a590c7ea747bf20267dbbe8ae68c88cf8c2783216",
+  "selected_reasons": []
+}

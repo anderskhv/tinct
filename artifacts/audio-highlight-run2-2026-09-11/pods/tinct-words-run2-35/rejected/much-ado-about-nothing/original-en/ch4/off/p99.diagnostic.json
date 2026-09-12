@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "dca7f3e3271c9b64523ffda2fbdf6314beecb96865083d38fdeee05dad3b89f1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3163182660937309,
+      "alignment_seconds": 0.0006110984832048416,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro wilt thou make a trust a transgression the transgression is in the stealer",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.47216796875
+            },
+            {
+              "text": " Pedro",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.9296875
+            },
+            {
+              "text": " wilt",
+              "start": 1.03,
+              "end": 1.81,
+              "probability": 0.6512451171875
+            },
+            {
+              "text": " thou",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " make",
+              "start": 1.99,
+              "end": 2.17,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " a",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " trust",
+              "start": 2.31,
+              "end": 2.55,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " a",
+              "start": 2.55,
+              "end": 2.71,
+              "probability": 0.7236328125
+            },
+            {
+              "text": " transgression",
+              "start": 2.71,
+              "end": 3.39,
+              "probability": 0.995849609375
+            },
+            {
+              "text": " the",
+              "start": 3.39,
+              "end": 4.01,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " transgression",
+              "start": 4.01,
+              "end": 4.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " is",
+              "start": 4.71,
+              "end": 4.91,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 4.91,
+              "end": 5.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.07,
+              "end": 5.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " stealer",
+              "start": 5.17,
+              "end": 5.79,
+              "probability": 0.703857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "wilt",
+          "start": 1.03,
+          "end": 1.81
+        },
+        {
+          "raw": "thou",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "make",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "raw": "a",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "trust",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "raw": "transgression",
+          "start": 2.71,
+          "end": 3.39
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 4.01
+        },
+        {
+          "raw": "transgression",
+          "start": 4.01,
+          "end": 4.71
+        },
+        {
+          "raw": "is",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "raw": "in",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "raw": "the",
+          "start": 5.07,
+          "end": 5.17
+        },
+        {
+          "raw": "stealer",
+          "start": 5.17,
+          "end": 5.79
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Wilt",
+        "thou",
+        "make",
+        "a",
+        "trust",
+        "a",
+        "transgression?",
+        "The",
+        "transgression",
+        "is",
+        "in",
+        "the",
+        "stealer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wilt",
+          "start": 1.03,
+          "end": 1.81,
+          "key": "wilt",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.81,
+          "end": 1.99,
+          "key": "thou",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.99,
+          "end": 2.17,
+          "key": "make",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "trust",
+          "start": 2.31,
+          "end": 2.55,
+          "key": "trust",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 2.55,
+          "end": 2.71,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "transgression",
+          "start": 2.71,
+          "end": 3.39,
+          "key": "transgression",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.39,
+          "end": 4.01,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "transgression",
+          "start": 4.01,
+          "end": 4.71,
+          "key": "transgression",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.71,
+          "end": 4.91,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.91,
+          "end": 5.07,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.07,
+          "end": 5.17,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "stealer",
+          "start": 5.17,
+          "end": 5.79,
+          "key": "stealer",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Wilt",
+          "start": 1.03,
+          "end": 1.81
+        },
+        {
+          "text": "thou",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "make",
+          "start": 1.99,
+          "end": 2.17
+        },
+        {
+          "text": "a",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "trust",
+          "start": 2.31,
+          "end": 2.55
+        },
+        {
+          "text": "a",
+          "start": 2.55,
+          "end": 2.71
+        },
+        {
+          "text": "transgression?",
+          "start": 2.71,
+          "end": 3.39
+        },
+        {
+          "text": "The",
+          "start": 3.39,
+          "end": 4.01
+        },
+        {
+          "text": "transgression",
+          "start": 4.01,
+          "end": 4.71
+        },
+        {
+          "text": "is",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "text": "in",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "the",
+          "start": 5.07,
+          "end": 5.17
+        },
+        {
+          "text": "stealer.",
+          "start": 5.17,
+          "end": 5.79
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3171837944537401
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "794e24353dfdea67150bab518dda7eec565a5f7d4bdf5adaa212f4a6652926e4",
+  "selected_reasons": []
+}

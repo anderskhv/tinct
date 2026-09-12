@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "07b22b51419226b23ac908e9b8e04e59e455539f6b33c1d2d5640259a83831f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.409145824611187,
+      "alignment_seconds": 0.0005827490240335464,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Leonardo, what affects my lord?",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Leonardo,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.2371826171875
+            },
+            {
+              "text": " what",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.982421875
+            },
+            {
+              "text": " affects",
+              "start": 1.29,
+              "end": 1.61,
+              "probability": 0.64208984375
+            },
+            {
+              "text": " my",
+              "start": 1.61,
+              "end": 1.85,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " lord?",
+              "start": 1.85,
+              "end": 2.07,
+              "probability": 0.82470703125
+            }
+          ]
+        },
+        {
+          "text": " She will sit you, to Claudio, you heard my daughter tell you how.",
+          "start": 2.71,
+          "end": 5.73,
+          "words": [
+            {
+              "text": " She",
+              "start": 2.71,
+              "end": 2.79,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " will",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sit",
+              "start": 2.91,
+              "end": 3.11,
+              "probability": 0.7822265625
+            },
+            {
+              "text": " you,",
+              "start": 3.11,
+              "end": 3.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.65,
+              "end": 3.69,
+              "probability": 0.826171875
+            },
+            {
+              "text": " Claudio,",
+              "start": 3.69,
+              "end": 4.05,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " you",
+              "start": 4.35,
+              "end": 4.41,
+              "probability": 0.978515625
+            },
+            {
+              "text": " heard",
+              "start": 4.41,
+              "end": 4.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " my",
+              "start": 4.61,
+              "end": 4.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " daughter",
+              "start": 4.79,
+              "end": 5.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " tell",
+              "start": 5.03,
+              "end": 5.27,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " you",
+              "start": 5.27,
+              "end": 5.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " how.",
+              "start": 5.49,
+              "end": 5.73,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "what",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "affects",
+          "start": 1.29,
+          "end": 1.61
+        },
+        {
+          "raw": "my",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "raw": "lord?",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "raw": "She",
+          "start": 2.71,
+          "end": 2.79
+        },
+        {
+          "raw": "will",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "sit",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "raw": "you,",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.69
+        },
+        {
+          "raw": "Claudio,",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "raw": "you",
+          "start": 4.35,
+          "end": 4.41
+        },
+        {
+          "raw": "heard",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "raw": "my",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "raw": "daughter",
+          "start": 4.79,
+          "end": 5.03
+        },
+        {
+          "raw": "tell",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "raw": "you",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "raw": "how.",
+          "start": 5.49,
+          "end": 5.73
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "What",
+        "effects,",
+        "my",
+        "lord?",
+        "She",
+        "will",
+        "sit",
+        "you;",
+        "[To",
+        "Claudio]",
+        "You",
+        "heard",
+        "my",
+        "daughter",
+        "tell",
+        "you",
+        "how."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          18,
+          3,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonardo,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "leonardo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 1.11,
+          "end": 1.29,
+          "key": "what",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "affects",
+          "start": 1.29,
+          "end": 1.61,
+          "key": "affects",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.61,
+          "end": 1.85,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lord?",
+          "start": 1.85,
+          "end": 2.07,
+          "key": "lord",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "She",
+          "start": 2.71,
+          "end": 2.79,
+          "key": "she",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.79,
+          "end": 2.91,
+          "key": "will",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sit",
+          "start": 2.91,
+          "end": 3.11,
+          "key": "sit",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 3.11,
+          "end": 3.39,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.65,
+          "end": 3.69,
+          "key": "to",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Claudio,",
+          "start": 3.69,
+          "end": 4.05,
+          "key": "claudio",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 4.35,
+          "end": 4.41,
+          "key": "you",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "heard",
+          "start": 4.41,
+          "end": 4.61,
+          "key": "heard",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.61,
+          "end": 4.79,
+          "key": "my",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "daughter",
+          "start": 4.79,
+          "end": 5.03,
+          "key": "daughter",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 5.03,
+          "end": 5.27,
+          "key": "tell",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 5.27,
+          "end": 5.49,
+          "key": "you",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "how.",
+          "start": 5.49,
+          "end": 5.73,
+          "key": "how",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.0,
+          "end": 0.555
+        },
+        {
+          "text": "What",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "effects,",
+          "start": 1.29,
+          "end": 1.45
+        },
+        {
+          "text": "my",
+          "start": 1.61,
+          "end": 1.85
+        },
+        {
+          "text": "lord?",
+          "start": 1.85,
+          "end": 2.07
+        },
+        {
+          "text": "She",
+          "start": 2.71,
+          "end": 2.79
+        },
+        {
+          "text": "will",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "sit",
+          "start": 2.91,
+          "end": 3.11
+        },
+        {
+          "text": "you;",
+          "start": 3.11,
+          "end": 3.39
+        },
+        {
+          "text": "[To",
+          "start": 3.65,
+          "end": 3.69
+        },
+        {
+          "text": "Claudio]",
+          "start": 3.69,
+          "end": 4.05
+        },
+        {
+          "text": "You",
+          "start": 4.35,
+          "end": 4.41
+        },
+        {
+          "text": "heard",
+          "start": 4.41,
+          "end": 4.61
+        },
+        {
+          "text": "my",
+          "start": 4.61,
+          "end": 4.79
+        },
+        {
+          "text": "daughter",
+          "start": 4.79,
+          "end": 5.03
+        },
+        {
+          "text": "tell",
+          "start": 5.03,
+          "end": 5.27
+        },
+        {
+          "text": "you",
+          "start": 5.27,
+          "end": 5.49
+        },
+        {
+          "text": "how.",
+          "start": 5.49,
+          "end": 5.73
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.4099490400403738
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "dacdcc93c5d7e746909a706fc5a1554375dd944043d6344bd2a5413afbee1319",
+  "selected_reasons": []
+}

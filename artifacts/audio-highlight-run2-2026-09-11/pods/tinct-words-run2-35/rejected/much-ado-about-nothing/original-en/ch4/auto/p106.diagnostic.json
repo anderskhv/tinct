@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "b8da4cf6489b945f2051587acb08dbd31ea4e453ebe6c297e05afb7adb2fdfa9",
+  "attempts": [
+    {
+      "asr_seconds": 0.1964841317385435,
+      "alignment_seconds": 0.0003785621374845505,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don Pedro. Look! here she comes.",
+        "hotwords": "Don, Pedro, Look"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don, Pedro, Look! here she comes.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Don,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.724609375
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.83,
+              "end": 0.93,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " Look!",
+              "start": 1.35,
+              "end": 1.41,
+              "probability": 0.01557159423828125
+            },
+            {
+              "text": " here",
+              "start": 1.63,
+              "end": 1.67,
+              "probability": 0.047210693359375
+            },
+            {
+              "text": " she",
+              "start": 1.67,
+              "end": 1.81,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " comes.",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.96826171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "raw": "Look!",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "raw": "here",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "raw": "she",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "raw": "comes.",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Look!",
+        "here",
+        "she",
+        "comes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don,",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.83,
+          "end": 0.93,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Look!",
+          "start": 1.35,
+          "end": 1.41,
+          "key": "look",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 1.63,
+          "end": 1.67,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "she",
+          "start": 1.67,
+          "end": 1.81,
+          "key": "she",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "comes.",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "comes",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "text": "Look!",
+          "start": 1.35,
+          "end": 1.41
+        },
+        {
+          "text": "here",
+          "start": 1.63,
+          "end": 1.67
+        },
+        {
+          "text": "she",
+          "start": 1.67,
+          "end": 1.81
+        },
+        {
+          "text": "comes.",
+          "start": 1.81,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19699876755475998
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "82dc07dc554922c524360f064ceec0bd23100d7259511d286c44a12db5342a04",
+  "selected_reasons": []
+}

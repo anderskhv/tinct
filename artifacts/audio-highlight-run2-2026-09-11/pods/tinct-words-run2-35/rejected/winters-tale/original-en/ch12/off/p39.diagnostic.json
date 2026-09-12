@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "af52cf85fef4bf308a6cfe1c2330143959c8d29ec43e87b6faaa9fefc8899f0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.1782062016427517,
+      "alignment_seconds": 0.0003565121442079544,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Music, hear a dance of shepherds and shepherdesses.",
+          "start": 0.02,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " Music,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.58203125
+            },
+            {
+              "text": " hear",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " a",
+              "start": 1.34,
+              "end": 1.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " dance",
+              "start": 1.46,
+              "end": 1.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shepherds",
+              "start": 1.86,
+              "end": 2.3,
+              "probability": 0.92822265625
+            },
+            {
+              "text": " and",
+              "start": 2.3,
+              "end": 2.42,
+              "probability": 0.9765625
+            },
+            {
+              "text": " shepherdesses.",
+              "start": 2.42,
+              "end": 2.92,
+              "probability": 0.51593017578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Music,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "hear",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "raw": "dance",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "shepherds",
+          "start": 1.86,
+          "end": 2.3
+        },
+        {
+          "raw": "and",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "raw": "shepherdesses.",
+          "start": 2.42,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "[_Music.",
+        "Here",
+        "a",
+        "dance",
+        "Of",
+        "Shepherds",
+        "and",
+        "Shepherdesses._]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Music,",
+          "start": 0.02,
+          "end": 0.8,
+          "key": "music",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hear",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "hear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.34,
+          "end": 1.46,
+          "key": "a",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "dance",
+          "start": 1.46,
+          "end": 1.68,
+          "key": "dance",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.68,
+          "end": 1.86,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "shepherds",
+          "start": 1.86,
+          "end": 2.3,
+          "key": "shepherds",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.3,
+          "end": 2.42,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shepherdesses.",
+          "start": 2.42,
+          "end": 2.92,
+          "key": "shepherdesses",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[_Music.",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "Here",
+          "start": 0.8,
+          "end": 1.07
+        },
+        {
+          "text": "a",
+          "start": 1.34,
+          "end": 1.46
+        },
+        {
+          "text": "dance",
+          "start": 1.46,
+          "end": 1.68
+        },
+        {
+          "text": "Of",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "Shepherds",
+          "start": 1.86,
+          "end": 2.3
+        },
+        {
+          "text": "and",
+          "start": 2.3,
+          "end": 2.42
+        },
+        {
+          "text": "Shepherdesses._]",
+          "start": 2.42,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.17868588864803314
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4cc26874936e4007ca637da2075aa812a290c1a56e1b275e59fa731bd93d8a1b",
+  "selected_reasons": []
+}

@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "6e1b9a79932675e359cef3fe6d9282127b61746533a7abe72e2b21b5e0cfbe40",
+  "attempts": [
+    {
+      "asr_seconds": 0.2002628557384014,
+      "alignment_seconds": 0.00037034042179584503,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Camillo, this is desperate, sir.",
+          "start": 0.05,
+          "end": 2.23,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.05,
+              "end": 0.81,
+              "probability": 0.7734375
+            },
+            {
+              "text": " this",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " is",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " desperate,",
+              "start": 1.53,
+              "end": 1.95,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " sir.",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.8818359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "raw": "this",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "desperate,",
+          "start": 1.53,
+          "end": 1.95
+        },
+        {
+          "raw": "sir.",
+          "start": 2.13,
+          "end": 2.23
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "This",
+        "is",
+        "desperate,",
+        "sir."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.81,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.15,
+          "end": 1.33,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "desperate,",
+          "start": 1.53,
+          "end": 1.95,
+          "key": "desperate",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 2.13,
+          "end": 2.23,
+          "key": "sir",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.05,
+          "end": 0.81
+        },
+        {
+          "text": "This",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "is",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "desperate,",
+          "start": 1.53,
+          "end": 1.95
+        },
+        {
+          "text": "sir.",
+          "start": 2.13,
+          "end": 2.23
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2007583361119032
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5ebf569fe077827f0bc15ac4371a3718e08ba1aab7479937759453b3edeaa1f0",
+  "selected_reasons": []
+}

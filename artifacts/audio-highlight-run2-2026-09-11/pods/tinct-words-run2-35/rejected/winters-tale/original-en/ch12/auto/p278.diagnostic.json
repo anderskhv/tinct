@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "c83cb1764ad32fa6067e283ae00c23839193da9efc044435c32eb3ef1831c9e8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2476311568170786,
+      "alignment_seconds": 0.0004196092486381531,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. Well, give me the moiety. Are you a party in this business?",
+        "hotwords": "Autolycus, Well, Are"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, Well, give me the moiety. Are you a party in this business?",
+          "start": 0.64,
+          "end": 4.16,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.64,
+              "end": 1.04,
+              "probability": 0.830078125
+            },
+            {
+              "text": " Well,",
+              "start": 1.56,
+              "end": 1.7,
+              "probability": 0.01483917236328125
+            },
+            {
+              "text": " give",
+              "start": 1.9,
+              "end": 1.94,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " me",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.08,
+              "end": 2.18,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " moiety.",
+              "start": 2.18,
+              "end": 2.5,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " Are",
+              "start": 3.06,
+              "end": 3.08,
+              "probability": 0.98828125
+            },
+            {
+              "text": " you",
+              "start": 3.08,
+              "end": 3.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " party",
+              "start": 3.3,
+              "end": 3.5,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " in",
+              "start": 3.5,
+              "end": 3.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " business?",
+              "start": 3.84,
+              "end": 4.16,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "raw": "Well,",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "raw": "give",
+          "start": 1.9,
+          "end": 1.94
+        },
+        {
+          "raw": "me",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "raw": "moiety.",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "raw": "Are",
+          "start": 3.06,
+          "end": 3.08
+        },
+        {
+          "raw": "you",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "raw": "a",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "party",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "raw": "in",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "raw": "this",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "business?",
+          "start": 3.84,
+          "end": 4.16
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "Well,",
+        "give",
+        "me",
+        "the",
+        "moiety.",
+        "Are",
+        "you",
+        "a",
+        "party",
+        "in",
+        "this",
+        "business?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.64,
+          "end": 1.04,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.56,
+          "end": 1.7,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "give",
+          "start": 1.9,
+          "end": 1.94,
+          "key": "give",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.94,
+          "end": 2.08,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.08,
+          "end": 2.18,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "moiety.",
+          "start": 2.18,
+          "end": 2.5,
+          "key": "moiety",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 3.06,
+          "end": 3.08,
+          "key": "are",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.08,
+          "end": 3.18,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "a",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "party",
+          "start": 3.3,
+          "end": 3.5,
+          "key": "party",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.5,
+          "end": 3.7,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "business?",
+          "start": 3.84,
+          "end": 4.16,
+          "key": "business",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.64,
+          "end": 1.04
+        },
+        {
+          "text": "Well,",
+          "start": 1.56,
+          "end": 1.7
+        },
+        {
+          "text": "give",
+          "start": 1.9,
+          "end": 1.94
+        },
+        {
+          "text": "me",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "the",
+          "start": 2.08,
+          "end": 2.18
+        },
+        {
+          "text": "moiety.",
+          "start": 2.18,
+          "end": 2.5
+        },
+        {
+          "text": "Are",
+          "start": 3.06,
+          "end": 3.08
+        },
+        {
+          "text": "you",
+          "start": 3.08,
+          "end": 3.18
+        },
+        {
+          "text": "a",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "text": "party",
+          "start": 3.3,
+          "end": 3.5
+        },
+        {
+          "text": "in",
+          "start": 3.5,
+          "end": 3.7
+        },
+        {
+          "text": "this",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "business?",
+          "start": 3.84,
+          "end": 4.16
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24824036844074726
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c8fec677c9d91e541d448eb98bf45c821de31cc2918c9e1faae131f2f42741e",
+  "selected_reasons": []
+}

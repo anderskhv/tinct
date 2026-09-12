@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "67af8b52358faf39e9a008ed22bc88dcb31b97c70fa6781a9d8f407c1d97efa3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1991214957088232,
+      "alignment_seconds": 0.0004759114235639572,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Borachio, Mary, it is your brother's right hand.",
+          "start": 0.05,
+          "end": 3.17,
+          "words": [
+            {
+              "text": " Borachio,",
+              "start": 0.05,
+              "end": 1.09,
+              "probability": 0.7012532552083334
+            },
+            {
+              "text": " Mary,",
+              "start": 1.63,
+              "end": 1.69,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " it",
+              "start": 2.01,
+              "end": 2.05,
+              "probability": 0.984375
+            },
+            {
+              "text": " is",
+              "start": 2.05,
+              "end": 2.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " your",
+              "start": 2.15,
+              "end": 2.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " brother's",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.96875
+            },
+            {
+              "text": " right",
+              "start": 2.63,
+              "end": 2.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hand.",
+              "start": 2.79,
+              "end": 3.17,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borachio,",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.63,
+          "end": 1.69
+        },
+        {
+          "raw": "it",
+          "start": 2.01,
+          "end": 2.05
+        },
+        {
+          "raw": "is",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "raw": "your",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "raw": "brother's",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "right",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "raw": "hand.",
+          "start": 2.79,
+          "end": 3.17
+        }
+      ],
+      "expected_tokens": [
+        "Borachio.",
+        "Marry,",
+        "it",
+        "is",
+        "your",
+        "brother's",
+        "right",
+        "hand."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borachio,",
+          "start": 0.05,
+          "end": 1.09,
+          "key": "borachio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Mary,",
+          "start": 1.63,
+          "end": 1.69,
+          "key": "mary",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 2.01,
+          "end": 2.05,
+          "key": "it",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.05,
+          "end": 2.15,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.15,
+          "end": 2.27,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "brother's",
+          "start": 2.27,
+          "end": 2.63,
+          "key": "brothers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "right",
+          "start": 2.63,
+          "end": 2.79,
+          "key": "right",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hand.",
+          "start": 2.79,
+          "end": 3.17,
+          "key": "hand",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Borachio.",
+          "start": 0.05,
+          "end": 1.09
+        },
+        {
+          "text": "Marry,",
+          "start": 1.09,
+          "end": 1.55
+        },
+        {
+          "text": "it",
+          "start": 2.01,
+          "end": 2.05
+        },
+        {
+          "text": "is",
+          "start": 2.05,
+          "end": 2.15
+        },
+        {
+          "text": "your",
+          "start": 2.15,
+          "end": 2.27
+        },
+        {
+          "text": "brother's",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "right",
+          "start": 2.63,
+          "end": 2.79
+        },
+        {
+          "text": "hand.",
+          "start": 2.79,
+          "end": 3.17
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.19976441003382206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1f7fdc36df2bc398bad9236e78962b279ad92799e39c88b55bc799a6a8eb5258",
+  "selected_reasons": []
+}

@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "2ca6459ca7d391667cbb2e00a8c3c5cee16ee994df7315379460d6521004ee12",
+  "attempts": [
+    {
+      "asr_seconds": 0.18966720812022686,
+      "alignment_seconds": 0.000269867479801178,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Aside] Bait the hook well: this fish will bite.",
+        "hotwords": "Aside, Bait"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Aside, Bait the hook well. This fish will bite.",
+          "start": 0.05,
+          "end": 2.63,
+          "words": [
+            {
+              "text": " Aside,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.5673828125
+            },
+            {
+              "text": " Bait",
+              "start": 1.01,
+              "end": 1.07,
+              "probability": 0.49353504180908203
+            },
+            {
+              "text": " the",
+              "start": 1.07,
+              "end": 1.19,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " hook",
+              "start": 1.19,
+              "end": 1.33,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " well.",
+              "start": 1.33,
+              "end": 1.57,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " This",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " fish",
+              "start": 2.05,
+              "end": 2.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " will",
+              "start": 2.23,
+              "end": 2.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " bite.",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Bait",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "raw": "hook",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "raw": "well.",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "raw": "This",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "fish",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "raw": "will",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "raw": "bite.",
+          "start": 2.41,
+          "end": 2.63
+        }
+      ],
+      "expected_tokens": [
+        "[Aside]",
+        "Bait",
+        "the",
+        "hook",
+        "well:",
+        "this",
+        "fish",
+        "will",
+        "bite."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Aside,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "aside",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bait",
+          "start": 1.01,
+          "end": 1.07,
+          "key": "bait",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.07,
+          "end": 1.19,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "hook",
+          "start": 1.19,
+          "end": 1.33,
+          "key": "hook",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "well.",
+          "start": 1.33,
+          "end": 1.57,
+          "key": "well",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "This",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "fish",
+          "start": 2.05,
+          "end": 2.23,
+          "key": "fish",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.23,
+          "end": 2.41,
+          "key": "will",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bite.",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "bite",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Aside]",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Bait",
+          "start": 1.01,
+          "end": 1.07
+        },
+        {
+          "text": "the",
+          "start": 1.07,
+          "end": 1.19
+        },
+        {
+          "text": "hook",
+          "start": 1.19,
+          "end": 1.33
+        },
+        {
+          "text": "well:",
+          "start": 1.33,
+          "end": 1.57
+        },
+        {
+          "text": "this",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "fish",
+          "start": 2.05,
+          "end": 2.23
+        },
+        {
+          "text": "will",
+          "start": 2.23,
+          "end": 2.41
+        },
+        {
+          "text": "bite.",
+          "start": 2.41,
+          "end": 2.63
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19004039280116558
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3728ed54c15971d01c2c2c01a0e8fa2c04dee32da5d7df09071deab9162f3066",
+  "selected_reasons": []
+}

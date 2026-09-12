@@ -1,0 +1,626 @@
+{
+  "complete": true,
+  "signature": "64e1f9dae8e5d098d8b203464ea17ced77d93be77ecd7764fbb60abef3e2cc36",
+  "attempts": [
+    {
+      "asr_seconds": 0.37234143167734146,
+      "alignment_seconds": 0.00044602155685424805,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Florizol. See your guest's approach. Address yourself to entertain them",
+          "start": 0.05,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Florizol.",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.4272054036458333
+            },
+            {
+              "text": " See",
+              "start": 1.51,
+              "end": 1.79,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " your",
+              "start": 1.79,
+              "end": 2.13,
+              "probability": 0.787109375
+            },
+            {
+              "text": " guest's",
+              "start": 2.13,
+              "end": 2.57,
+              "probability": 0.722900390625
+            },
+            {
+              "text": " approach.",
+              "start": 2.57,
+              "end": 2.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Address",
+              "start": 3.71,
+              "end": 3.77,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " yourself",
+              "start": 3.77,
+              "end": 4.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 4.15,
+              "end": 4.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " entertain",
+              "start": 4.37,
+              "end": 4.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " them",
+              "start": 4.71,
+              "end": 4.91,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " sprightly and let's be red with mirth.",
+          "start": 4.91,
+          "end": 6.93,
+          "words": [
+            {
+              "text": " sprightly",
+              "start": 4.91,
+              "end": 5.45,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " and",
+              "start": 5.45,
+              "end": 5.75,
+              "probability": 0.51513671875
+            },
+            {
+              "text": " let's",
+              "start": 5.75,
+              "end": 6.03,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " be",
+              "start": 6.03,
+              "end": 6.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " red",
+              "start": 6.17,
+              "end": 6.41,
+              "probability": 0.74658203125
+            },
+            {
+              "text": " with",
+              "start": 6.41,
+              "end": 6.61,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " mirth.",
+              "start": 6.61,
+              "end": 6.93,
+              "probability": 0.93603515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizol.",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "See",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "raw": "your",
+          "start": 1.79,
+          "end": 2.13
+        },
+        {
+          "raw": "guest's",
+          "start": 2.13,
+          "end": 2.57
+        },
+        {
+          "raw": "approach.",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "raw": "Address",
+          "start": 3.71,
+          "end": 3.77
+        },
+        {
+          "raw": "yourself",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "raw": "to",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "raw": "entertain",
+          "start": 4.37,
+          "end": 4.71
+        },
+        {
+          "raw": "them",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "raw": "sprightly",
+          "start": 4.91,
+          "end": 5.45
+        },
+        {
+          "raw": "and",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "raw": "let's",
+          "start": 5.75,
+          "end": 6.03
+        },
+        {
+          "raw": "be",
+          "start": 6.03,
+          "end": 6.17
+        },
+        {
+          "raw": "red",
+          "start": 6.17,
+          "end": 6.41
+        },
+        {
+          "raw": "with",
+          "start": 6.41,
+          "end": 6.61
+        },
+        {
+          "raw": "mirth.",
+          "start": 6.61,
+          "end": 6.93
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "See,",
+        "your",
+        "guests",
+        "approach:",
+        "Address",
+        "yourself",
+        "to",
+        "entertain",
+        "them",
+        "sprightly,",
+        "And",
+        "let's",
+        "be",
+        "red",
+        "with",
+        "mirth."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          17,
+          1,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizol.",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "florizol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "See",
+          "start": 1.51,
+          "end": 1.79,
+          "key": "see",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.79,
+          "end": 2.13,
+          "key": "your",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "guest's",
+          "start": 2.13,
+          "end": 2.57,
+          "key": "guests",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "approach.",
+          "start": 2.57,
+          "end": 2.87,
+          "key": "approach",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Address",
+          "start": 3.71,
+          "end": 3.77,
+          "key": "address",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "yourself",
+          "start": 3.77,
+          "end": 4.15,
+          "key": "yourself",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.15,
+          "end": 4.37,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "entertain",
+          "start": 4.37,
+          "end": 4.71,
+          "key": "entertain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.71,
+          "end": 4.91,
+          "key": "them",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "sprightly",
+          "start": 4.91,
+          "end": 5.45,
+          "key": "sprightly",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.45,
+          "end": 5.75,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "let's",
+          "start": 5.75,
+          "end": 6.03,
+          "key": "lets",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 6.03,
+          "end": 6.17,
+          "key": "be",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 6.17,
+          "end": 6.41,
+          "key": "red",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 6.41,
+          "end": 6.61,
+          "key": "with",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "mirth.",
+          "start": 6.61,
+          "end": 6.93,
+          "key": "mirth",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.0,
+          "end": 0.755
+        },
+        {
+          "text": "See,",
+          "start": 1.51,
+          "end": 1.79
+        },
+        {
+          "text": "your",
+          "start": 1.79,
+          "end": 2.13
+        },
+        {
+          "text": "guests",
+          "start": 2.13,
+          "end": 2.57
+        },
+        {
+          "text": "approach:",
+          "start": 2.57,
+          "end": 2.87
+        },
+        {
+          "text": "Address",
+          "start": 3.71,
+          "end": 3.77
+        },
+        {
+          "text": "yourself",
+          "start": 3.77,
+          "end": 4.15
+        },
+        {
+          "text": "to",
+          "start": 4.15,
+          "end": 4.37
+        },
+        {
+          "text": "entertain",
+          "start": 4.37,
+          "end": 4.71
+        },
+        {
+          "text": "them",
+          "start": 4.71,
+          "end": 4.91
+        },
+        {
+          "text": "sprightly,",
+          "start": 4.91,
+          "end": 5.45
+        },
+        {
+          "text": "And",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "text": "let's",
+          "start": 5.75,
+          "end": 6.03
+        },
+        {
+          "text": "be",
+          "start": 6.03,
+          "end": 6.17
+        },
+        {
+          "text": "red",
+          "start": 6.17,
+          "end": 6.41
+        },
+        {
+          "text": "with",
+          "start": 6.41,
+          "end": 6.61
+        },
+        {
+          "text": "mirth.",
+          "start": 6.61,
+          "end": 6.93
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3729675505310297
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5469d4669839400c7c37ef7b30822f82953771e8219bacf31648eb02dc8b45b6",
+  "selected_reasons": []
+}

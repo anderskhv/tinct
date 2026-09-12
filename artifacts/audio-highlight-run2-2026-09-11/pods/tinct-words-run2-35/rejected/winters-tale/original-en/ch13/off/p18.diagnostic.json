@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "a8dc7a9284c7ff597ebf25bc9f0e6aa3cfc9380057eca17469b4861f4758a576",
+  "attempts": [
+    {
+      "asr_seconds": 0.23758702725172043,
+      "alignment_seconds": 0.0004859119653701782,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Paulina, then good my lords bear witness to his oath.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Paulina,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.696044921875
+            },
+            {
+              "text": " then",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.72900390625
+            },
+            {
+              "text": " good",
+              "start": 1.53,
+              "end": 1.83,
+              "probability": 0.763671875
+            },
+            {
+              "text": " my",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " lords",
+              "start": 1.99,
+              "end": 2.33,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " bear",
+              "start": 2.33,
+              "end": 2.63,
+              "probability": 0.818359375
+            },
+            {
+              "text": " witness",
+              "start": 2.63,
+              "end": 2.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 3.15,
+              "end": 3.27,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " oath.",
+              "start": 3.27,
+              "end": 3.53,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "then",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "good",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "raw": "my",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "lords",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "raw": "bear",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "raw": "witness",
+          "start": 2.63,
+          "end": 2.95
+        },
+        {
+          "raw": "to",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "his",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "raw": "oath.",
+          "start": 3.27,
+          "end": 3.53
+        }
+      ],
+      "expected_tokens": [
+        "Paulina.",
+        "Then,",
+        "good",
+        "my",
+        "lords,",
+        "bear",
+        "witness",
+        "to",
+        "his",
+        "oath."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Paulina,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "paulina",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.27,
+          "end": 1.53,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 1.53,
+          "end": 1.83,
+          "key": "good",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "my",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "lords",
+          "start": 1.99,
+          "end": 2.33,
+          "key": "lords",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 2.33,
+          "end": 2.63,
+          "key": "bear",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "witness",
+          "start": 2.63,
+          "end": 2.95,
+          "key": "witness",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 3.15,
+          "end": 3.27,
+          "key": "his",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "oath.",
+          "start": 3.27,
+          "end": 3.53,
+          "key": "oath",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Paulina.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Then,",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "good",
+          "start": 1.53,
+          "end": 1.83
+        },
+        {
+          "text": "my",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "lords,",
+          "start": 1.99,
+          "end": 2.33
+        },
+        {
+          "text": "bear",
+          "start": 2.33,
+          "end": 2.63
+        },
+        {
+          "text": "witness",
+          "start": 2.63,
+          "end": 2.95
+        },
+        {
+          "text": "to",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "his",
+          "start": 3.15,
+          "end": 3.27
+        },
+        {
+          "text": "oath.",
+          "start": 3.27,
+          "end": 3.53
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2382695320993662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd2ec7f11773161f1119dcce3f4253726e3bab9b0b2d20469f88f20d56479a90",
+  "selected_reasons": []
+}

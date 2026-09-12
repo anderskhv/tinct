@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "b1a014a39c820be9180ccc99a739d6bfad01fd14d28eb5cf45ec5c06c6cb1bec",
+  "attempts": [
+    {
+      "asr_seconds": 0.20957245491445065,
+      "alignment_seconds": 0.0003461204469203949,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perdita. O lady Fortune, Stand you auspicious!",
+        "hotwords": "Perdita, O, Fortune, Stand"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perdita, O lady Fortune, Stand you auspicious!",
+          "start": 0.05,
+          "end": 3.05,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.9156901041666666
+            },
+            {
+              "text": " O",
+              "start": 1.33,
+              "end": 1.39,
+              "probability": 0.515625
+            },
+            {
+              "text": " lady",
+              "start": 1.39,
+              "end": 1.57,
+              "probability": 0.07025146484375
+            },
+            {
+              "text": " Fortune,",
+              "start": 1.57,
+              "end": 1.91,
+              "probability": 0.036590576171875
+            },
+            {
+              "text": " Stand",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.0804443359375
+            },
+            {
+              "text": " you",
+              "start": 2.35,
+              "end": 2.53,
+              "probability": 0.765625
+            },
+            {
+              "text": " auspicious!",
+              "start": 2.53,
+              "end": 3.05,
+              "probability": 0.9765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "O",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "raw": "lady",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "raw": "Fortune,",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "raw": "Stand",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "you",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "raw": "auspicious!",
+          "start": 2.53,
+          "end": 3.05
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "O",
+        "lady",
+        "Fortune,",
+        "Stand",
+        "you",
+        "auspicious!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.33,
+          "end": 1.39,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "lady",
+          "start": 1.39,
+          "end": 1.57,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Fortune,",
+          "start": 1.57,
+          "end": 1.91,
+          "key": "fortune",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Stand",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "stand",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.35,
+          "end": 2.53,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "auspicious!",
+          "start": 2.53,
+          "end": 3.05,
+          "key": "auspicious",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "O",
+          "start": 1.33,
+          "end": 1.39
+        },
+        {
+          "text": "lady",
+          "start": 1.39,
+          "end": 1.57
+        },
+        {
+          "text": "Fortune,",
+          "start": 1.57,
+          "end": 1.91
+        },
+        {
+          "text": "Stand",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "you",
+          "start": 2.35,
+          "end": 2.53
+        },
+        {
+          "text": "auspicious!",
+          "start": 2.53,
+          "end": 3.05
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21003643237054348
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "833a2b75faa810bbec49c92c1c3d731862e00c15518d3752279af932b1660018",
+  "selected_reasons": []
+}

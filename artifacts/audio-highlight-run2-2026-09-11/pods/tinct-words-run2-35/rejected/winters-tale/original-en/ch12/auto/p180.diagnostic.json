@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "058d94854eba1fb58ed61e2df25da6be7367db24539fddc5276deed3e31d18f3",
+  "attempts": [
+    {
+      "asr_seconds": 0.18226256594061852,
+      "alignment_seconds": 0.0003719441592693329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Florizel. I am bound to you: There is some sap in this.",
+        "hotwords": "Florizel, I, There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Florizel, I am bound to you. There is some sap in this.",
+          "start": 0.56,
+          "end": 3.48,
+          "words": [
+            {
+              "text": " Florizel,",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.28997039794921875
+            },
+            {
+              "text": " I",
+              "start": 1.32,
+              "end": 1.42,
+              "probability": 0.978515625
+            },
+            {
+              "text": " am",
+              "start": 1.42,
+              "end": 1.52,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " bound",
+              "start": 1.52,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.74,
+              "end": 1.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " you.",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " There",
+              "start": 2.44,
+              "end": 2.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 2.52,
+              "end": 2.6,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " some",
+              "start": 2.6,
+              "end": 2.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sap",
+              "start": 2.78,
+              "end": 3.06,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 3.06,
+              "end": 3.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this.",
+              "start": 3.24,
+              "end": 3.48,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizel,",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "raw": "am",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "raw": "bound",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "raw": "you.",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "raw": "There",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "raw": "is",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "raw": "some",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "raw": "sap",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "raw": "in",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "raw": "this.",
+          "start": 3.24,
+          "end": 3.48
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "I",
+        "am",
+        "bound",
+        "to",
+        "you:",
+        "There",
+        "is",
+        "some",
+        "sap",
+        "in",
+        "this."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizel,",
+          "start": 0.56,
+          "end": 0.96,
+          "key": "florizel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.32,
+          "end": 1.42,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 1.42,
+          "end": 1.52,
+          "key": "am",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "bound",
+          "start": 1.52,
+          "end": 1.74,
+          "key": "bound",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.74,
+          "end": 1.94,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 1.94,
+          "end": 2.14,
+          "key": "you",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "There",
+          "start": 2.44,
+          "end": 2.52,
+          "key": "there",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.52,
+          "end": 2.6,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "some",
+          "start": 2.6,
+          "end": 2.78,
+          "key": "some",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "sap",
+          "start": 2.78,
+          "end": 3.06,
+          "key": "sap",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.06,
+          "end": 3.24,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "this.",
+          "start": 3.24,
+          "end": 3.48,
+          "key": "this",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "I",
+          "start": 1.32,
+          "end": 1.42
+        },
+        {
+          "text": "am",
+          "start": 1.42,
+          "end": 1.52
+        },
+        {
+          "text": "bound",
+          "start": 1.52,
+          "end": 1.74
+        },
+        {
+          "text": "to",
+          "start": 1.74,
+          "end": 1.94
+        },
+        {
+          "text": "you:",
+          "start": 1.94,
+          "end": 2.14
+        },
+        {
+          "text": "There",
+          "start": 2.44,
+          "end": 2.52
+        },
+        {
+          "text": "is",
+          "start": 2.52,
+          "end": 2.6
+        },
+        {
+          "text": "some",
+          "start": 2.6,
+          "end": 2.78
+        },
+        {
+          "text": "sap",
+          "start": 2.78,
+          "end": 3.06
+        },
+        {
+          "text": "in",
+          "start": 3.06,
+          "end": 3.24
+        },
+        {
+          "text": "this.",
+          "start": 3.24,
+          "end": 3.48
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.182772820815444
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "60fcd311eb232ad5fee2935a5497161c2568211063b47bca01ce09c5af34bb5b",
+  "selected_reasons": []
+}

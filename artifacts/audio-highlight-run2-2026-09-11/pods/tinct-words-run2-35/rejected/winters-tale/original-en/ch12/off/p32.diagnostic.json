@@ -1,0 +1,239 @@
+{
+  "complete": true,
+  "signature": "6986703dae3d117a9507da18d37e3736f07edcccd41dd282730151b51afcb7a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.13651404529809952,
+      "alignment_seconds": 0.0003898385912179947,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Perdita, I'll swear for him.",
+          "start": 0.05,
+          "end": 1.95,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 0.05,
+              "end": 0.89,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " I'll",
+              "start": 1.17,
+              "end": 1.29,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " swear",
+              "start": 1.29,
+              "end": 1.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 1.53,
+              "end": 1.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him.",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.83447265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita,",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "raw": "I'll",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "raw": "swear",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "raw": "for",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "raw": "him.",
+          "start": 1.75,
+          "end": 1.95
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "I'll",
+        "swear",
+        "for",
+        "'em."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita,",
+          "start": 0.05,
+          "end": 0.89,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I'll",
+          "start": 1.17,
+          "end": 1.29,
+          "key": "ill",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "swear",
+          "start": 1.29,
+          "end": 1.53,
+          "key": "swear",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 1.53,
+          "end": 1.75,
+          "key": "for",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "him.",
+          "start": 1.75,
+          "end": 1.95,
+          "key": "him",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.05,
+          "end": 0.89
+        },
+        {
+          "text": "I'll",
+          "start": 1.17,
+          "end": 1.29
+        },
+        {
+          "text": "swear",
+          "start": 1.29,
+          "end": 1.53
+        },
+        {
+          "text": "for",
+          "start": 1.53,
+          "end": 1.75
+        },
+        {
+          "text": "'em.",
+          "start": 1.75,
+          "end": 1.85
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1370297074317932
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb63f1ded2010404ba009b5c28fc6b03505f58e3584faf024cd297b034e51c3f",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

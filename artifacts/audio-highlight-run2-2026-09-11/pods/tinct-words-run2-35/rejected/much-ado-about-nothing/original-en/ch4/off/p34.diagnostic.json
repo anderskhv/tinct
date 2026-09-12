@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "f56c0d35381ca9c3f0207cf6780685b38290b4aa949511d3f95a3fd217dd903b",
+  "attempts": [
+    {
+      "asr_seconds": 0.180698124691844,
+      "alignment_seconds": 0.0002734065055847168,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro my visor is Philemon's roof within the house is Jove",
+          "start": 0.05,
+          "end": 4.57,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.44287109375
+            },
+            {
+              "text": " Pedro",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " my",
+              "start": 0.99,
+              "end": 1.69,
+              "probability": 0.2196044921875
+            },
+            {
+              "text": " visor",
+              "start": 1.69,
+              "end": 2.07,
+              "probability": 0.869873046875
+            },
+            {
+              "text": " is",
+              "start": 2.07,
+              "end": 2.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " Philemon's",
+              "start": 2.23,
+              "end": 2.71,
+              "probability": 0.839111328125
+            },
+            {
+              "text": " roof",
+              "start": 2.71,
+              "end": 3.01,
+              "probability": 0.91748046875
+            },
+            {
+              "text": " within",
+              "start": 3.01,
+              "end": 3.45,
+              "probability": 0.8447265625
+            },
+            {
+              "text": " the",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " house",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " is",
+              "start": 3.83,
+              "end": 4.03,
+              "probability": 0.7919921875
+            },
+            {
+              "text": " Jove",
+              "start": 4.03,
+              "end": 4.57,
+              "probability": 0.891357421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "my",
+          "start": 0.99,
+          "end": 1.69
+        },
+        {
+          "raw": "visor",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "raw": "is",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "raw": "Philemon's",
+          "start": 2.23,
+          "end": 2.71
+        },
+        {
+          "raw": "roof",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "raw": "within",
+          "start": 3.01,
+          "end": 3.45
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "house",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "raw": "is",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "raw": "Jove",
+          "start": 4.03,
+          "end": 4.57
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "My",
+        "visor",
+        "is",
+        "Philemon's",
+        "roof;",
+        "within",
+        "the",
+        "house",
+        "is",
+        "Jove."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 0.99,
+          "end": 1.69,
+          "key": "my",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "visor",
+          "start": 1.69,
+          "end": 2.07,
+          "key": "visor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.07,
+          "end": 2.23,
+          "key": "is",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Philemon's",
+          "start": 2.23,
+          "end": 2.71,
+          "key": "philemons",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "roof",
+          "start": 2.71,
+          "end": 3.01,
+          "key": "roof",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "within",
+          "start": 3.01,
+          "end": 3.45,
+          "key": "within",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.45,
+          "end": 3.59,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "house",
+          "start": 3.59,
+          "end": 3.83,
+          "key": "house",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.83,
+          "end": 4.03,
+          "key": "is",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Jove",
+          "start": 4.03,
+          "end": 4.57,
+          "key": "jove",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "text": "My",
+          "start": 0.99,
+          "end": 1.69
+        },
+        {
+          "text": "visor",
+          "start": 1.69,
+          "end": 2.07
+        },
+        {
+          "text": "is",
+          "start": 2.07,
+          "end": 2.23
+        },
+        {
+          "text": "Philemon's",
+          "start": 2.23,
+          "end": 2.71
+        },
+        {
+          "text": "roof;",
+          "start": 2.71,
+          "end": 3.01
+        },
+        {
+          "text": "within",
+          "start": 3.01,
+          "end": 3.45
+        },
+        {
+          "text": "the",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "house",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "text": "is",
+          "start": 3.83,
+          "end": 4.03
+        },
+        {
+          "text": "Jove.",
+          "start": 4.03,
+          "end": 4.57
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.18107766658067703
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3b7b98a3aaf98375c34c81d1b1bd054bb0d693360a4a48a0790dbaa61cd6caf2",
+  "selected_reasons": []
+}

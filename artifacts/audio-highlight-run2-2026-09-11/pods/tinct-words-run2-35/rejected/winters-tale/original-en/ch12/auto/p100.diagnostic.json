@@ -1,0 +1,513 @@
+{
+  "complete": true,
+  "signature": "1304c90b8669d093153d0f6fab0dbb1dcaabd7113a9e33b87db5dd8edc872551",
+  "attempts": [
+    {
+      "asr_seconds": 0.39896782487630844,
+      "alignment_seconds": 0.0006042569875717163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mopsa. _Thou hast sworn it more to me. Then whither goest? Say, whither?_",
+        "hotwords": "Mopsa, Then, Say"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mopsa, thou hast sworn it more to me. Then whither goest? Say, whither?-",
+          "start": 0.53,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.53,
+              "end": 0.93,
+              "probability": 0.72802734375
+            },
+            {
+              "text": " thou",
+              "start": 1.15,
+              "end": 1.19,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " hast",
+              "start": 1.19,
+              "end": 1.49,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " sworn",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " it",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " more",
+              "start": 1.93,
+              "end": 2.07,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.07,
+              "end": 2.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me.",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Then",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " whither",
+              "start": 2.85,
+              "end": 3.09,
+              "probability": 0.60491943359375
+            },
+            {
+              "text": " goest?",
+              "start": 3.09,
+              "end": 3.57,
+              "probability": 0.85986328125
+            },
+            {
+              "text": " Say,",
+              "start": 3.87,
+              "end": 4.05,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " whither?",
+              "start": 4.17,
+              "end": 4.37,
+              "probability": 0.9873046875
+            },
+            {
+              "text": "-",
+              "start": 4.97,
+              "end": 5.05,
+              "probability": 0.0012102127075195312
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "raw": "thou",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "raw": "hast",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "raw": "sworn",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "it",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "more",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "raw": "to",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "raw": "me.",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "Then",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "whither",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "raw": "goest?",
+          "start": 3.09,
+          "end": 3.57
+        },
+        {
+          "raw": "Say,",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "raw": "whither?",
+          "start": 4.17,
+          "end": 4.37
+        },
+        {
+          "raw": "-",
+          "start": 4.97,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "_Thou",
+        "hast",
+        "sworn",
+        "it",
+        "more",
+        "to",
+        "me.",
+        "Then",
+        "whither",
+        "goest?",
+        "Say,",
+        "whither?_"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "insert",
+          13,
+          13,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          13,
+          13,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.53,
+          "end": 0.93,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 1.15,
+          "end": 1.19,
+          "key": "thou",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hast",
+          "start": 1.19,
+          "end": 1.49,
+          "key": "hast",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "sworn",
+          "start": 1.49,
+          "end": 1.79,
+          "key": "sworn",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 1.93,
+          "end": 2.07,
+          "key": "more",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.07,
+          "end": 2.19,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "me.",
+          "start": 2.19,
+          "end": 2.39,
+          "key": "me",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Then",
+          "start": 2.73,
+          "end": 2.85,
+          "key": "then",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "whither",
+          "start": 2.85,
+          "end": 3.09,
+          "key": "whither",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "goest?",
+          "start": 3.09,
+          "end": 3.57,
+          "key": "goest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Say,",
+          "start": 3.87,
+          "end": 4.05,
+          "key": "say",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "whither?",
+          "start": 4.17,
+          "end": 4.37,
+          "key": "whither",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "-",
+          "start": 4.97,
+          "end": 5.05,
+          "key": "",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.53,
+          "end": 0.93
+        },
+        {
+          "text": "_Thou",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "text": "hast",
+          "start": 1.19,
+          "end": 1.49
+        },
+        {
+          "text": "sworn",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "it",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "more",
+          "start": 1.93,
+          "end": 2.07
+        },
+        {
+          "text": "to",
+          "start": 2.07,
+          "end": 2.19
+        },
+        {
+          "text": "me.",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "Then",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "whither",
+          "start": 2.85,
+          "end": 3.09
+        },
+        {
+          "text": "goest?",
+          "start": 3.09,
+          "end": 3.57
+        },
+        {
+          "text": "Say,",
+          "start": 3.87,
+          "end": 4.05
+        },
+        {
+          "text": "whither?_",
+          "start": 4.17,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.39982491731643677
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6bacbfb212fa152a2fb9ee96d6435333ebda2f2ae5f7849632faf784ec538e6f",
+  "selected_reasons": []
+}

@@ -1,0 +1,1679 @@
+{
+  "complete": true,
+  "signature": "9b58c8fd04b1187eef89e8ce1e69a6c5216cc93072c3f5db659c789ecfc963d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.38978161662817,
+      "alignment_seconds": 0.0007914360612630844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Servant. Ay, the most peerless piece of earth, I think, That e'er the sun shone bright on.",
+        "hotwords": "Servant, Ay, I, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Servant, Ay, the most peerless piece of earth, I think, That e'er the sun shone bright on.",
+          "start": 0.5,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.5,
+              "end": 0.9,
+              "probability": 0.805908203125
+            },
+            {
+              "text": " Ay,",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.005573272705078125
+            },
+            {
+              "text": " the",
+              "start": 1.62,
+              "end": 1.68,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " most",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " peerless",
+              "start": 1.88,
+              "end": 2.36,
+              "probability": 0.9140625
+            },
+            {
+              "text": " piece",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.7490234375
+            },
+            {
+              "text": " of",
+              "start": 2.58,
+              "end": 2.76,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " earth,",
+              "start": 2.76,
+              "end": 2.96,
+              "probability": 0.82958984375
+            },
+            {
+              "text": " I",
+              "start": 3.18,
+              "end": 3.24,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " think,",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " That",
+              "start": 3.78,
+              "end": 3.86,
+              "probability": 0.432861328125
+            },
+            {
+              "text": " e",
+              "start": 3.86,
+              "end": 4.0,
+              "probability": 0.951171875
+            },
+            {
+              "text": "'er",
+              "start": 4.0,
+              "end": 4.04,
+              "probability": 0.5411376953125
+            },
+            {
+              "text": " the",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sun",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.978515625
+            },
+            {
+              "text": " shone",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " bright",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " on.",
+              "start": 5.04,
+              "end": 5.36,
+              "probability": 0.962890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "raw": "most",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "peerless",
+          "start": 1.88,
+          "end": 2.36
+        },
+        {
+          "raw": "piece",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "of",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "raw": "earth,",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "raw": "I",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "raw": "think,",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "That",
+          "start": 3.78,
+          "end": 3.86
+        },
+        {
+          "raw": "e",
+          "start": 3.86,
+          "end": 4.0
+        },
+        {
+          "raw": "'er",
+          "start": 4.0,
+          "end": 4.04
+        },
+        {
+          "raw": "the",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "sun",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "shone",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "raw": "bright",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "on.",
+          "start": 5.04,
+          "end": 5.36
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "Ay,",
+        "the",
+        "most",
+        "peerless",
+        "piece",
+        "of",
+        "earth,",
+        "I",
+        "think,",
+        "That",
+        "e'er",
+        "the",
+        "sun",
+        "shone",
+        "bright",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          17,
+          13,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.5,
+          "end": 0.9,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Ay,",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "ay",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.62,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "peerless",
+          "start": 1.88,
+          "end": 2.36,
+          "key": "peerless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 2.36,
+          "end": 2.58,
+          "key": "piece",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.58,
+          "end": 2.76,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "earth,",
+          "start": 2.76,
+          "end": 2.96,
+          "key": "earth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.18,
+          "end": 3.24,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "think",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "That",
+          "start": 3.78,
+          "end": 3.86,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "e",
+          "start": 3.86,
+          "end": 4.0,
+          "key": "e",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "'er",
+          "start": 4.0,
+          "end": 4.04,
+          "key": "er",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.04,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "sun",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "shone",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "shone",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "bright",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "bright",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 5.04,
+          "end": 5.36,
+          "key": "on",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.5,
+          "end": 0.9
+        },
+        {
+          "text": "Ay,",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.62,
+          "end": 1.68
+        },
+        {
+          "text": "most",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "peerless",
+          "start": 1.88,
+          "end": 2.36
+        },
+        {
+          "text": "piece",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "of",
+          "start": 2.58,
+          "end": 2.76
+        },
+        {
+          "text": "earth,",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "text": "I",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "text": "think,",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "That",
+          "start": 3.78,
+          "end": 3.86
+        },
+        {
+          "text": "e'er",
+          "start": 3.86,
+          "end": 3.95
+        },
+        {
+          "text": "the",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "sun",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "shone",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "text": "bright",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "on.",
+          "start": 5.04,
+          "end": 5.36
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.9411764705882353,
+      "rejection_reasons": [],
+      "seconds": 0.3908777926117182
+    },
+    {
+      "asr_seconds": 0.25885988771915436,
+      "alignment_seconds": 0.00038138777017593384,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Servant, Ay, I, That"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " air the sun shone bright on.",
+          "start": 2.8,
+          "end": 5.38,
+          "words": [
+            {
+              "text": " air",
+              "start": 2.8,
+              "end": 3.48,
+              "probability": 6.556510925292969e-07
+            },
+            {
+              "text": " the",
+              "start": 3.48,
+              "end": 4.16,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " sun",
+              "start": 4.16,
+              "end": 4.42,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " shone",
+              "start": 4.42,
+              "end": 4.74,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " bright",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " on.",
+              "start": 5.04,
+              "end": 5.38,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "air",
+          "start": 2.8,
+          "end": 3.48
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 4.16
+        },
+        {
+          "raw": "sun",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "raw": "shone",
+          "start": 4.42,
+          "end": 4.74
+        },
+        {
+          "raw": "bright",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "on.",
+          "start": 5.04,
+          "end": 5.38
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "Ay,",
+        "the",
+        "most",
+        "peerless",
+        "piece",
+        "of",
+        "earth,",
+        "I",
+        "think,",
+        "That",
+        "e'er",
+        "the",
+        "sun",
+        "shone",
+        "bright",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          12,
+          0,
+          1
+        ],
+        [
+          "equal",
+          12,
+          17,
+          1,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          12,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "air",
+          "start": 2.8,
+          "end": 3.48,
+          "key": "air",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 4.16,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 4.16,
+          "end": 4.42,
+          "key": "sun",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "shone",
+          "start": 4.42,
+          "end": 4.74,
+          "key": "shone",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "bright",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "bright",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 5.04,
+          "end": 5.38,
+          "key": "on",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.0,
+          "end": 1.74
+        },
+        {
+          "text": "Ay,",
+          "start": 1.74,
+          "end": 2.61
+        },
+        {
+          "text": "the",
+          "start": 2.61,
+          "end": 3.045
+        },
+        {
+          "text": "most",
+          "start": 3.045,
+          "end": 3.263
+        },
+        {
+          "text": "peerless",
+          "start": 3.263,
+          "end": 3.372
+        },
+        {
+          "text": "piece",
+          "start": 3.372,
+          "end": 3.426
+        },
+        {
+          "text": "of",
+          "start": 3.426,
+          "end": 3.453
+        },
+        {
+          "text": "earth,",
+          "start": 3.453,
+          "end": 3.466
+        },
+        {
+          "text": "I",
+          "start": 3.466,
+          "end": 3.473
+        },
+        {
+          "text": "think,",
+          "start": 3.473,
+          "end": 3.476
+        },
+        {
+          "text": "That",
+          "start": 3.476,
+          "end": 3.478
+        },
+        {
+          "text": "e'er",
+          "start": 3.478,
+          "end": 3.479
+        },
+        {
+          "text": "the",
+          "start": 3.48,
+          "end": 4.16
+        },
+        {
+          "text": "sun",
+          "start": 4.16,
+          "end": 4.42
+        },
+        {
+          "text": "shone",
+          "start": 4.42,
+          "end": 4.74
+        },
+        {
+          "text": "bright",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "on.",
+          "start": 5.04,
+          "end": 5.38
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.29411764705882354,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25932101905345917
+    },
+    {
+      "asr_seconds": 0.3592229411005974,
+      "alignment_seconds": 0.0004077274352312088,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Servant, I the most peerless piece of earth, I think, that ere the sun shone bright on.",
+          "start": 0.08,
+          "end": 5.36,
+          "words": [
+            {
+              "text": " Servant,",
+              "start": 0.08,
+              "end": 0.9,
+              "probability": 0.805908203125
+            },
+            {
+              "text": " I",
+              "start": 1.34,
+              "end": 1.52,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " the",
+              "start": 1.52,
+              "end": 1.68,
+              "probability": 0.833984375
+            },
+            {
+              "text": " most",
+              "start": 1.68,
+              "end": 1.88,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " peerless",
+              "start": 1.88,
+              "end": 2.36,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " piece",
+              "start": 2.36,
+              "end": 2.58,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " of",
+              "start": 2.58,
+              "end": 2.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " earth,",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.75537109375
+            },
+            {
+              "text": " I",
+              "start": 3.18,
+              "end": 3.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " think,",
+              "start": 3.24,
+              "end": 3.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 3.78,
+              "end": 3.86,
+              "probability": 0.86865234375
+            },
+            {
+              "text": " ere",
+              "start": 3.86,
+              "end": 4.06,
+              "probability": 0.838134765625
+            },
+            {
+              "text": " the",
+              "start": 4.06,
+              "end": 4.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sun",
+              "start": 4.2,
+              "end": 4.4,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " shone",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " bright",
+              "start": 4.74,
+              "end": 5.04,
+              "probability": 0.990234375
+            },
+            {
+              "text": " on.",
+              "start": 5.04,
+              "end": 5.36,
+              "probability": 0.97216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "raw": "I",
+          "start": 1.34,
+          "end": 1.52
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "raw": "most",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "raw": "peerless",
+          "start": 1.88,
+          "end": 2.36
+        },
+        {
+          "raw": "piece",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "raw": "of",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "raw": "earth,",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "I",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "raw": "think,",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "raw": "that",
+          "start": 3.78,
+          "end": 3.86
+        },
+        {
+          "raw": "ere",
+          "start": 3.86,
+          "end": 4.06
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "raw": "sun",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "raw": "shone",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "raw": "bright",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "raw": "on.",
+          "start": 5.04,
+          "end": 5.36
+        }
+      ],
+      "expected_tokens": [
+        "Servant.",
+        "Ay,",
+        "the",
+        "most",
+        "peerless",
+        "piece",
+        "of",
+        "earth,",
+        "I",
+        "think,",
+        "That",
+        "e'er",
+        "the",
+        "sun",
+        "shone",
+        "bright",
+        "on."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          11,
+          2,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "equal",
+          12,
+          17,
+          12,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Servant,",
+          "start": 0.08,
+          "end": 0.9,
+          "key": "servant",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.34,
+          "end": 1.52,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.52,
+          "end": 1.68,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "most",
+          "start": 1.68,
+          "end": 1.88,
+          "key": "most",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "peerless",
+          "start": 1.88,
+          "end": 2.36,
+          "key": "peerless",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "piece",
+          "start": 2.36,
+          "end": 2.58,
+          "key": "piece",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.58,
+          "end": 2.78,
+          "key": "of",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "earth,",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "earth",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 3.18,
+          "end": 3.24,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "think,",
+          "start": 3.24,
+          "end": 3.46,
+          "key": "think",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.78,
+          "end": 3.86,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "ere",
+          "start": 3.86,
+          "end": 4.06,
+          "key": "ere",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.06,
+          "end": 4.2,
+          "key": "the",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 4.2,
+          "end": 4.4,
+          "key": "sun",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "shone",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "shone",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "bright",
+          "start": 4.74,
+          "end": 5.04,
+          "key": "bright",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "on.",
+          "start": 5.04,
+          "end": 5.36,
+          "key": "on",
+          "pieces": [
+            16
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Servant.",
+          "start": 0.08,
+          "end": 0.9
+        },
+        {
+          "text": "Ay,",
+          "start": 0.9,
+          "end": 1.21
+        },
+        {
+          "text": "the",
+          "start": 1.52,
+          "end": 1.68
+        },
+        {
+          "text": "most",
+          "start": 1.68,
+          "end": 1.88
+        },
+        {
+          "text": "peerless",
+          "start": 1.88,
+          "end": 2.36
+        },
+        {
+          "text": "piece",
+          "start": 2.36,
+          "end": 2.58
+        },
+        {
+          "text": "of",
+          "start": 2.58,
+          "end": 2.78
+        },
+        {
+          "text": "earth,",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "I",
+          "start": 3.18,
+          "end": 3.24
+        },
+        {
+          "text": "think,",
+          "start": 3.24,
+          "end": 3.46
+        },
+        {
+          "text": "That",
+          "start": 3.78,
+          "end": 3.86
+        },
+        {
+          "text": "e'er",
+          "start": 3.86,
+          "end": 3.96
+        },
+        {
+          "text": "the",
+          "start": 4.06,
+          "end": 4.2
+        },
+        {
+          "text": "sun",
+          "start": 4.2,
+          "end": 4.4
+        },
+        {
+          "text": "shone",
+          "start": 4.4,
+          "end": 4.74
+        },
+        {
+          "text": "bright",
+          "start": 4.74,
+          "end": 5.04
+        },
+        {
+          "text": "on.",
+          "start": 5.04,
+          "end": 5.36
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.8823529411764706,
+      "rejection_reasons": [],
+      "seconds": 0.3597927950322628
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c88685554cda8a96df0e562d2b90e209650c3b06b381fec51e85484a14e83d40",
+  "selected_reasons": []
+}

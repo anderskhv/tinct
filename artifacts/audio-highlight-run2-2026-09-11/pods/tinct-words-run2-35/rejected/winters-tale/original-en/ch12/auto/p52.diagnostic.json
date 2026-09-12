@@ -1,0 +1,1326 @@
+{
+  "complete": true,
+  "signature": "dc21cc34714089166e1d1ea49697a479169a0a7476541f777238702e6a4ca855",
+  "attempts": [
+    {
+      "asr_seconds": 0.20142917335033417,
+      "alignment_seconds": 0.00040333159267902374,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perdita. Forewarn him that he use no scurrilous words in 's tunes.",
+        "hotwords": "Perdita, Forewarn"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perdita, Forewarn him that he use no scurrilous words in stunes.",
+          "start": 0.57,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 0.57,
+              "end": 1.05,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Forewarn",
+              "start": 1.47,
+              "end": 1.73,
+              "probability": 0.4917168617248535
+            },
+            {
+              "text": " him",
+              "start": 1.73,
+              "end": 1.89,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " that",
+              "start": 1.89,
+              "end": 2.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " he",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " use",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.712890625
+            },
+            {
+              "text": " no",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.93505859375
+            },
+            {
+              "text": " scurrilous",
+              "start": 2.55,
+              "end": 3.11,
+              "probability": 0.8941650390625
+            },
+            {
+              "text": " words",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " in",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " stunes.",
+              "start": 3.55,
+              "end": 3.99,
+              "probability": 0.26904296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita,",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "raw": "Forewarn",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "raw": "him",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "raw": "that",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "use",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "no",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "scurrilous",
+          "start": 2.55,
+          "end": 3.11
+        },
+        {
+          "raw": "words",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "in",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "stunes.",
+          "start": 3.55,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "Forewarn",
+        "him",
+        "that",
+        "he",
+        "use",
+        "no",
+        "scurrilous",
+        "words",
+        "in",
+        "'s",
+        "tunes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita,",
+          "start": 0.57,
+          "end": 1.05,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Forewarn",
+          "start": 1.47,
+          "end": 1.73,
+          "key": "forewarn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.73,
+          "end": 1.89,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.89,
+          "end": 2.05,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "use",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "scurrilous",
+          "start": 2.55,
+          "end": 3.11,
+          "key": "scurrilous",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "words",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.35,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stunes.",
+          "start": 3.55,
+          "end": 3.99,
+          "key": "stunes",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.57,
+          "end": 1.05
+        },
+        {
+          "text": "Forewarn",
+          "start": 1.47,
+          "end": 1.73
+        },
+        {
+          "text": "him",
+          "start": 1.73,
+          "end": 1.89
+        },
+        {
+          "text": "that",
+          "start": 1.89,
+          "end": 2.05
+        },
+        {
+          "text": "he",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "use",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "no",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "scurrilous",
+          "start": 2.55,
+          "end": 3.11
+        },
+        {
+          "text": "words",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "in",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "'s",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "text": "tunes.",
+          "start": 3.77,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.20197508111596107
+    },
+    {
+      "asr_seconds": 0.22363978065550327,
+      "alignment_seconds": 0.0006021242588758469,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Perdita, Forewarn"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " him that he use no scurrilous words in stoons.",
+          "start": 0.05,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " him",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 6.961822509765625e-05
+            },
+            {
+              "text": " that",
+              "start": 0.77,
+              "end": 2.03,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " he",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " use",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " no",
+              "start": 2.35,
+              "end": 2.55,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " scurrilous",
+              "start": 2.55,
+              "end": 3.13,
+              "probability": 0.9044189453125
+            },
+            {
+              "text": " words",
+              "start": 3.13,
+              "end": 3.37,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " in",
+              "start": 3.37,
+              "end": 3.55,
+              "probability": 0.85888671875
+            },
+            {
+              "text": " stoons.",
+              "start": 3.55,
+              "end": 3.99,
+              "probability": 0.481201171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "him",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 2.03
+        },
+        {
+          "raw": "he",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "use",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "no",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "raw": "scurrilous",
+          "start": 2.55,
+          "end": 3.13
+        },
+        {
+          "raw": "words",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "raw": "in",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "raw": "stoons.",
+          "start": 3.55,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "Forewarn",
+        "him",
+        "that",
+        "he",
+        "use",
+        "no",
+        "scurrilous",
+        "words",
+        "in",
+        "'s",
+        "tunes."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "equal",
+          2,
+          10,
+          0,
+          8
+        ],
+        [
+          "replace",
+          10,
+          12,
+          8,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          "replace",
+          10,
+          12,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "him",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "him",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.77,
+          "end": 2.03,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.03,
+          "end": 2.17,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "use",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "use",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.35,
+          "end": 2.55,
+          "key": "no",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "scurrilous",
+          "start": 2.55,
+          "end": 3.13,
+          "key": "scurrilous",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 3.13,
+          "end": 3.37,
+          "key": "words",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.37,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "stoons.",
+          "start": 3.55,
+          "end": 3.99,
+          "key": "stoons",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.0,
+          "end": 0.025
+        },
+        {
+          "text": "Forewarn",
+          "start": 0.025,
+          "end": 0.038
+        },
+        {
+          "text": "him",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "that",
+          "start": 0.77,
+          "end": 2.03
+        },
+        {
+          "text": "he",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "use",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "text": "no",
+          "start": 2.35,
+          "end": 2.55
+        },
+        {
+          "text": "scurrilous",
+          "start": 2.55,
+          "end": 3.13
+        },
+        {
+          "text": "words",
+          "start": 3.13,
+          "end": 3.37
+        },
+        {
+          "text": "in",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "text": "'s",
+          "start": 3.55,
+          "end": 3.77
+        },
+        {
+          "text": "tunes.",
+          "start": 3.77,
+          "end": 3.88
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 9,
+        "matched_words": 8
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.22442137263715267
+    },
+    {
+      "asr_seconds": 0.28385415486991405,
+      "alignment_seconds": 0.0007343459874391556,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Perdita. Forwarn him that he used no scurrilous words in stoons.",
+          "start": 0.61,
+          "end": 3.97,
+          "words": [
+            {
+              "text": " Perdita.",
+              "start": 0.61,
+              "end": 1.05,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " Forwarn",
+              "start": 1.49,
+              "end": 1.71,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " him",
+              "start": 1.71,
+              "end": 1.91,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " that",
+              "start": 1.91,
+              "end": 2.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " he",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " used",
+              "start": 2.17,
+              "end": 2.35,
+              "probability": 0.734375
+            },
+            {
+              "text": " no",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " scurrilous",
+              "start": 2.57,
+              "end": 3.11,
+              "probability": 0.9190673828125
+            },
+            {
+              "text": " words",
+              "start": 3.11,
+              "end": 3.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " stoons.",
+              "start": 3.55,
+              "end": 3.97,
+              "probability": 0.5242919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita.",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "raw": "Forwarn",
+          "start": 1.49,
+          "end": 1.71
+        },
+        {
+          "raw": "him",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "raw": "that",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "used",
+          "start": 2.17,
+          "end": 2.35
+        },
+        {
+          "raw": "no",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "scurrilous",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "raw": "words",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "raw": "in",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "stoons.",
+          "start": 3.55,
+          "end": 3.97
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "Forewarn",
+        "him",
+        "that",
+        "he",
+        "use",
+        "no",
+        "scurrilous",
+        "words",
+        "in",
+        "'s",
+        "tunes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          5,
+          2,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          10,
+          6,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita.",
+          "start": 0.61,
+          "end": 1.05,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Forwarn",
+          "start": 1.49,
+          "end": 1.71,
+          "key": "forwarn",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "him",
+          "start": 1.71,
+          "end": 1.91,
+          "key": "him",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.91,
+          "end": 2.05,
+          "key": "that",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.17,
+          "key": "he",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "used",
+          "start": 2.17,
+          "end": 2.35,
+          "key": "used",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "no",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "scurrilous",
+          "start": 2.57,
+          "end": 3.11,
+          "key": "scurrilous",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "words",
+          "start": 3.11,
+          "end": 3.35,
+          "key": "words",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.35,
+          "end": 3.55,
+          "key": "in",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "stoons.",
+          "start": 3.55,
+          "end": 3.97,
+          "key": "stoons",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.61,
+          "end": 1.05
+        },
+        {
+          "text": "Forewarn",
+          "start": 1.05,
+          "end": 1.38
+        },
+        {
+          "text": "him",
+          "start": 1.71,
+          "end": 1.91
+        },
+        {
+          "text": "that",
+          "start": 1.91,
+          "end": 2.05
+        },
+        {
+          "text": "he",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "use",
+          "start": 2.17,
+          "end": 2.26
+        },
+        {
+          "text": "no",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "scurrilous",
+          "start": 2.57,
+          "end": 3.11
+        },
+        {
+          "text": "words",
+          "start": 3.11,
+          "end": 3.35
+        },
+        {
+          "text": "in",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "'s",
+          "start": 3.55,
+          "end": 3.76
+        },
+        {
+          "text": "tunes.",
+          "start": 3.76,
+          "end": 3.865
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2848026566207409
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e7383a8f9f185a7d28c1f76135efdd79c879227aea42b9e7c02406155c6ea110",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

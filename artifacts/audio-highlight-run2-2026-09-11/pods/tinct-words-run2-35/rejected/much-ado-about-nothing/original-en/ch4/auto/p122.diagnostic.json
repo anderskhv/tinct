@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "a17ad7b4ed7652ecd66d614166d2e57fcb9a69359b940547f88542cc5fc7bae8",
+  "attempts": [
+    {
+      "asr_seconds": 0.17606715112924576,
+      "alignment_seconds": 0.00047395937144756317,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beatrice. Speak, Count, 'tis your cue.",
+        "hotwords": "Beatrice, Speak, Count"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beatrice, Speak, Count, Teaser Cue.",
+          "start": 0.05,
+          "end": 2.47,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Speak,",
+              "start": 1.33,
+              "end": 1.33,
+              "probability": 0.1405029296875
+            },
+            {
+              "text": " Count,",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Teaser",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.904052734375
+            },
+            {
+              "text": " Cue.",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.036529541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "raw": "Count,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "Teaser",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "Cue.",
+          "start": 2.27,
+          "end": 2.47
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "Speak,",
+        "Count,",
+        "'tis",
+        "your",
+        "cue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ],
+        [
+          "equal",
+          5,
+          6,
+          4,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          5,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.33,
+          "end": 1.33,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Count,",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Teaser",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "teaser",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Cue.",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "cue",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Speak,",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "text": "Count,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "'tis",
+          "start": 1.69,
+          "end": 1.98
+        },
+        {
+          "text": "your",
+          "start": 1.98,
+          "end": 2.125
+        },
+        {
+          "text": "cue.",
+          "start": 2.27,
+          "end": 2.47
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.6666666666666666,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.17666979879140854
+    },
+    {
+      "asr_seconds": 0.21433383412659168,
+      "alignment_seconds": 0.00043606944382190704,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Beatrice, Speak, Count"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Beatrice, Speak, Count, Teaser Queue",
+          "start": 0.05,
+          "end": 2.77,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.958984375
+            },
+            {
+              "text": " Speak,",
+              "start": 1.33,
+              "end": 1.33,
+              "probability": 0.1405029296875
+            },
+            {
+              "text": " Count,",
+              "start": 1.47,
+              "end": 1.69,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Teaser",
+              "start": 2.05,
+              "end": 2.27,
+              "probability": 0.904052734375
+            },
+            {
+              "text": " Queue",
+              "start": 2.27,
+              "end": 2.77,
+              "probability": 0.6507568359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "raw": "Count,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "raw": "Teaser",
+          "start": 2.05,
+          "end": 2.27
+        },
+        {
+          "raw": "Queue",
+          "start": 2.27,
+          "end": 2.77
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "Speak,",
+        "Count,",
+        "'tis",
+        "your",
+        "cue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Speak,",
+          "start": 1.33,
+          "end": 1.33,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Count,",
+          "start": 1.47,
+          "end": 1.69,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Teaser",
+          "start": 2.05,
+          "end": 2.27,
+          "key": "teaser",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Queue",
+          "start": 2.27,
+          "end": 2.77,
+          "key": "queue",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Speak,",
+          "start": 1.33,
+          "end": 1.33
+        },
+        {
+          "text": "Count,",
+          "start": 1.47,
+          "end": 1.69
+        },
+        {
+          "text": "'tis",
+          "start": 1.69,
+          "end": 2.23
+        },
+        {
+          "text": "your",
+          "start": 2.23,
+          "end": 2.5
+        },
+        {
+          "text": "cue.",
+          "start": 2.5,
+          "end": 2.635
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.21489862725138664
+    },
+    {
+      "asr_seconds": 0.19011028669774532,
+      "alignment_seconds": 0.00043498724699020386,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Beatrice speak count teaser queue",
+          "start": 0.05,
+          "end": 2.53,
+          "words": [
+            {
+              "text": " Beatrice",
+              "start": 0.05,
+              "end": 0.93,
+              "probability": 0.958984375
+            },
+            {
+              "text": " speak",
+              "start": 0.93,
+              "end": 1.33,
+              "probability": 0.326904296875
+            },
+            {
+              "text": " count",
+              "start": 1.33,
+              "end": 1.73,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " teaser",
+              "start": 1.73,
+              "end": 2.17,
+              "probability": 0.912109375
+            },
+            {
+              "text": " queue",
+              "start": 2.17,
+              "end": 2.53,
+              "probability": 0.462158203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "raw": "speak",
+          "start": 0.93,
+          "end": 1.33
+        },
+        {
+          "raw": "count",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "raw": "teaser",
+          "start": 1.73,
+          "end": 2.17
+        },
+        {
+          "raw": "queue",
+          "start": 2.17,
+          "end": 2.53
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "Speak,",
+        "Count,",
+        "'tis",
+        "your",
+        "cue."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          6,
+          3,
+          5
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice",
+          "start": 0.05,
+          "end": 0.93,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 0.93,
+          "end": 1.33,
+          "key": "speak",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "count",
+          "start": 1.33,
+          "end": 1.73,
+          "key": "count",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "teaser",
+          "start": 1.73,
+          "end": 2.17,
+          "key": "teaser",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "queue",
+          "start": 2.17,
+          "end": 2.53,
+          "key": "queue",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.05,
+          "end": 0.93
+        },
+        {
+          "text": "Speak,",
+          "start": 0.93,
+          "end": 1.33
+        },
+        {
+          "text": "Count,",
+          "start": 1.33,
+          "end": 1.73
+        },
+        {
+          "text": "'tis",
+          "start": 1.73,
+          "end": 2.13
+        },
+        {
+          "text": "your",
+          "start": 2.13,
+          "end": 2.33
+        },
+        {
+          "text": "cue.",
+          "start": 2.33,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 5,
+        "matched_words": 3
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1906735897064209
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cd7e1d4f3b9b3bf45aa80ef67813d7ddd84e2c7432569920174583746b1e06b7",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

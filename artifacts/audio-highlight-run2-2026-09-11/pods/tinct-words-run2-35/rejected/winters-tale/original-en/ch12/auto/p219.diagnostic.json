@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "042ba33b1d1e50dfeb7bab3b0d7cbc229e359de070085287c1935369e55d413f",
+  "attempts": [
+    {
+      "asr_seconds": 0.2720340173691511,
+      "alignment_seconds": 0.0005339886993169785,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Florizel. O Perdita, what have we twain forgot? Pray you a word.",
+        "hotwords": "Florizel, O, Perdita, Pray"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Florizel, O Perdita, what have we twain forgot? Pray you a word.",
+          "start": 0.65,
+          "end": 4.01,
+          "words": [
+            {
+              "text": " Florizel,",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.2969868977864583
+            },
+            {
+              "text": " O",
+              "start": 1.45,
+              "end": 1.51,
+              "probability": 0.64453125
+            },
+            {
+              "text": " Perdita,",
+              "start": 1.51,
+              "end": 1.99,
+              "probability": 0.90234375
+            },
+            {
+              "text": " what",
+              "start": 2.11,
+              "end": 2.13,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " have",
+              "start": 2.13,
+              "end": 2.23,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " we",
+              "start": 2.23,
+              "end": 2.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " twain",
+              "start": 2.35,
+              "end": 2.57,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " forgot?",
+              "start": 2.57,
+              "end": 2.93,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Pray",
+              "start": 3.35,
+              "end": 3.53,
+              "probability": 0.946044921875
+            },
+            {
+              "text": " you",
+              "start": 3.53,
+              "end": 3.67,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " a",
+              "start": 3.67,
+              "end": 3.81,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " word.",
+              "start": 3.81,
+              "end": 4.01,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizel,",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "O",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "raw": "Perdita,",
+          "start": 1.51,
+          "end": 1.99
+        },
+        {
+          "raw": "what",
+          "start": 2.11,
+          "end": 2.13
+        },
+        {
+          "raw": "have",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "raw": "we",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "raw": "twain",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "raw": "forgot?",
+          "start": 2.57,
+          "end": 2.93
+        },
+        {
+          "raw": "Pray",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "raw": "you",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "raw": "a",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "raw": "word.",
+          "start": 3.81,
+          "end": 4.01
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "O",
+        "Perdita,",
+        "what",
+        "have",
+        "we",
+        "twain",
+        "forgot?",
+        "Pray",
+        "you",
+        "a",
+        "word."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizel,",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "florizel",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O",
+          "start": 1.45,
+          "end": 1.51,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Perdita,",
+          "start": 1.51,
+          "end": 1.99,
+          "key": "perdita",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "what",
+          "start": 2.11,
+          "end": 2.13,
+          "key": "what",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 2.13,
+          "end": 2.23,
+          "key": "have",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 2.23,
+          "end": 2.35,
+          "key": "we",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "twain",
+          "start": 2.35,
+          "end": 2.57,
+          "key": "twain",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "forgot?",
+          "start": 2.57,
+          "end": 2.93,
+          "key": "forgot",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Pray",
+          "start": 3.35,
+          "end": 3.53,
+          "key": "pray",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.53,
+          "end": 3.67,
+          "key": "you",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.67,
+          "end": 3.81,
+          "key": "a",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "word.",
+          "start": 3.81,
+          "end": 4.01,
+          "key": "word",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "O",
+          "start": 1.45,
+          "end": 1.51
+        },
+        {
+          "text": "Perdita,",
+          "start": 1.51,
+          "end": 1.99
+        },
+        {
+          "text": "what",
+          "start": 2.11,
+          "end": 2.13
+        },
+        {
+          "text": "have",
+          "start": 2.13,
+          "end": 2.23
+        },
+        {
+          "text": "we",
+          "start": 2.23,
+          "end": 2.35
+        },
+        {
+          "text": "twain",
+          "start": 2.35,
+          "end": 2.57
+        },
+        {
+          "text": "forgot?",
+          "start": 2.57,
+          "end": 2.93
+        },
+        {
+          "text": "Pray",
+          "start": 3.35,
+          "end": 3.53
+        },
+        {
+          "text": "you",
+          "start": 3.53,
+          "end": 3.67
+        },
+        {
+          "text": "a",
+          "start": 3.67,
+          "end": 3.81
+        },
+        {
+          "text": "word.",
+          "start": 3.81,
+          "end": 4.01
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27278705313801765
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e42ad99afe680829d9f1b748dba670f8b6c294862db0463b884122635ffaafcd",
+  "selected_reasons": []
+}

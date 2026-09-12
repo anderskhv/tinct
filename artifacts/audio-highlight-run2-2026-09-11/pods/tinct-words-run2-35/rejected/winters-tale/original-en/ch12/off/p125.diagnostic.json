@@ -1,0 +1,169 @@
+{
+  "complete": true,
+  "signature": "f0fe3703448ebbd8e808ba08cfd1c3c794392aea9be782217f7899c6fb63b0cc",
+  "attempts": [
+    {
+      "asr_seconds": 0.14349188841879368,
+      "alignment_seconds": 0.00029469653964042664,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Polyxenes, fairly.",
+          "start": 0.05,
+          "end": 1.57,
+          "words": [
+            {
+              "text": " Polyxenes,",
+              "start": 0.05,
+              "end": 1.03,
+              "probability": 0.6171875
+            },
+            {
+              "text": " fairly.",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Polyxenes,",
+          "start": 0.05,
+          "end": 1.03
+        },
+        {
+          "raw": "fairly.",
+          "start": 1.25,
+          "end": 1.57
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "Fairly",
+        "offer'd."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          2,
+          3,
+          2,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Polyxenes,",
+          "start": 0.05,
+          "end": 1.03,
+          "key": "polyxenes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fairly.",
+          "start": 1.25,
+          "end": 1.57,
+          "key": "fairly",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.0,
+          "end": 0.625
+        },
+        {
+          "text": "Fairly",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "offer'd.",
+          "start": 1.57,
+          "end": 1.57
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.3333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1438677180558443
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b8224e5df36ba8e54d491003f9d339fdd10e48d52a699d593afde290b7e0ff25",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

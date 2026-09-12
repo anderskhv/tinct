@@ -1,0 +1,629 @@
+{
+  "complete": true,
+  "signature": "a8f16b2237c544fe85ba674e6e3e394c1d471b286c19ea89a6526a92cad75d7b",
+  "attempts": [
+    {
+      "asr_seconds": 0.29645491018891335,
+      "alignment_seconds": 0.000666305422782898,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Florizol, Camillo has betrayed me, whose honor and whose honesty till now endured all",
+          "start": 0.05,
+          "end": 5.87,
+          "words": [
+            {
+              "text": " Florizol,",
+              "start": 0.05,
+              "end": 1.05,
+              "probability": 0.5902506510416666
+            },
+            {
+              "text": " Camillo",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.860107421875
+            },
+            {
+              "text": " has",
+              "start": 1.89,
+              "end": 2.11,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " betrayed",
+              "start": 2.11,
+              "end": 2.49,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " me,",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whose",
+              "start": 3.25,
+              "end": 3.37,
+              "probability": 0.833984375
+            },
+            {
+              "text": " honor",
+              "start": 3.37,
+              "end": 3.69,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " and",
+              "start": 3.69,
+              "end": 3.89,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " whose",
+              "start": 3.89,
+              "end": 4.07,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " honesty",
+              "start": 4.07,
+              "end": 4.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " till",
+              "start": 4.47,
+              "end": 4.69,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " now",
+              "start": 4.69,
+              "end": 5.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " endured",
+              "start": 5.05,
+              "end": 5.55,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " all",
+              "start": 5.55,
+              "end": 5.87,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " weathers.",
+          "start": 5.87,
+          "end": 6.47,
+          "words": [
+            {
+              "text": " weathers.",
+              "start": 5.87,
+              "end": 6.47,
+              "probability": 0.9248046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Florizol,",
+          "start": 0.05,
+          "end": 1.05
+        },
+        {
+          "raw": "Camillo",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "has",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "raw": "betrayed",
+          "start": 2.11,
+          "end": 2.49
+        },
+        {
+          "raw": "me,",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "raw": "whose",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "raw": "honor",
+          "start": 3.37,
+          "end": 3.69
+        },
+        {
+          "raw": "and",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "raw": "whose",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "raw": "honesty",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "raw": "till",
+          "start": 4.47,
+          "end": 4.69
+        },
+        {
+          "raw": "now",
+          "start": 4.69,
+          "end": 5.05
+        },
+        {
+          "raw": "endured",
+          "start": 5.05,
+          "end": 5.55
+        },
+        {
+          "raw": "all",
+          "start": 5.55,
+          "end": 5.87
+        },
+        {
+          "raw": "weathers.",
+          "start": 5.87,
+          "end": 6.47
+        }
+      ],
+      "expected_tokens": [
+        "Florizel.",
+        "Camillo",
+        "has",
+        "betray'd",
+        "me;",
+        "Whose",
+        "honour",
+        "and",
+        "whose",
+        "honesty",
+        "till",
+        "now,",
+        "Endur'd",
+        "all",
+        "weathers."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          12,
+          7,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ],
+        [
+          "equal",
+          13,
+          15,
+          13,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Florizol,",
+          "start": 0.05,
+          "end": 1.05,
+          "key": "florizol",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Camillo",
+          "start": 1.61,
+          "end": 1.89,
+          "key": "camillo",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 1.89,
+          "end": 2.11,
+          "key": "has",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "betrayed",
+          "start": 2.11,
+          "end": 2.49,
+          "key": "betrayed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 2.49,
+          "end": 2.85,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 3.25,
+          "end": 3.37,
+          "key": "whose",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "honor",
+          "start": 3.37,
+          "end": 3.69,
+          "key": "honor",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.69,
+          "end": 3.89,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "whose",
+          "start": 3.89,
+          "end": 4.07,
+          "key": "whose",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "honesty",
+          "start": 4.07,
+          "end": 4.47,
+          "key": "honesty",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "till",
+          "start": 4.47,
+          "end": 4.69,
+          "key": "till",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 4.69,
+          "end": 5.05,
+          "key": "now",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "endured",
+          "start": 5.05,
+          "end": 5.55,
+          "key": "endured",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 5.55,
+          "end": 5.87,
+          "key": "all",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "weathers.",
+          "start": 5.87,
+          "end": 6.47,
+          "key": "weathers",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Florizel.",
+          "start": 0.0,
+          "end": 0.805
+        },
+        {
+          "text": "Camillo",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "has",
+          "start": 1.89,
+          "end": 2.11
+        },
+        {
+          "text": "betray'd",
+          "start": 2.11,
+          "end": 2.3
+        },
+        {
+          "text": "me;",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "text": "Whose",
+          "start": 3.25,
+          "end": 3.37
+        },
+        {
+          "text": "honour",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "and",
+          "start": 3.69,
+          "end": 3.89
+        },
+        {
+          "text": "whose",
+          "start": 3.89,
+          "end": 4.07
+        },
+        {
+          "text": "honesty",
+          "start": 4.07,
+          "end": 4.47
+        },
+        {
+          "text": "till",
+          "start": 4.47,
+          "end": 4.69
+        },
+        {
+          "text": "now,",
+          "start": 4.69,
+          "end": 5.05
+        },
+        {
+          "text": "Endur'd",
+          "start": 5.05,
+          "end": 5.3
+        },
+        {
+          "text": "all",
+          "start": 5.55,
+          "end": 5.87
+        },
+        {
+          "text": "weathers.",
+          "start": 5.87,
+          "end": 6.47
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 11
+      },
+      "match_ratio": 0.7333333333333333,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2973188403993845
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0eea5f4cdfb4fa5081a470e64a446057dd006e7392c2877605534200b88d05ec",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,510 @@
+{
+  "complete": true,
+  "signature": "7d0475021101e2697e3f884b1f48e4d28225c2a26eb3dc0940f27417f9ff8457",
+  "attempts": [
+    {
+      "asr_seconds": 0.20978737249970436,
+      "alignment_seconds": 0.0004150811582803726,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Leonato. Well, niece, I hope to see you one day fitted with a husband.",
+        "hotwords": "Leonato, Well, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Leonato, Well, niece, I hope to see you one day fitted with a husband.",
+          "start": 0.87,
+          "end": 4.27,
+          "words": [
+            {
+              "text": " Leonato,",
+              "start": 0.87,
+              "end": 1.29,
+              "probability": 0.332122802734375
+            },
+            {
+              "text": " Well,",
+              "start": 1.29,
+              "end": 1.71,
+              "probability": 0.10076904296875
+            },
+            {
+              "text": " niece,",
+              "start": 1.83,
+              "end": 1.99,
+              "probability": 0.5791015625
+            },
+            {
+              "text": " I",
+              "start": 2.37,
+              "end": 2.39,
+              "probability": 0.970703125
+            },
+            {
+              "text": " hope",
+              "start": 2.39,
+              "end": 2.53,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " to",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see",
+              "start": 2.67,
+              "end": 2.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.79,
+              "end": 2.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " one",
+              "start": 2.99,
+              "end": 3.17,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " day",
+              "start": 3.17,
+              "end": 3.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " fitted",
+              "start": 3.43,
+              "end": 3.69,
+              "probability": 0.9609375
+            },
+            {
+              "text": " with",
+              "start": 3.69,
+              "end": 3.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 3.91,
+              "end": 3.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " husband.",
+              "start": 3.99,
+              "end": 4.27,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Leonato,",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "raw": "Well,",
+          "start": 1.29,
+          "end": 1.71
+        },
+        {
+          "raw": "niece,",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "raw": "I",
+          "start": 2.37,
+          "end": 2.39
+        },
+        {
+          "raw": "hope",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "see",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "raw": "you",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "raw": "one",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "raw": "day",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "raw": "fitted",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "raw": "with",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "raw": "a",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "raw": "husband.",
+          "start": 3.99,
+          "end": 4.27
+        }
+      ],
+      "expected_tokens": [
+        "Leonato.",
+        "Well,",
+        "niece,",
+        "I",
+        "hope",
+        "to",
+        "see",
+        "you",
+        "one",
+        "day",
+        "fitted",
+        "with",
+        "a",
+        "husband."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Leonato,",
+          "start": 0.87,
+          "end": 1.29,
+          "key": "leonato",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Well,",
+          "start": 1.29,
+          "end": 1.71,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "niece,",
+          "start": 1.83,
+          "end": 1.99,
+          "key": "niece",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.37,
+          "end": 2.39,
+          "key": "i",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 2.39,
+          "end": 2.53,
+          "key": "hope",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.53,
+          "end": 2.67,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.67,
+          "end": 2.79,
+          "key": "see",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.79,
+          "end": 2.99,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one",
+          "start": 2.99,
+          "end": 3.17,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "day",
+          "start": 3.17,
+          "end": 3.43,
+          "key": "day",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fitted",
+          "start": 3.43,
+          "end": 3.69,
+          "key": "fitted",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 3.69,
+          "end": 3.91,
+          "key": "with",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.91,
+          "end": 3.99,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "husband.",
+          "start": 3.99,
+          "end": 4.27,
+          "key": "husband",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Leonato.",
+          "start": 0.87,
+          "end": 1.29
+        },
+        {
+          "text": "Well,",
+          "start": 1.29,
+          "end": 1.71
+        },
+        {
+          "text": "niece,",
+          "start": 1.83,
+          "end": 1.99
+        },
+        {
+          "text": "I",
+          "start": 2.37,
+          "end": 2.39
+        },
+        {
+          "text": "hope",
+          "start": 2.39,
+          "end": 2.53
+        },
+        {
+          "text": "to",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "see",
+          "start": 2.67,
+          "end": 2.79
+        },
+        {
+          "text": "you",
+          "start": 2.79,
+          "end": 2.99
+        },
+        {
+          "text": "one",
+          "start": 2.99,
+          "end": 3.17
+        },
+        {
+          "text": "day",
+          "start": 3.17,
+          "end": 3.43
+        },
+        {
+          "text": "fitted",
+          "start": 3.43,
+          "end": 3.69
+        },
+        {
+          "text": "with",
+          "start": 3.69,
+          "end": 3.91
+        },
+        {
+          "text": "a",
+          "start": 3.91,
+          "end": 3.99
+        },
+        {
+          "text": "husband.",
+          "start": 3.99,
+          "end": 4.27
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21036983095109463
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "13c2065f4e1211a411ca064935c8de80c1ce65b9f29661e480bd710561f0e68c",
+  "selected_reasons": []
+}

@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "9a4fab57e1f2f156b89f910c1c22789980412ce24d5d3c40290981cb18e98484",
+  "attempts": [
+    {
+      "asr_seconds": 0.25982472114264965,
+      "alignment_seconds": 0.0004788581281900406,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perdita. Happy be you! All that you speak shows fair.",
+        "hotwords": "Perdita, Happy, All"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perdita, Happy be you! All that you speak shows fair.",
+          "start": 0.49,
+          "end": 3.13,
+          "words": [
+            {
+              "text": " Perdita,",
+              "start": 0.49,
+              "end": 0.89,
+              "probability": 0.916015625
+            },
+            {
+              "text": " Happy",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.42529296875
+            },
+            {
+              "text": " be",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.01395416259765625
+            },
+            {
+              "text": " you!",
+              "start": 1.47,
+              "end": 1.67,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " All",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " that",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " you",
+              "start": 2.23,
+              "end": 2.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " speak",
+              "start": 2.33,
+              "end": 2.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shows",
+              "start": 2.53,
+              "end": 2.81,
+              "probability": 0.982421875
+            },
+            {
+              "text": " fair.",
+              "start": 2.81,
+              "end": 3.13,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perdita,",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "raw": "Happy",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "be",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "you!",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "raw": "All",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "that",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "you",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "raw": "speak",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "raw": "shows",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "raw": "fair.",
+          "start": 2.81,
+          "end": 3.13
+        }
+      ],
+      "expected_tokens": [
+        "Perdita.",
+        "Happy",
+        "be",
+        "you!",
+        "All",
+        "that",
+        "you",
+        "speak",
+        "shows",
+        "fair."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Perdita,",
+          "start": 0.49,
+          "end": 0.89,
+          "key": "perdita",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Happy",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "happy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you!",
+          "start": 1.47,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "All",
+          "start": 1.93,
+          "end": 2.11,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "that",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.23,
+          "end": 2.33,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "speak",
+          "start": 2.33,
+          "end": 2.53,
+          "key": "speak",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "shows",
+          "start": 2.53,
+          "end": 2.81,
+          "key": "shows",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "fair.",
+          "start": 2.81,
+          "end": 3.13,
+          "key": "fair",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Perdita.",
+          "start": 0.49,
+          "end": 0.89
+        },
+        {
+          "text": "Happy",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "text": "be",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "you!",
+          "start": 1.47,
+          "end": 1.67
+        },
+        {
+          "text": "All",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "that",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "you",
+          "start": 2.23,
+          "end": 2.33
+        },
+        {
+          "text": "speak",
+          "start": 2.33,
+          "end": 2.53
+        },
+        {
+          "text": "shows",
+          "start": 2.53,
+          "end": 2.81
+        },
+        {
+          "text": "fair.",
+          "start": 2.81,
+          "end": 3.13
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26054198667407036
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b5a84cbe9d6f2cd33d56f7688cc4b22b5d01a67304f10e96fca72a54a50eb32d",
+  "selected_reasons": []
+}

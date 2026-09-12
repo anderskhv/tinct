@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "72c525fb1e1b0116092f37bc0d4e4fed834b9595684bf9b7ea491fc7c302e8d5",
+  "attempts": [
+    {
+      "asr_seconds": 0.12263805419206619,
+      "alignment_seconds": 0.0001959577202796936,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus.",
+        "hotwords": "Autolycus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus.",
+          "start": 0.02,
+          "end": 1.02,
+          "words": [
+            {
+              "text": " Autolycus.",
+              "start": 0.02,
+              "end": 1.02,
+              "probability": 0.8219401041666666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus.",
+          "start": 0.02,
+          "end": 1.02
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus.",
+          "start": 0.02,
+          "end": 1.02,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.02,
+          "end": 1.02
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1228985209017992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fe9f65650991363d29da8d79297786170736526517bb06f391b35b74b41e4225",
+  "selected_reasons": []
+}

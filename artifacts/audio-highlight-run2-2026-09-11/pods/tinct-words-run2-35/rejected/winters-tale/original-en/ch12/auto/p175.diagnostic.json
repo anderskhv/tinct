@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "4c181a165f9b22a03351a749b81106ad5d22c561c8c306dbe76c4592b27d285c",
+  "attempts": [
+    {
+      "asr_seconds": 0.35814349725842476,
+      "alignment_seconds": 0.000502273440361023,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Camillo. Have you thought on A place whereto you'll go?",
+        "hotwords": "Camillo, Have, A"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Camillo, Have you thought on A place whereto you'll go?",
+          "start": 0.05,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Camillo,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " Have",
+              "start": 1.27,
+              "end": 1.33,
+              "probability": 0.016357421875
+            },
+            {
+              "text": " you",
+              "start": 1.33,
+              "end": 1.45,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thought",
+              "start": 1.45,
+              "end": 1.61,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " on",
+              "start": 1.61,
+              "end": 1.77,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " A",
+              "start": 1.77,
+              "end": 1.89,
+              "probability": 0.00226593017578125
+            },
+            {
+              "text": " place",
+              "start": 1.89,
+              "end": 2.01,
+              "probability": 0.876953125
+            },
+            {
+              "text": " whereto",
+              "start": 2.01,
+              "end": 2.41,
+              "probability": 0.45744991302490234
+            },
+            {
+              "text": " you'll",
+              "start": 2.41,
+              "end": 2.63,
+              "probability": 0.870361328125
+            },
+            {
+              "text": " go?",
+              "start": 2.63,
+              "end": 2.85,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "Have",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "raw": "thought",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "raw": "on",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "raw": "A",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "raw": "place",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "raw": "whereto",
+          "start": 2.01,
+          "end": 2.41
+        },
+        {
+          "raw": "you'll",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "raw": "go?",
+          "start": 2.63,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "Have",
+        "you",
+        "thought",
+        "on",
+        "A",
+        "place",
+        "whereto",
+        "you'll",
+        "go?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Have",
+          "start": 1.27,
+          "end": 1.33,
+          "key": "have",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.33,
+          "end": 1.45,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "thought",
+          "start": 1.45,
+          "end": 1.61,
+          "key": "thought",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.61,
+          "end": 1.77,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "A",
+          "start": 1.77,
+          "end": 1.89,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "place",
+          "start": 1.89,
+          "end": 2.01,
+          "key": "place",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "whereto",
+          "start": 2.01,
+          "end": 2.41,
+          "key": "whereto",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you'll",
+          "start": 2.41,
+          "end": 2.63,
+          "key": "youll",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "go?",
+          "start": 2.63,
+          "end": 2.85,
+          "key": "go",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Have",
+          "start": 1.27,
+          "end": 1.33
+        },
+        {
+          "text": "you",
+          "start": 1.33,
+          "end": 1.45
+        },
+        {
+          "text": "thought",
+          "start": 1.45,
+          "end": 1.61
+        },
+        {
+          "text": "on",
+          "start": 1.61,
+          "end": 1.77
+        },
+        {
+          "text": "A",
+          "start": 1.77,
+          "end": 1.89
+        },
+        {
+          "text": "place",
+          "start": 1.89,
+          "end": 2.01
+        },
+        {
+          "text": "whereto",
+          "start": 2.01,
+          "end": 2.41
+        },
+        {
+          "text": "you'll",
+          "start": 2.41,
+          "end": 2.63
+        },
+        {
+          "text": "go?",
+          "start": 2.63,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.358839251101017
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f2e4b2cbc11ec95057529b3f7350894b168d82458e7089bcdf31cb1543e618a0",
+  "selected_reasons": []
+}

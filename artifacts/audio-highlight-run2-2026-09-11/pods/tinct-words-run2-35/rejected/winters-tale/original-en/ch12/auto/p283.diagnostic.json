@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "3497f6b95321cd8ee771ae18aa2fc68da658d9078aa1a98a124d32beeb382161",
+  "attempts": [
+    {
+      "asr_seconds": 0.2236954364925623,
+      "alignment_seconds": 0.0005730800330638885,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Clown. We are blessed in this man, as I may say, even blessed.",
+        "hotwords": "Clown, We, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Clown, We are blessed in this man, as I may say, even blessed.",
+          "start": 0.08,
+          "end": 3.7,
+          "words": [
+            {
+              "text": " Clown,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.51025390625
+            },
+            {
+              "text": " We",
+              "start": 1.22,
+              "end": 1.38,
+              "probability": 0.02020263671875
+            },
+            {
+              "text": " are",
+              "start": 1.38,
+              "end": 1.48,
+              "probability": 0.943359375
+            },
+            {
+              "text": " blessed",
+              "start": 1.48,
+              "end": 1.66,
+              "probability": 0.9453125
+            },
+            {
+              "text": " in",
+              "start": 1.66,
+              "end": 1.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " this",
+              "start": 1.84,
+              "end": 1.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " man,",
+              "start": 1.96,
+              "end": 2.22,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " as",
+              "start": 2.4,
+              "end": 2.44,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " I",
+              "start": 2.44,
+              "end": 2.56,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " may",
+              "start": 2.56,
+              "end": 2.66,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " say,",
+              "start": 2.66,
+              "end": 2.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " even",
+              "start": 3.2,
+              "end": 3.36,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " blessed.",
+              "start": 3.36,
+              "end": 3.7,
+              "probability": 0.947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "We",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "raw": "are",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "raw": "blessed",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "raw": "in",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "raw": "this",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "raw": "man,",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "raw": "as",
+          "start": 2.4,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "raw": "may",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "raw": "say,",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "raw": "even",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "raw": "blessed.",
+          "start": 3.36,
+          "end": 3.7
+        }
+      ],
+      "expected_tokens": [
+        "Clown.",
+        "We",
+        "are",
+        "blessed",
+        "in",
+        "this",
+        "man,",
+        "as",
+        "I",
+        "may",
+        "say,",
+        "even",
+        "blessed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Clown,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "clown",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We",
+          "start": 1.22,
+          "end": 1.38,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.38,
+          "end": 1.48,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "blessed",
+          "start": 1.48,
+          "end": 1.66,
+          "key": "blessed",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.66,
+          "end": 1.84,
+          "key": "in",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.84,
+          "end": 1.96,
+          "key": "this",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "man,",
+          "start": 1.96,
+          "end": 2.22,
+          "key": "man",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "as",
+          "start": 2.4,
+          "end": 2.44,
+          "key": "as",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.44,
+          "end": 2.56,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 2.56,
+          "end": 2.66,
+          "key": "may",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 2.66,
+          "end": 2.96,
+          "key": "say",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "even",
+          "start": 3.2,
+          "end": 3.36,
+          "key": "even",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "blessed.",
+          "start": 3.36,
+          "end": 3.7,
+          "key": "blessed",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Clown.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "We",
+          "start": 1.22,
+          "end": 1.38
+        },
+        {
+          "text": "are",
+          "start": 1.38,
+          "end": 1.48
+        },
+        {
+          "text": "blessed",
+          "start": 1.48,
+          "end": 1.66
+        },
+        {
+          "text": "in",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "text": "this",
+          "start": 1.84,
+          "end": 1.96
+        },
+        {
+          "text": "man,",
+          "start": 1.96,
+          "end": 2.22
+        },
+        {
+          "text": "as",
+          "start": 2.4,
+          "end": 2.44
+        },
+        {
+          "text": "I",
+          "start": 2.44,
+          "end": 2.56
+        },
+        {
+          "text": "may",
+          "start": 2.56,
+          "end": 2.66
+        },
+        {
+          "text": "say,",
+          "start": 2.66,
+          "end": 2.96
+        },
+        {
+          "text": "even",
+          "start": 3.2,
+          "end": 3.36
+        },
+        {
+          "text": "blessed.",
+          "start": 3.36,
+          "end": 3.7
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2245231419801712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3809106b1472acd6373abc89c1b97e12c1aa9a79ae27f5e211fea21e322322c6",
+  "selected_reasons": []
+}

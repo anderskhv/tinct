@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "cbf3186d58922eaf8795696626fcfdbabed0f5ebdff0294d57ba3c62b78b0bec",
+  "attempts": [
+    {
+      "asr_seconds": 0.20429924130439758,
+      "alignment_seconds": 0.00025976821780204773,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Borachio. We'll wait upon your Lordship.",
+        "hotwords": "Borachio, We'll, Lordship"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Borachio, We'll wait upon your Lordship.",
+          "start": 0.59,
+          "end": 2.51,
+          "words": [
+            {
+              "text": " Borachio,",
+              "start": 0.59,
+              "end": 1.07,
+              "probability": 0.7582194010416666
+            },
+            {
+              "text": " We'll",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.45854949951171875
+            },
+            {
+              "text": " wait",
+              "start": 1.55,
+              "end": 1.63,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " upon",
+              "start": 1.63,
+              "end": 1.87,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " your",
+              "start": 1.87,
+              "end": 2.03,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " Lordship.",
+              "start": 2.03,
+              "end": 2.51,
+              "probability": 0.692138671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Borachio,",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "raw": "We'll",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "wait",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "raw": "upon",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "raw": "your",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "raw": "Lordship.",
+          "start": 2.03,
+          "end": 2.51
+        }
+      ],
+      "expected_tokens": [
+        "Borachio.",
+        "We'll",
+        "wait",
+        "upon",
+        "your",
+        "Lordship."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Borachio,",
+          "start": 0.59,
+          "end": 1.07,
+          "key": "borachio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 1.31,
+          "end": 1.55,
+          "key": "well",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "wait",
+          "start": 1.55,
+          "end": 1.63,
+          "key": "wait",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 1.63,
+          "end": 1.87,
+          "key": "upon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.87,
+          "end": 2.03,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Lordship.",
+          "start": 2.03,
+          "end": 2.51,
+          "key": "lordship",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Borachio.",
+          "start": 0.59,
+          "end": 1.07
+        },
+        {
+          "text": "We'll",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "wait",
+          "start": 1.55,
+          "end": 1.63
+        },
+        {
+          "text": "upon",
+          "start": 1.63,
+          "end": 1.87
+        },
+        {
+          "text": "your",
+          "start": 1.87,
+          "end": 2.03
+        },
+        {
+          "text": "Lordship.",
+          "start": 2.03,
+          "end": 2.51
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20465382933616638
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f8f38360f10f6b460273a5f78b3e56d372a6d36fefab987706cf6e02e944d3d7",
+  "selected_reasons": []
+}

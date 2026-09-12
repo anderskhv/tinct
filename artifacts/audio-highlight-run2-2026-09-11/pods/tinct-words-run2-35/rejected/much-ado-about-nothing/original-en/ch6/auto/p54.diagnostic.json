@@ -1,0 +1,469 @@
+{
+  "complete": true,
+  "signature": "89e4233609a7d9a91ad8e2b6cf3973dc3c6c8672891aea959963163e523f121a",
+  "attempts": [
+    {
+      "asr_seconds": 0.30886231176555157,
+      "alignment_seconds": 0.0006780270487070084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "white-bearded fellow speaks it: knavery cannot, sure, hide itself in such reverence."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " White-bearded fellow speaks it, knavery cannot, sure, hide itself in such reverence.",
+          "start": 0.02,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " White",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.61865234375
+            },
+            {
+              "text": "-bearded",
+              "start": 0.62,
+              "end": 0.94,
+              "probability": 0.8094075520833334
+            },
+            {
+              "text": " fellow",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " speaks",
+              "start": 1.22,
+              "end": 1.6,
+              "probability": 0.9140625
+            },
+            {
+              "text": " it,",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " knavery",
+              "start": 2.42,
+              "end": 2.66,
+              "probability": 0.2386932373046875
+            },
+            {
+              "text": " cannot,",
+              "start": 2.66,
+              "end": 3.08,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " sure,",
+              "start": 3.22,
+              "end": 3.52,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " hide",
+              "start": 4.02,
+              "end": 4.06,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " itself",
+              "start": 4.06,
+              "end": 4.4,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " in",
+              "start": 4.4,
+              "end": 4.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " such",
+              "start": 4.58,
+              "end": 4.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " reverence.",
+              "start": 4.78,
+              "end": 5.2,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "White",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "-bearded",
+          "start": 0.62,
+          "end": 0.94
+        },
+        {
+          "raw": "fellow",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "speaks",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "raw": "it,",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "knavery",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "raw": "cannot,",
+          "start": 2.66,
+          "end": 3.08
+        },
+        {
+          "raw": "sure,",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "raw": "hide",
+          "start": 4.02,
+          "end": 4.06
+        },
+        {
+          "raw": "itself",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "raw": "in",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "raw": "such",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "raw": "reverence.",
+          "start": 4.78,
+          "end": 5.2
+        }
+      ],
+      "expected_tokens": [
+        "white-bearded",
+        "fellow",
+        "speaks",
+        "it:",
+        "knavery",
+        "cannot,",
+        "sure,",
+        "hide",
+        "itself",
+        "in",
+        "such",
+        "reverence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "White -bearded",
+          "start": 0.02,
+          "end": 0.94,
+          "key": "whitebearded",
+          "pieces": [
+            0,
+            1
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 0.94,
+          "end": 1.22,
+          "key": "fellow",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "speaks",
+          "start": 1.22,
+          "end": 1.6,
+          "key": "speaks",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "it,",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "it",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "knavery",
+          "start": 2.42,
+          "end": 2.66,
+          "key": "knavery",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "cannot,",
+          "start": 2.66,
+          "end": 3.08,
+          "key": "cannot",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "sure,",
+          "start": 3.22,
+          "end": 3.52,
+          "key": "sure",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hide",
+          "start": 4.02,
+          "end": 4.06,
+          "key": "hide",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 4.06,
+          "end": 4.4,
+          "key": "itself",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.4,
+          "end": 4.58,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 4.58,
+          "end": 4.78,
+          "key": "such",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "reverence.",
+          "start": 4.78,
+          "end": 5.2,
+          "key": "reverence",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 0,
+          "text": "white-bearded",
+          "heard": "White -bearded",
+          "heard_indexes": [
+            0,
+            1
+          ],
+          "start": 0.02,
+          "end": 0.94
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "white-bearded",
+          "start": 0.02,
+          "end": 0.94
+        },
+        {
+          "text": "fellow",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "speaks",
+          "start": 1.22,
+          "end": 1.6
+        },
+        {
+          "text": "it:",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "knavery",
+          "start": 2.42,
+          "end": 2.66
+        },
+        {
+          "text": "cannot,",
+          "start": 2.66,
+          "end": 3.08
+        },
+        {
+          "text": "sure,",
+          "start": 3.22,
+          "end": 3.52
+        },
+        {
+          "text": "hide",
+          "start": 4.02,
+          "end": 4.06
+        },
+        {
+          "text": "itself",
+          "start": 4.06,
+          "end": 4.4
+        },
+        {
+          "text": "in",
+          "start": 4.4,
+          "end": 4.58
+        },
+        {
+          "text": "such",
+          "start": 4.58,
+          "end": 4.78
+        },
+        {
+          "text": "reverence.",
+          "start": 4.78,
+          "end": 5.2
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3097882531583309
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c455b60910864b321d7714a51a4ef58bf5c4af4d9038436b5bbaaf3f1d4c1c0a",
+  "selected_reasons": []
+}

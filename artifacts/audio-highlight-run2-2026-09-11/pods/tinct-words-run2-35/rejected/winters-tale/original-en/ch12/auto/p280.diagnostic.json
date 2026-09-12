@@ -1,0 +1,574 @@
+{
+  "complete": true,
+  "signature": "10cb1ce9ab38afd0606980c3cc54a4c00dad17fc24be47849be456df62bec77e",
+  "attempts": [
+    {
+      "asr_seconds": 0.3435607273131609,
+      "alignment_seconds": 0.0005953460931777954,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Autolycus. O, that's the case of the shepherd's son. Hang him, he'll be made an example.",
+        "hotwords": "Autolycus, O, Hang"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Autolycus, O, that's the case of the shepherd's son. Hang him, he'll be made an example.",
+          "start": 0.65,
+          "end": 5.41,
+          "words": [
+            {
+              "text": " Autolycus,",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.8165690104166666
+            },
+            {
+              "text": " O,",
+              "start": 1.45,
+              "end": 1.71,
+              "probability": 0.0007519721984863281
+            },
+            {
+              "text": " that's",
+              "start": 1.81,
+              "end": 2.07,
+              "probability": 0.968505859375
+            },
+            {
+              "text": " the",
+              "start": 2.07,
+              "end": 2.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " case",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 2.31,
+              "end": 2.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.51,
+              "end": 2.63,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " shepherd's",
+              "start": 2.63,
+              "end": 3.09,
+              "probability": 0.84912109375
+            },
+            {
+              "text": " son.",
+              "start": 3.09,
+              "end": 3.31,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " Hang",
+              "start": 3.95,
+              "end": 4.01,
+              "probability": 0.974609375
+            },
+            {
+              "text": " him,",
+              "start": 4.01,
+              "end": 4.33,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " he'll",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " be",
+              "start": 4.63,
+              "end": 4.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " made",
+              "start": 4.73,
+              "end": 4.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 4.91,
+              "end": 5.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " example.",
+              "start": 5.03,
+              "end": 5.41,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "O,",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "raw": "that's",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "raw": "case",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "of",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "raw": "shepherd's",
+          "start": 2.63,
+          "end": 3.09
+        },
+        {
+          "raw": "son.",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "raw": "Hang",
+          "start": 3.95,
+          "end": 4.01
+        },
+        {
+          "raw": "him,",
+          "start": 4.01,
+          "end": 4.33
+        },
+        {
+          "raw": "he'll",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "be",
+          "start": 4.63,
+          "end": 4.73
+        },
+        {
+          "raw": "made",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "raw": "an",
+          "start": 4.91,
+          "end": 5.03
+        },
+        {
+          "raw": "example.",
+          "start": 5.03,
+          "end": 5.41
+        }
+      ],
+      "expected_tokens": [
+        "Autolycus.",
+        "O,",
+        "that's",
+        "the",
+        "case",
+        "of",
+        "the",
+        "shepherd's",
+        "son.",
+        "Hang",
+        "him,",
+        "he'll",
+        "be",
+        "made",
+        "an",
+        "example."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Autolycus,",
+          "start": 0.65,
+          "end": 1.05,
+          "key": "autolycus",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "O,",
+          "start": 1.45,
+          "end": 1.71,
+          "key": "o",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that's",
+          "start": 1.81,
+          "end": 2.07,
+          "key": "thats",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.07,
+          "end": 2.15,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "case",
+          "start": 2.15,
+          "end": 2.31,
+          "key": "case",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.31,
+          "end": 2.51,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.63,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "shepherd's",
+          "start": 2.63,
+          "end": 3.09,
+          "key": "shepherds",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "son.",
+          "start": 3.09,
+          "end": 3.31,
+          "key": "son",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Hang",
+          "start": 3.95,
+          "end": 4.01,
+          "key": "hang",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him,",
+          "start": 4.01,
+          "end": 4.33,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "he'll",
+          "start": 4.49,
+          "end": 4.63,
+          "key": "hell",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.63,
+          "end": 4.73,
+          "key": "be",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 4.73,
+          "end": 4.91,
+          "key": "made",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 4.91,
+          "end": 5.03,
+          "key": "an",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "example.",
+          "start": 5.03,
+          "end": 5.41,
+          "key": "example",
+          "pieces": [
+            15
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Autolycus.",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "O,",
+          "start": 1.45,
+          "end": 1.71
+        },
+        {
+          "text": "that's",
+          "start": 1.81,
+          "end": 2.07
+        },
+        {
+          "text": "the",
+          "start": 2.07,
+          "end": 2.15
+        },
+        {
+          "text": "case",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "of",
+          "start": 2.31,
+          "end": 2.51
+        },
+        {
+          "text": "the",
+          "start": 2.51,
+          "end": 2.63
+        },
+        {
+          "text": "shepherd's",
+          "start": 2.63,
+          "end": 3.09
+        },
+        {
+          "text": "son.",
+          "start": 3.09,
+          "end": 3.31
+        },
+        {
+          "text": "Hang",
+          "start": 3.95,
+          "end": 4.01
+        },
+        {
+          "text": "him,",
+          "start": 4.01,
+          "end": 4.33
+        },
+        {
+          "text": "he'll",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "text": "be",
+          "start": 4.63,
+          "end": 4.73
+        },
+        {
+          "text": "made",
+          "start": 4.73,
+          "end": 4.91
+        },
+        {
+          "text": "an",
+          "start": 4.91,
+          "end": 5.03
+        },
+        {
+          "text": "example.",
+          "start": 5.03,
+          "end": 5.41
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3444014638662338
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5e300d4a4ed89157ec632fcb9af89f77131f7c5d844fe665f0a020f3826f20d8",
+  "selected_reasons": []
+}

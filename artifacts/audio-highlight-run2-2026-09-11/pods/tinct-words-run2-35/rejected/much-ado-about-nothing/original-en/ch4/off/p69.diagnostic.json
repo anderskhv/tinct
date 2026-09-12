@@ -1,0 +1,447 @@
+{
+  "complete": true,
+  "signature": "257600899c9619b16e510bbb6198f6b33f838369bb26029251ff6bc5ee3f7ff8",
+  "attempts": [
+    {
+      "asr_seconds": 0.23235291801393032,
+      "alignment_seconds": 0.0006839465349912643,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Dance, then Exe and all but Don John, Boratio and Claudio.",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " Dance,",
+              "start": 0.05,
+              "end": 0.79,
+              "probability": 0.487548828125
+            },
+            {
+              "text": " then",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " Exe",
+              "start": 1.47,
+              "end": 1.83,
+              "probability": 0.54052734375
+            },
+            {
+              "text": " and",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.845703125
+            },
+            {
+              "text": " all",
+              "start": 1.95,
+              "end": 2.07,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " but",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.91015625
+            },
+            {
+              "text": " Don",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " John,",
+              "start": 2.47,
+              "end": 2.77,
+              "probability": 0.4072265625
+            },
+            {
+              "text": " Boratio",
+              "start": 3.21,
+              "end": 3.51,
+              "probability": 0.6798095703125
+            },
+            {
+              "text": " and",
+              "start": 3.51,
+              "end": 3.81,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " Claudio.",
+              "start": 3.81,
+              "end": 4.19,
+              "probability": 0.983642578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Dance,",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "raw": "then",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "Exe",
+          "start": 1.47,
+          "end": 1.83
+        },
+        {
+          "raw": "and",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "all",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "raw": "but",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "Don",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "John,",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "raw": "Boratio",
+          "start": 3.21,
+          "end": 3.51
+        },
+        {
+          "raw": "and",
+          "start": 3.51,
+          "end": 3.81
+        },
+        {
+          "raw": "Claudio.",
+          "start": 3.81,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "[Dance.",
+        "Then",
+        "exeunt",
+        "all",
+        "but",
+        "Don",
+        "John,",
+        "Borachio",
+        "and",
+        "Claudio.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          7,
+          4,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          10,
+          9,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Dance,",
+          "start": 0.05,
+          "end": 0.79,
+          "key": "dance",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.27,
+          "end": 1.47,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Exe",
+          "start": 1.47,
+          "end": 1.83,
+          "key": "exe",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.95,
+          "end": 2.07,
+          "key": "all",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 2.07,
+          "end": 2.25,
+          "key": "but",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Don",
+          "start": 2.25,
+          "end": 2.47,
+          "key": "don",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "John,",
+          "start": 2.47,
+          "end": 2.77,
+          "key": "john",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Boratio",
+          "start": 3.21,
+          "end": 3.51,
+          "key": "boratio",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.51,
+          "end": 3.81,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Claudio.",
+          "start": 3.81,
+          "end": 4.19,
+          "key": "claudio",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Dance.",
+          "start": 0.05,
+          "end": 0.79
+        },
+        {
+          "text": "Then",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "exeunt",
+          "start": 1.47,
+          "end": 1.71
+        },
+        {
+          "text": "all",
+          "start": 1.95,
+          "end": 2.07
+        },
+        {
+          "text": "but",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "Don",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "John,",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "text": "Borachio",
+          "start": 2.77,
+          "end": 3.14
+        },
+        {
+          "text": "and",
+          "start": 3.51,
+          "end": 3.81
+        },
+        {
+          "text": "Claudio.]",
+          "start": 3.81,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.23324799723923206
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2825ca468655f076b6d2217c7ff65570ccd1cb39443330c15d809f14b2691ae8",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

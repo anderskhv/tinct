@@ -1,0 +1,702 @@
+{
+  "complete": true,
+  "signature": "35e5cbbfa2857f9552ff4afe72b86b2d307442cbb6ab22b1787bee9681787ab2",
+  "attempts": [
+    {
+      "asr_seconds": 0.32474348694086075,
+      "alignment_seconds": 0.0006319619715213776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Shepherd. Away! we'll none on 't. Here has been too much homely foolery already. I know, sir, we weary you.",
+        "hotwords": "Shepherd, Away, Here, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Shepherd, Away, We'll none on t. here has been too much homely foolery already. I know, sir, we weary you.",
+          "start": 0.36,
+          "end": 6.28,
+          "words": [
+            {
+              "text": " Shepherd,",
+              "start": 0.36,
+              "end": 0.72,
+              "probability": 0.2303466796875
+            },
+            {
+              "text": " Away,",
+              "start": 0.84,
+              "end": 1.14,
+              "probability": 0.00562286376953125
+            },
+            {
+              "text": " We'll",
+              "start": 1.72,
+              "end": 1.84,
+              "probability": 0.4403343200683594
+            },
+            {
+              "text": " none",
+              "start": 1.84,
+              "end": 1.98,
+              "probability": 0.7216796875
+            },
+            {
+              "text": " on",
+              "start": 1.98,
+              "end": 2.18,
+              "probability": 0.83984375
+            },
+            {
+              "text": " t.",
+              "start": 2.18,
+              "end": 2.38,
+              "probability": 0.0033664703369140625
+            },
+            {
+              "text": " here",
+              "start": 2.46,
+              "end": 2.6,
+              "probability": 0.73046875
+            },
+            {
+              "text": " has",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.7841796875
+            },
+            {
+              "text": " been",
+              "start": 2.76,
+              "end": 2.9,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " too",
+              "start": 2.9,
+              "end": 3.06,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " much",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " homely",
+              "start": 3.22,
+              "end": 3.66,
+              "probability": 0.7369384765625
+            },
+            {
+              "text": " foolery",
+              "start": 3.66,
+              "end": 4.06,
+              "probability": 0.912841796875
+            },
+            {
+              "text": " already.",
+              "start": 4.06,
+              "end": 4.42,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " I",
+              "start": 5.06,
+              "end": 5.14,
+              "probability": 0.974609375
+            },
+            {
+              "text": " know,",
+              "start": 5.14,
+              "end": 5.32,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " sir,",
+              "start": 5.5,
+              "end": 5.52,
+              "probability": 0.814453125
+            },
+            {
+              "text": " we",
+              "start": 5.66,
+              "end": 5.76,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " weary",
+              "start": 5.76,
+              "end": 5.98,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " you.",
+              "start": 5.98,
+              "end": 6.28,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shepherd,",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "raw": "Away,",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "raw": "We'll",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "raw": "none",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "raw": "on",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "raw": "t.",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "raw": "here",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "raw": "has",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "been",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "raw": "too",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "raw": "much",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "homely",
+          "start": 3.22,
+          "end": 3.66
+        },
+        {
+          "raw": "foolery",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "raw": "already.",
+          "start": 4.06,
+          "end": 4.42
+        },
+        {
+          "raw": "I",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "raw": "know,",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "raw": "sir,",
+          "start": 5.5,
+          "end": 5.52
+        },
+        {
+          "raw": "we",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "raw": "weary",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "raw": "you.",
+          "start": 5.98,
+          "end": 6.28
+        }
+      ],
+      "expected_tokens": [
+        "Shepherd.",
+        "Away!",
+        "we'll",
+        "none",
+        "on",
+        "'t.",
+        "Here",
+        "has",
+        "been",
+        "too",
+        "much",
+        "homely",
+        "foolery",
+        "already.",
+        "I",
+        "know,",
+        "sir,",
+        "we",
+        "weary",
+        "you."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Shepherd,",
+          "start": 0.36,
+          "end": 0.72,
+          "key": "shepherd",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Away,",
+          "start": 0.84,
+          "end": 1.14,
+          "key": "away",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "We'll",
+          "start": 1.72,
+          "end": 1.84,
+          "key": "well",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "none",
+          "start": 1.84,
+          "end": 1.98,
+          "key": "none",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 1.98,
+          "end": 2.18,
+          "key": "on",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "t.",
+          "start": 2.18,
+          "end": 2.38,
+          "key": "t",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "here",
+          "start": 2.46,
+          "end": 2.6,
+          "key": "here",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "has",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "been",
+          "start": 2.76,
+          "end": 2.9,
+          "key": "been",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "too",
+          "start": 2.9,
+          "end": 3.06,
+          "key": "too",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "much",
+          "start": 3.06,
+          "end": 3.22,
+          "key": "much",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "homely",
+          "start": 3.22,
+          "end": 3.66,
+          "key": "homely",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "foolery",
+          "start": 3.66,
+          "end": 4.06,
+          "key": "foolery",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "already.",
+          "start": 4.06,
+          "end": 4.42,
+          "key": "already",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.06,
+          "end": 5.14,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "know,",
+          "start": 5.14,
+          "end": 5.32,
+          "key": "know",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "sir,",
+          "start": 5.5,
+          "end": 5.52,
+          "key": "sir",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 5.66,
+          "end": 5.76,
+          "key": "we",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "weary",
+          "start": 5.76,
+          "end": 5.98,
+          "key": "weary",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "you.",
+          "start": 5.98,
+          "end": 6.28,
+          "key": "you",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Shepherd.",
+          "start": 0.36,
+          "end": 0.72
+        },
+        {
+          "text": "Away!",
+          "start": 0.84,
+          "end": 1.14
+        },
+        {
+          "text": "we'll",
+          "start": 1.72,
+          "end": 1.84
+        },
+        {
+          "text": "none",
+          "start": 1.84,
+          "end": 1.98
+        },
+        {
+          "text": "on",
+          "start": 1.98,
+          "end": 2.18
+        },
+        {
+          "text": "'t.",
+          "start": 2.18,
+          "end": 2.38
+        },
+        {
+          "text": "Here",
+          "start": 2.46,
+          "end": 2.6
+        },
+        {
+          "text": "has",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "text": "been",
+          "start": 2.76,
+          "end": 2.9
+        },
+        {
+          "text": "too",
+          "start": 2.9,
+          "end": 3.06
+        },
+        {
+          "text": "much",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "homely",
+          "start": 3.22,
+          "end": 3.66
+        },
+        {
+          "text": "foolery",
+          "start": 3.66,
+          "end": 4.06
+        },
+        {
+          "text": "already.",
+          "start": 4.06,
+          "end": 4.42
+        },
+        {
+          "text": "I",
+          "start": 5.06,
+          "end": 5.14
+        },
+        {
+          "text": "know,",
+          "start": 5.14,
+          "end": 5.32
+        },
+        {
+          "text": "sir,",
+          "start": 5.5,
+          "end": 5.52
+        },
+        {
+          "text": "we",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "text": "weary",
+          "start": 5.76,
+          "end": 5.98
+        },
+        {
+          "text": "you.",
+          "start": 5.98,
+          "end": 6.28
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.325689684599638
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6279643e971bf8e70d417acd21719f46fa139d4bf5417c998c1fd680ccad918c",
+  "selected_reasons": []
+}

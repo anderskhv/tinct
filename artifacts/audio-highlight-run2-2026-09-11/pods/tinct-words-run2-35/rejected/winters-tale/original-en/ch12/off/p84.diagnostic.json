@@ -1,0 +1,693 @@
+{
+  "complete": true,
+  "signature": "d2747bc860219af7d54451d95264758b9553c837ea2858860e25de97db152156",
+  "attempts": [
+    {
+      "asr_seconds": 0.3670306671410799,
+      "alignment_seconds": 0.0006458386778831482,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mopsa, we can both sing it.",
+          "start": 0.52,
+          "end": 2.18,
+          "words": [
+            {
+              "text": " Mopsa,",
+              "start": 0.52,
+              "end": 0.96,
+              "probability": 0.6488444010416666
+            },
+            {
+              "text": " we",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.97265625
+            },
+            {
+              "text": " can",
+              "start": 1.3,
+              "end": 1.42,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " both",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sing",
+              "start": 1.58,
+              "end": 1.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " it.",
+              "start": 1.9,
+              "end": 2.18,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " If thou bear a part thou shalt hear.",
+          "start": 2.5,
+          "end": 4.04,
+          "words": [
+            {
+              "text": " If",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " thou",
+              "start": 2.6,
+              "end": 2.76,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " bear",
+              "start": 2.76,
+              "end": 3.04,
+              "probability": 0.302490234375
+            },
+            {
+              "text": " a",
+              "start": 3.04,
+              "end": 3.16,
+              "probability": 0.53759765625
+            },
+            {
+              "text": " part",
+              "start": 3.16,
+              "end": 3.36,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thou",
+              "start": 3.36,
+              "end": 3.58,
+              "probability": 0.572265625
+            },
+            {
+              "text": " shalt",
+              "start": 3.58,
+              "end": 3.72,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " hear.",
+              "start": 3.72,
+              "end": 4.04,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " Tease in three parts.",
+          "start": 4.54,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " Tease",
+              "start": 4.54,
+              "end": 4.76,
+              "probability": 0.904052734375
+            },
+            {
+              "text": " in",
+              "start": 4.76,
+              "end": 4.9,
+              "probability": 0.99609375
+            },
+            {
+              "text": " three",
+              "start": 4.9,
+              "end": 5.12,
+              "probability": 0.974609375
+            },
+            {
+              "text": " parts.",
+              "start": 5.12,
+              "end": 5.5,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "raw": "we",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "can",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "raw": "both",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "sing",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "raw": "it.",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "raw": "If",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "thou",
+          "start": 2.6,
+          "end": 2.76
+        },
+        {
+          "raw": "bear",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "raw": "a",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "raw": "part",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "raw": "thou",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "raw": "shalt",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "raw": "hear.",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "raw": "Tease",
+          "start": 4.54,
+          "end": 4.76
+        },
+        {
+          "raw": "in",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "raw": "three",
+          "start": 4.9,
+          "end": 5.12
+        },
+        {
+          "raw": "parts.",
+          "start": 5.12,
+          "end": 5.5
+        }
+      ],
+      "expected_tokens": [
+        "Mopsa.",
+        "We",
+        "can",
+        "both",
+        "sing",
+        "it:",
+        "if",
+        "thou'lt",
+        "bear",
+        "a",
+        "part,",
+        "thou",
+        "shalt",
+        "hear;",
+        "'tis",
+        "in",
+        "three",
+        "parts."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          14,
+          8,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          18,
+          15,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mopsa,",
+          "start": 0.52,
+          "end": 0.96,
+          "key": "mopsa",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 1.2,
+          "end": 1.3,
+          "key": "we",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.3,
+          "end": 1.42,
+          "key": "can",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 1.42,
+          "end": 1.58,
+          "key": "both",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sing",
+          "start": 1.58,
+          "end": 1.9,
+          "key": "sing",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "it.",
+          "start": 1.9,
+          "end": 2.18,
+          "key": "it",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "If",
+          "start": 2.5,
+          "end": 2.6,
+          "key": "if",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 2.6,
+          "end": 2.76,
+          "key": "thou",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "bear",
+          "start": 2.76,
+          "end": 3.04,
+          "key": "bear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.04,
+          "end": 3.16,
+          "key": "a",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "part",
+          "start": 3.16,
+          "end": 3.36,
+          "key": "part",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "thou",
+          "start": 3.36,
+          "end": 3.58,
+          "key": "thou",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "shalt",
+          "start": 3.58,
+          "end": 3.72,
+          "key": "shalt",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "hear.",
+          "start": 3.72,
+          "end": 4.04,
+          "key": "hear",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "Tease",
+          "start": 4.54,
+          "end": 4.76,
+          "key": "tease",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.76,
+          "end": 4.9,
+          "key": "in",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 4.9,
+          "end": 5.12,
+          "key": "three",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "parts.",
+          "start": 5.12,
+          "end": 5.5,
+          "key": "parts",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mopsa.",
+          "start": 0.52,
+          "end": 0.96
+        },
+        {
+          "text": "We",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "can",
+          "start": 1.3,
+          "end": 1.42
+        },
+        {
+          "text": "both",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "sing",
+          "start": 1.58,
+          "end": 1.9
+        },
+        {
+          "text": "it:",
+          "start": 1.9,
+          "end": 2.18
+        },
+        {
+          "text": "if",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "thou'lt",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "text": "bear",
+          "start": 2.76,
+          "end": 3.04
+        },
+        {
+          "text": "a",
+          "start": 3.04,
+          "end": 3.16
+        },
+        {
+          "text": "part,",
+          "start": 3.16,
+          "end": 3.36
+        },
+        {
+          "text": "thou",
+          "start": 3.36,
+          "end": 3.58
+        },
+        {
+          "text": "shalt",
+          "start": 3.58,
+          "end": 3.72
+        },
+        {
+          "text": "hear;",
+          "start": 3.72,
+          "end": 4.04
+        },
+        {
+          "text": "'tis",
+          "start": 4.04,
+          "end": 4.4
+        },
+        {
+          "text": "in",
+          "start": 4.76,
+          "end": 4.9
+        },
+        {
+          "text": "three",
+          "start": 4.9,
+          "end": 5.12
+        },
+        {
+          "text": "parts.",
+          "start": 5.12,
+          "end": 5.5
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 16
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.36791908740997314
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "56d94e214ca3b6770385c27620a045775d62e1f0029135724844e1c0198d4abe",
+  "selected_reasons": []
+}

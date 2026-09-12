@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "3ad59d4415b181b14d0993e9ba59d35d5eb3dc29d3eb6223eb02bb5f315e5627",
+  "attempts": [
+    {
+      "asr_seconds": 0.21230614744126797,
+      "alignment_seconds": 0.0004787016659975052,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ursula. I know you by the waggling of your head.",
+        "hotwords": "Ursula, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ursula, I know you by the waggling of your head.",
+          "start": 0.45,
+          "end": 2.85,
+          "words": [
+            {
+              "text": " Ursula,",
+              "start": 0.45,
+              "end": 0.83,
+              "probability": 0.958251953125
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.37,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " know",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 1.51,
+              "end": 1.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " by",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.88671875
+            },
+            {
+              "text": " the",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " waggling",
+              "start": 1.93,
+              "end": 2.35,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 2.35,
+              "end": 2.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " your",
+              "start": 2.47,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " head.",
+              "start": 2.57,
+              "end": 2.85,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ursula,",
+          "start": 0.45,
+          "end": 0.83
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "raw": "know",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "raw": "by",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "waggling",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "raw": "of",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "raw": "your",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "raw": "head.",
+          "start": 2.57,
+          "end": 2.85
+        }
+      ],
+      "expected_tokens": [
+        "Ursula.",
+        "I",
+        "know",
+        "you",
+        "by",
+        "the",
+        "waggling",
+        "of",
+        "your",
+        "head."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Ursula,",
+          "start": 0.45,
+          "end": 0.83,
+          "key": "ursula",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.37,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "know",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "know",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.51,
+          "end": 1.67,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "by",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "waggling",
+          "start": 1.93,
+          "end": 2.35,
+          "key": "waggling",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.35,
+          "end": 2.47,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.47,
+          "end": 2.57,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "head.",
+          "start": 2.57,
+          "end": 2.85,
+          "key": "head",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Ursula.",
+          "start": 0.45,
+          "end": 0.83
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.37
+        },
+        {
+          "text": "know",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "you",
+          "start": 1.51,
+          "end": 1.67
+        },
+        {
+          "text": "by",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "the",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "waggling",
+          "start": 1.93,
+          "end": 2.35
+        },
+        {
+          "text": "of",
+          "start": 2.35,
+          "end": 2.47
+        },
+        {
+          "text": "your",
+          "start": 2.47,
+          "end": 2.57
+        },
+        {
+          "text": "head.",
+          "start": 2.57,
+          "end": 2.85
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21297643519937992
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cc472f03d503fe40b31612c8baa5d750d25720e3b4ffed7ee161b9dcb9017aba",
+  "selected_reasons": []
+}

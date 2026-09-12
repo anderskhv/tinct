@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "5b068b42e2af31d72e9a49670a439002c29a53eadf2b4aa175716de829757db8",
+  "attempts": [
+    {
+      "asr_seconds": 0.2125732507556677,
+      "alignment_seconds": 0.00029697082936763763,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Camillo. Unbuckle, unbuckle.",
+          "start": 0.0,
+          "end": 2.24,
+          "words": [
+            {
+              "text": " Camillo.",
+              "start": 0.0,
+              "end": 0.82,
+              "probability": 0.552490234375
+            },
+            {
+              "text": " Unbuckle,",
+              "start": 1.36,
+              "end": 1.76,
+              "probability": 0.9705403645833334
+            },
+            {
+              "text": " unbuckle.",
+              "start": 1.9,
+              "end": 2.24,
+              "probability": 0.959716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Camillo.",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "raw": "Unbuckle,",
+          "start": 1.36,
+          "end": 1.76
+        },
+        {
+          "raw": "unbuckle.",
+          "start": 1.9,
+          "end": 2.24
+        }
+      ],
+      "expected_tokens": [
+        "Camillo.",
+        "Unbuckle,",
+        "unbuckle."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Camillo.",
+          "start": 0.0,
+          "end": 0.82,
+          "key": "camillo",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Unbuckle,",
+          "start": 1.36,
+          "end": 1.76,
+          "key": "unbuckle",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unbuckle.",
+          "start": 1.9,
+          "end": 2.24,
+          "key": "unbuckle",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Camillo.",
+          "start": 0.0,
+          "end": 0.82
+        },
+        {
+          "text": "Unbuckle,",
+          "start": 1.36,
+          "end": 1.76
+        },
+        {
+          "text": "unbuckle.",
+          "start": 1.9,
+          "end": 2.24
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2129804752767086
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec1d6a9f23f7d54b42d24e02acd811b87f69d58ff3c9ec053764ada1467a22aa",
+  "selected_reasons": []
+}

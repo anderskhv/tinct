@@ -1,0 +1,143 @@
+{
+  "complete": true,
+  "signature": "3fac0eb3d4a8980b88fc75db586bb77df29a8c04555888db1b7b3e0c5c15b010",
+  "attempts": [
+    {
+      "asr_seconds": 0.13529996760189533,
+      "alignment_seconds": 0.0002799481153488159,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Benedict boy",
+          "start": 0.05,
+          "end": 1.11,
+          "words": [
+            {
+              "text": " Benedict",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6845703125
+            },
+            {
+              "text": " boy",
+              "start": 0.73,
+              "end": 1.11,
+              "probability": 0.328857421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Benedict",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "boy",
+          "start": 0.73,
+          "end": 1.11
+        }
+      ],
+      "expected_tokens": [
+        "Benedick.",
+        "Boy!"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "equal",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Benedict",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "benedict",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "boy",
+          "start": 0.73,
+          "end": 1.11,
+          "key": "boy",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Benedick.",
+          "start": 0.0,
+          "end": 0.365
+        },
+        {
+          "text": "Boy!",
+          "start": 0.73,
+          "end": 1.11
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.13567283749580383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8ae09fb51d6c524644942cead0202f3c393fd0696bcf60c02c80570792ebba6e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

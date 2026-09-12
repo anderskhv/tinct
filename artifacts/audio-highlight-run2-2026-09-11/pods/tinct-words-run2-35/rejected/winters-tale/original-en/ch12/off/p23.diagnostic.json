@@ -1,0 +1,564 @@
+{
+  "complete": true,
+  "signature": "8730fabd4a8d0ddd4d8978fb674f9781903aa6f4f35d0e039e8d02c143afe56c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3230469152331352,
+      "alignment_seconds": 0.0005838554352521896,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Pollock scenes, then make your garden rich in gilevers and do not call them bastards",
+          "start": 0.05,
+          "end": 5.19,
+          "words": [
+            {
+              "text": " Pollock",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.554931640625
+            },
+            {
+              "text": " scenes,",
+              "start": 0.75,
+              "end": 1.03,
+              "probability": 0.63330078125
+            },
+            {
+              "text": " then",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " make",
+              "start": 1.83,
+              "end": 2.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " your",
+              "start": 2.03,
+              "end": 2.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " garden",
+              "start": 2.19,
+              "end": 2.47,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " rich",
+              "start": 2.47,
+              "end": 2.77,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 2.77,
+              "end": 3.03,
+              "probability": 0.8359375
+            },
+            {
+              "text": " gilevers",
+              "start": 3.03,
+              "end": 3.45,
+              "probability": 0.6053873697916666
+            },
+            {
+              "text": " and",
+              "start": 3.45,
+              "end": 3.87,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " do",
+              "start": 3.87,
+              "end": 3.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 3.99,
+              "end": 4.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " call",
+              "start": 4.19,
+              "end": 4.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " them",
+              "start": 4.39,
+              "end": 4.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bastards",
+              "start": 4.57,
+              "end": 5.19,
+              "probability": 0.992919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.75
+        },
+        {
+          "raw": "scenes,",
+          "start": 0.75,
+          "end": 1.03
+        },
+        {
+          "raw": "then",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "make",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "raw": "your",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "raw": "garden",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "raw": "rich",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "raw": "gilevers",
+          "start": 3.03,
+          "end": 3.45
+        },
+        {
+          "raw": "and",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "raw": "do",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "raw": "not",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "raw": "call",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "raw": "them",
+          "start": 4.39,
+          "end": 4.57
+        },
+        {
+          "raw": "bastards",
+          "start": 4.57,
+          "end": 5.19
+        }
+      ],
+      "expected_tokens": [
+        "Polixenes.",
+        "Then",
+        "make",
+        "your",
+        "garden",
+        "rich",
+        "in",
+        "gillyvors,",
+        "And",
+        "do",
+        "not",
+        "call",
+        "them",
+        "bastards."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "equal",
+          1,
+          7,
+          2,
+          8
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          14,
+          9,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ],
+        [
+          "replace",
+          7,
+          8,
+          8,
+          9
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Pollock",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "pollock",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "scenes,",
+          "start": 0.75,
+          "end": 1.03,
+          "key": "scenes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "then",
+          "start": 1.55,
+          "end": 1.83,
+          "key": "then",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.83,
+          "end": 2.03,
+          "key": "make",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 2.03,
+          "end": 2.19,
+          "key": "your",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "garden",
+          "start": 2.19,
+          "end": 2.47,
+          "key": "garden",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "rich",
+          "start": 2.47,
+          "end": 2.77,
+          "key": "rich",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 2.77,
+          "end": 3.03,
+          "key": "in",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gilevers",
+          "start": 3.03,
+          "end": 3.45,
+          "key": "gilevers",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.45,
+          "end": 3.87,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 3.87,
+          "end": 3.99,
+          "key": "do",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.99,
+          "end": 4.19,
+          "key": "not",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "call",
+          "start": 4.19,
+          "end": 4.39,
+          "key": "call",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "them",
+          "start": 4.39,
+          "end": 4.57,
+          "key": "them",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bastards",
+          "start": 4.57,
+          "end": 5.19,
+          "key": "bastards",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Polixenes.",
+          "start": 0.0,
+          "end": 0.775
+        },
+        {
+          "text": "Then",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "make",
+          "start": 1.83,
+          "end": 2.03
+        },
+        {
+          "text": "your",
+          "start": 2.03,
+          "end": 2.19
+        },
+        {
+          "text": "garden",
+          "start": 2.19,
+          "end": 2.47
+        },
+        {
+          "text": "rich",
+          "start": 2.47,
+          "end": 2.77
+        },
+        {
+          "text": "in",
+          "start": 2.77,
+          "end": 3.03
+        },
+        {
+          "text": "gillyvors,",
+          "start": 3.03,
+          "end": 3.24
+        },
+        {
+          "text": "And",
+          "start": 3.45,
+          "end": 3.87
+        },
+        {
+          "text": "do",
+          "start": 3.87,
+          "end": 3.99
+        },
+        {
+          "text": "not",
+          "start": 3.99,
+          "end": 4.19
+        },
+        {
+          "text": "call",
+          "start": 4.19,
+          "end": 4.39
+        },
+        {
+          "text": "them",
+          "start": 4.39,
+          "end": 4.57
+        },
+        {
+          "text": "bastards.",
+          "start": 4.57,
+          "end": 5.19
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 15,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.32387696392834187
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "754feee0234ba2161c8c301ee63b9b669c97b3523c50fc1f45f9f8b9190d7673",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "077d700406aa41bce8fc318ed73df1174cf4ac2b5300fb815d5a02e0dadbe79a",
+  "attempts": [
+    {
+      "asr_seconds": 0.15880357660353184,
+      "alignment_seconds": 0.0002217702567577362,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro, Lady Beatrice, I will get you one.",
+          "start": 0.05,
+          "end": 3.09,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " Pedro,",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " Lady",
+              "start": 1.57,
+              "end": 1.69,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " Beatrice,",
+              "start": 1.69,
+              "end": 2.21,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 2.41,
+              "end": 2.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 2.43,
+              "end": 2.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " get",
+              "start": 2.53,
+              "end": 2.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 2.65,
+              "end": 2.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " one.",
+              "start": 2.83,
+              "end": 3.09,
+              "probability": 0.984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "Lady",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "raw": "Beatrice,",
+          "start": 1.69,
+          "end": 2.21
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.43
+        },
+        {
+          "raw": "will",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "raw": "get",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "raw": "you",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "raw": "one.",
+          "start": 2.83,
+          "end": 3.09
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Lady",
+        "Beatrice,",
+        "I",
+        "will",
+        "get",
+        "you",
+        "one."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro,",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lady",
+          "start": 1.57,
+          "end": 1.69,
+          "key": "lady",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Beatrice,",
+          "start": 1.69,
+          "end": 2.21,
+          "key": "beatrice",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.41,
+          "end": 2.43,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 2.43,
+          "end": 2.53,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "get",
+          "start": 2.53,
+          "end": 2.65,
+          "key": "get",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.65,
+          "end": 2.83,
+          "key": "you",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "one.",
+          "start": 2.83,
+          "end": 3.09,
+          "key": "one",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Lady",
+          "start": 1.57,
+          "end": 1.69
+        },
+        {
+          "text": "Beatrice,",
+          "start": 1.69,
+          "end": 2.21
+        },
+        {
+          "text": "I",
+          "start": 2.41,
+          "end": 2.43
+        },
+        {
+          "text": "will",
+          "start": 2.43,
+          "end": 2.53
+        },
+        {
+          "text": "get",
+          "start": 2.53,
+          "end": 2.65
+        },
+        {
+          "text": "you",
+          "start": 2.65,
+          "end": 2.83
+        },
+        {
+          "text": "one.",
+          "start": 2.83,
+          "end": 3.09
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15911084972321987
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce7994a7fc69a448e35d944d27e358a242b32d225e780c4d5a8cdb2c71a61b64",
+  "selected_reasons": []
+}

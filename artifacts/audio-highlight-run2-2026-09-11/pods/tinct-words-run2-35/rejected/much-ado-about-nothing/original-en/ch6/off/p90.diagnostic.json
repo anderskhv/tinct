@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "a5b994f518b31c5b9bdab1752ef8dfa8a90ef140f5c5094b1f51d7e9f16955b7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11655626818537712,
+      "alignment_seconds": 0.0001964513212442398,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Claudio.",
+          "start": 0.08,
+          "end": 0.78,
+          "words": [
+            {
+              "text": " Claudio.",
+              "start": 0.08,
+              "end": 0.78,
+              "probability": 0.913330078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Claudio.",
+          "start": 0.08,
+          "end": 0.78
+        }
+      ],
+      "expected_tokens": [
+        "Claudio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Claudio.",
+          "start": 0.08,
+          "end": 0.78,
+          "key": "claudio",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Claudio.",
+          "start": 0.08,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11682111583650112
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cd9a0f7d88da845d6d4c38625ad5026fd9a973978a948bcaaec7b22eafaefc8c",
+  "selected_reasons": []
+}

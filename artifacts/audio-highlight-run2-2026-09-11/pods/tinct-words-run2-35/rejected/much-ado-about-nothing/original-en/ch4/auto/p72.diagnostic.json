@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "668356619ef7032928379e179719e852c9e2a887b1b7df88116eaacfab05348a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23641254380345345,
+      "alignment_seconds": 0.0004479996860027313,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Don John. Are you not Signior Benedick?",
+        "hotwords": "Don, John, Are, Signior, Benedick"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Don John. Are you not Signior Benedick?",
+          "start": 0.05,
+          "end": 2.65,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " John.",
+              "start": 0.63,
+              "end": 0.93,
+              "probability": 0.5166015625
+            },
+            {
+              "text": " Are",
+              "start": 1.47,
+              "end": 1.47,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " you",
+              "start": 1.47,
+              "end": 1.57,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 1.57,
+              "end": 1.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Signior",
+              "start": 1.75,
+              "end": 2.17,
+              "probability": 0.281829833984375
+            },
+            {
+              "text": " Benedick?",
+              "start": 2.17,
+              "end": 2.65,
+              "probability": 0.431243896484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "John.",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "raw": "Are",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "raw": "Signior",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "raw": "Benedick?",
+          "start": 2.17,
+          "end": 2.65
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "John.",
+        "Are",
+        "you",
+        "not",
+        "Signior",
+        "Benedick?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "John.",
+          "start": 0.63,
+          "end": 0.93,
+          "key": "john",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Are",
+          "start": 1.47,
+          "end": 1.47,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.47,
+          "end": 1.57,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.57,
+          "end": 1.75,
+          "key": "not",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Signior",
+          "start": 1.75,
+          "end": 2.17,
+          "key": "signior",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Benedick?",
+          "start": 2.17,
+          "end": 2.65,
+          "key": "benedick",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "John.",
+          "start": 0.63,
+          "end": 0.93
+        },
+        {
+          "text": "Are",
+          "start": 1.47,
+          "end": 1.47
+        },
+        {
+          "text": "you",
+          "start": 1.47,
+          "end": 1.57
+        },
+        {
+          "text": "not",
+          "start": 1.57,
+          "end": 1.75
+        },
+        {
+          "text": "Signior",
+          "start": 1.75,
+          "end": 2.17
+        },
+        {
+          "text": "Benedick?",
+          "start": 2.17,
+          "end": 2.65
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2370156068354845
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7cdb6504e0b48d1da29667d798aef09d855a95096e14428dc116bfa91f99c0f4",
+  "selected_reasons": []
+}

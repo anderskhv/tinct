@@ -1,0 +1,129 @@
+{
+  "complete": true,
+  "signature": "58b9d160b851f7f925350526c8bc398121a5b6965697c9fc04e5c9fd939870ea",
+  "attempts": [
+    {
+      "asr_seconds": 0.10896716080605984,
+      "alignment_seconds": 0.00023184716701507568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Antonio.",
+        "hotwords": "Antonio"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Antonio Antonio.",
+          "start": 0.02,
+          "end": 1.48,
+          "words": [
+            {
+              "text": " Antonio",
+              "start": 0.02,
+              "end": 0.78,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Antonio.",
+              "start": 0.78,
+              "end": 1.48,
+              "probability": 7.092952728271484e-06
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Antonio",
+          "start": 0.02,
+          "end": 0.78
+        },
+        {
+          "raw": "Antonio.",
+          "start": 0.78,
+          "end": 1.48
+        }
+      ],
+      "expected_tokens": [
+        "Antonio."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Antonio",
+          "start": 0.02,
+          "end": 0.78,
+          "key": "antonio",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Antonio.",
+          "start": 0.78,
+          "end": 1.48,
+          "key": "antonio",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Antonio.",
+          "start": 0.02,
+          "end": 0.78
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1092758346349001
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e10be5784205a678ac48ec64389d168769f1783acccb8b399451f7ff0f988b2",
+  "selected_reasons": []
+}

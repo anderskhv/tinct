@@ -1,0 +1,434 @@
+{
+  "complete": true,
+  "signature": "a1d175e1de29595137b6c20eb66f0557b07a82f00cbc31ffe191605172cac2d1",
+  "attempts": [
+    {
+      "asr_seconds": 0.19585230015218258,
+      "alignment_seconds": 0.0005488786846399307,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Don Pedro now Signor. Where's the count? Did you see him?",
+          "start": 0.05,
+          "end": 3.83,
+          "words": [
+            {
+              "text": " Don",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.5322265625
+            },
+            {
+              "text": " Pedro",
+              "start": 0.63,
+              "end": 1.03,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " now",
+              "start": 1.03,
+              "end": 1.69,
+              "probability": 0.42919921875
+            },
+            {
+              "text": " Signor.",
+              "start": 1.69,
+              "end": 2.19,
+              "probability": 0.4383544921875
+            },
+            {
+              "text": " Where's",
+              "start": 2.31,
+              "end": 2.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.43,
+              "end": 2.51,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " count?",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " Did",
+              "start": 3.17,
+              "end": 3.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " you",
+              "start": 3.23,
+              "end": 3.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see",
+              "start": 3.39,
+              "end": 3.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " him?",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "raw": "now",
+          "start": 1.03,
+          "end": 1.69
+        },
+        {
+          "raw": "Signor.",
+          "start": 1.69,
+          "end": 2.19
+        },
+        {
+          "raw": "Where's",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "raw": "count?",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "Did",
+          "start": 3.17,
+          "end": 3.23
+        },
+        {
+          "raw": "you",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "raw": "see",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "raw": "him?",
+          "start": 3.59,
+          "end": 3.83
+        }
+      ],
+      "expected_tokens": [
+        "Don",
+        "Pedro.",
+        "Now,",
+        "signior,",
+        "where's",
+        "the",
+        "Count?",
+        "Did",
+        "you",
+        "see",
+        "him?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          11,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Don",
+          "start": 0.05,
+          "end": 0.63,
+          "key": "don",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Pedro",
+          "start": 0.63,
+          "end": 1.03,
+          "key": "pedro",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 1.03,
+          "end": 1.69,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Signor.",
+          "start": 1.69,
+          "end": 2.19,
+          "key": "signor",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Where's",
+          "start": 2.31,
+          "end": 2.43,
+          "key": "wheres",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.43,
+          "end": 2.51,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "count?",
+          "start": 2.51,
+          "end": 2.81,
+          "key": "count",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 3.17,
+          "end": 3.23,
+          "key": "did",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 3.23,
+          "end": 3.39,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 3.39,
+          "end": 3.59,
+          "key": "see",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "him?",
+          "start": 3.59,
+          "end": 3.83,
+          "key": "him",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Don",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Pedro.",
+          "start": 0.63,
+          "end": 1.03
+        },
+        {
+          "text": "Now,",
+          "start": 1.03,
+          "end": 1.69
+        },
+        {
+          "text": "signior,",
+          "start": 1.69,
+          "end": 2.0
+        },
+        {
+          "text": "where's",
+          "start": 2.31,
+          "end": 2.43
+        },
+        {
+          "text": "the",
+          "start": 2.43,
+          "end": 2.51
+        },
+        {
+          "text": "Count?",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "text": "Did",
+          "start": 3.17,
+          "end": 3.23
+        },
+        {
+          "text": "you",
+          "start": 3.23,
+          "end": 3.39
+        },
+        {
+          "text": "see",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "text": "him?",
+          "start": 3.59,
+          "end": 3.83
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.19660871289670467
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec2990f28e38b14b2b4fb4f4e745083f034a978d146863cf32890dcd6952a1bf",
+  "selected_reasons": []
+}

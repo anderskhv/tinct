@@ -1,0 +1,382 @@
+{
+  "complete": true,
+  "signature": "24e887da746da9e85a20202eaa5dedf3c5455d693d0014796d54ae91555ffbc0",
+  "attempts": [
+    {
+      "asr_seconds": 0.9976347386837006,
+      "alignment_seconds": 0.00048789940774440765,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Beatrice. Will you not tell me who told you so?",
+        "hotwords": "Beatrice, Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Beatrice, Will you not tell me who told you so?",
+          "start": 0.63,
+          "end": 2.71,
+          "words": [
+            {
+              "text": " Beatrice,",
+              "start": 0.63,
+              "end": 0.99,
+              "probability": 0.939208984375
+            },
+            {
+              "text": " Will",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.0095062255859375
+            },
+            {
+              "text": " you",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.859375
+            },
+            {
+              "text": " not",
+              "start": 1.49,
+              "end": 1.65,
+              "probability": 0.9765625
+            },
+            {
+              "text": " tell",
+              "start": 1.65,
+              "end": 1.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 1.83,
+              "end": 1.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " who",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " told",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " so?",
+              "start": 2.47,
+              "end": 2.71,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "raw": "Will",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "you",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "raw": "tell",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "raw": "me",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "raw": "who",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "told",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "so?",
+          "start": 2.47,
+          "end": 2.71
+        }
+      ],
+      "expected_tokens": [
+        "Beatrice.",
+        "Will",
+        "you",
+        "not",
+        "tell",
+        "me",
+        "who",
+        "told",
+        "you",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Beatrice,",
+          "start": 0.63,
+          "end": 0.99,
+          "key": "beatrice",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Will",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.41,
+          "end": 1.49,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.49,
+          "end": 1.65,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.65,
+          "end": 1.83,
+          "key": "tell",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.83,
+          "end": 1.95,
+          "key": "me",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 1.95,
+          "end": 2.09,
+          "key": "who",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "told",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "told",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "you",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "so?",
+          "start": 2.47,
+          "end": 2.71,
+          "key": "so",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Beatrice.",
+          "start": 0.63,
+          "end": 0.99
+        },
+        {
+          "text": "Will",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "you",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "not",
+          "start": 1.49,
+          "end": 1.65
+        },
+        {
+          "text": "tell",
+          "start": 1.65,
+          "end": 1.83
+        },
+        {
+          "text": "me",
+          "start": 1.83,
+          "end": 1.95
+        },
+        {
+          "text": "who",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "told",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "you",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "so?",
+          "start": 2.47,
+          "end": 2.71
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.9983260314911604
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "966f9ba5b1e53b0ff78b9e5363b7e13ff6894a61ec53fc4cc981d844d8c1e0d8",
+  "selected_reasons": []
+}
