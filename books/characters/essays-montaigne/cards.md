@@ -4,7 +4,7 @@ Editorial review copy; source excerpts and later identities may contain spoilers
 
 ## Montaigne · central
 
-The author, who says his book and he are one thing, that he is himself the matter of it, and that he wants to be seen here in his simple, natural, ordinary fashion. He names himself rarely and late; where he does, it is usually because someone else has said something about him.
+The author, who says his book and he are one thing, that he is himself the matter of it, and that he wants to be seen here in his simple, natural, ordinary fashion. He names himself rarely and late — twenty-odd times in a hundred and seven chapters — and the first occurrence of his name in either edition is not his own: it is in an editor’s note at 28:2, about the sonnets of La Boétie that the editions no longer print.
 
 ## Edward, Prince of Wales · reference
 
@@ -384,7 +384,7 @@ Brienne’s lieutenant, who went out to parley at Ligny and lost the town while 
 
 ## Ariosto · reference
 
-The Italian poet of the Orlando Furioso.
+The Italian poet of the Orlando Furioso, quoted for the line that victory is ever worthy of praise whether won by fortune or by wit, and again for the hunter who cares nothing for the hare once he sees it taken. The older edition prints his name Aristo in the second citation — which is also the name of a Stoic and of a tragedian in this book.
 
 ## Chrysippus · reference
 
@@ -790,9 +790,9 @@ Who compiled a register of the deaths of men — the book Montaigne says he woul
 
 The late Latin elegist, quoted for the line: alas, to old men what portion of life remains.
 
-## Jove · reference
+## Jupiter · supporting
 
-Jupiter, whose strong thundering hand, in Horace’s ode, does not move a well-settled soul.
+Whose strong thundering hand, in Horace’s ode, does not move a well-settled soul — and who, in the story Montaigne says Plato borrowed from some lascivious poet, had not the patience to reach the couch and forgot in the pleasure of it the resolutions he had just taken with the rest of the gods.
 
 ## Manilius · reference
 
@@ -1421,3 +1421,207 @@ Principal of the College of Guienne, and without comparison the best man in that
 ## Aristo the tragedian · reference
 
 A man of good family and fortune, neither of which the profession blemished, nothing of the kind being a disparagement in Greece. Not Aristo of Chios.
+
+## Chilo · reference
+
+Who enjoined the rule Ne quid nimis — nothing too much — and who said: love him as if you were one day to hate him, and hate him as if you were one day to love him.
+
+## Froissart · reference
+
+In whom Montaigne finds the Comte de Foix knowing in Bearn, the day after it happened, the defeat of John of Castile.
+
+## The Comte de Foix · reference
+
+Who knew in Bearn the day after it happened of John of Castile’s defeat at Aljubarrota, and told Froissart the means by which he came to know it.
+
+## John, king of Castile · reference
+
+Defeated at the battle the older edition calls Jubera and the modern Aljubarrota.
+
+## Pope Honorius · reference
+
+Who performed King Philip Augustus’s public obsequies at Rome on the very day the king died at Mantes, and commanded the like throughout Italy.
+
+## King Philip Augustus · reference
+
+Who died at Mantes on the day Pope Honorius buried him at Rome. His name has to be bound whole, or the emperor Augustus takes the second half of it.
+
+## Domitian · reference
+
+In whose time, Plutarch says he knows of certain knowledge, the news of a battle lost in Germany was published at Rome the same day it was fought.
+
+## Antony · reference
+
+Who lost the battle in Germany whose news reached Rome, Plutarch says, on the day it was fought. Not Mark Antony.
+
+## Bouchet · reference
+
+Whose miracles of St Hilary’s relics Montaigne would wave away — while refusing to condemn all such stories out of hand, which he calls a singular impudence.
+
+## St Hilary · reference
+
+Whose relics Bouchet records the miracles of.
+
+## St Gervasius · reference
+
+On whose relics, with St Protasius’s, St Augustine testifies to having seen a blind child recover its sight at Milan.
+
+## St Protasius · reference
+
+The other of that pair.
+
+## Hesperius · reference
+
+St Augustine’s familiar friend, who drove the spirits out of his house with a little earth from the sepulchre of our Lord.
+
+## St Stephen · reference
+
+Whose shrine a woman in a procession touched with a nosegay, and rubbing her eyes with it recovered the sight she had lost many years before.
+
+## Aurelius · reference
+
+One of the two holy bishops St Augustine calls as witnesses to those miracles.
+
+## Maximinus · reference
+
+The other of them.
+
+## Laelius · reference
+
+Who asked Caius Blosius, in front of the Roman consuls prosecuting everyone who had been familiar with Tiberius Gracchus, how much he would have done for him — and got the answer: all things.
+
+## Tiberius Gracchus · reference
+
+Whose friends the consuls prosecuted after sentencing him, and whose will Blosius says he had in his sleeve.
+
+## Suidas · reference
+
+The Greek lexicographer, cited for what he reports of some people of the East who drink only outside their meals.
+
+## Caius Blosius · reference
+
+Gracchus’s chiefest friend, who told Laelius he would have obeyed him even in firing the temples — because Gracchus would never have commanded it. Montaigne defends the answer: they were more friends to one another than either enemies or friends to their country.
+
+## Achilles · reference
+
+To whom Aeschylus gave the lover’s part in the loves of Achilles and Patroclus — for which the Academy very much blames him, Achilles being in the first and beardless flower of his adolescence and the handsomest of all the Greeks.
+
+## Patroclus · reference
+
+The other of that pair.
+
+## Harmodius · reference
+
+Whose healthy love with Aristogiton is the Academy’s instance of the public good such friendship did — and which Montaigne has already told from the other end, in the story of the tyrannicides.
+
+## Aristogiton · reference
+
+The other of that pair.
+
+## Eudamidas · reference
+
+A Corinthian who died poor with two rich friends, and left his mother’s maintenance to Areteus and his daughter’s marriage to Charixenus — a will everyone laughed at and the legatees accepted with content. Montaigne says the force of friendship shows more in leaving them the chance of the benefit than in their discharging it.
+
+## Charixenus · reference
+
+A Sicyonian, one of the two legatees, who died within five days and left the whole charge on his fellow.
+
+## Areteus · reference
+
+The other, a Corinthian, who nurtured the old woman with great tenderness and married both his own daughter and Eudamidas’s out of the five talents he had, on one and the same day.
+
+## Madame de Grammont, Comtesse de Guissen · reference
+
+The dedicatee of La Boétie’s sonnets, which the editions no longer print. The dedication line is all that is left of them here, and it is printed in capitals.
+
+## Pausanias · reference
+
+Whose own mother was the first instructor of his process and threw the first stone towards his death — a virtue Montaigne finds not so much just as strange.
+
+## Posthumius the dictator · reference
+
+Who put his own son to death for having pushed upon the enemy a little in advance of his squadron, and successfully. The modern edition spells him Postumius.
+
+## Callicles · reference
+
+Who says in Plato that the extremity of philosophy is hurtful, and that taken beyond the limits of profit it renders a man brutish, a contemner of religion and the laws, and unfit for any public administration. Montaigne says he says true.
+
+## St Thomas Aquinas · reference
+
+Who condemns marriage within the forbidden degrees partly for fear the friendship should be immoderate: a conjugal affection surcharged with the affection of kindred will carry a husband beyond the bounds of reason.
+
+## Zenobia · reference
+
+Who would admit her husband for one encounter only and then left him to himself for the whole time of her conception — a brave and generous example, Montaigne says, of conjugal continence.
+
+## AElius Verus · reference
+
+The emperor who answered his wife’s reproaches about other women by saying that marriage was a name of honour and dignity, not of wanton desire. The modern edition spells him Aelius.
+
+## Gallio · reference
+
+Exiled to Lesbos and found to be living there as merry as the day was long, so that the Senate recalled him and confined him to his own house with his wife and family — to fit the punishment to his feeling.
+
+## Amurath · reference
+
+Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins.
+
+## Fernando Cortez · reference
+
+To whom the king of Mexico’s ambassadors boasted that their master was obliged to offer the gods fifty thousand men a year — and for whose welcome, at another town, they sacrificed fifty at once.
+
+## Flaminius · reference
+
+Whose army the Greeks said the same of as Pyrrhus said of the Romans: that whatever these barbarians might be, the order of the army had nothing of barbarism in it.
+
+## Philip · reference
+
+Philip of Macedon, who looked down from a height on the Roman camp Publius Sulpicius Galba had formed in his kingdom and spoke to the same effect.
+
+## Publius Sulpicius Galba · reference
+
+Who formed that camp.
+
+## Villegaignon · reference
+
+Who landed in the part of the New World he called Antarctic France — where the man Montaigne kept in his house had lived ten or twelve years.
+
+## The Sieur d’Arsac · reference
+
+Montaigne’s brother, who watches an estate of his in Medoc being buried under the sand the sea drives before it, the tops of some houses still showing and his rents turned to barren pasture.
+
+## Claudian · reference
+
+The late Latin poet, quoted for the line that no victory is complete which the conquered do not admit to be so. The older edition prints him Claudius.
+
+## King Leonidas · reference
+
+Whose discomfiture at the pass of Thermopylae, Montaigne says, outweighs the four sister victories of Salamis, Plataea, Mycale and Sicily put together.
+
+## Captain Iscolas · reference
+
+Set to hold a pass of Peloponnesus against the Arcadians with no possibility of doing it, he sent the youngest and most active of his men home for their country’s service and held the pass with the rest until every one of them was cut to pieces. Montaigne asks whether the trophy was not more due to the conquered.
+
+## Sarah · reference
+
+Who with Leah and Rachel gave the most beautiful of her handmaids to her husband — Montaigne’s scriptural parallel to the cannibal wives who seek out companions for their husbands.
+
+## Leah · reference
+
+One of Jacob’s two wives in that comparison.
+
+## Rachel · reference
+
+The other.
+
+## King Deiotarus · reference
+
+Whose wife Stratonice gave up a fair young maid of her own to his embraces and then brought up the children carefully and helped them to the succession.
+
+## Stratonice · reference
+
+King Deiotarus’s wife. Not the Stratonice whose beauty gave Antiochus his fever.
+
+## King Charles IX · reference
+
+At Rouen when three of the cannibals were brought there, and who talked with them a good while. They said it was strange that so many tall bearded armed men should submit to obey a child.

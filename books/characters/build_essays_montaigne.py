@@ -1,7 +1,7 @@
 """Reviewed bindings for Montaigne's Essays.
 
 Cotton in both editions, 107 chapters covering the three books, 4,897 paragraphs
-per edition. Chapters 1-25 are authored.
+per edition. Chapters 1-30 are authored.
 
 Two things make this book hard, and it has both of them at once. The first is
 spelling: the modern edition modernises the transliterations, so one man is
@@ -37,7 +37,7 @@ SPLIT={
             (23,1):'pompey',(25,25):'pompey-the-dancer'},None),
  # The citizen of Messina, not the founder of the Stoa.
  'Zeno':({(1,5):'zeno-mamertine',(22,49):'zeno-of-citium',(24,55):'zeno-of-citium',
-          (25,143):'zeno-of-citium'},None),
+          (25,143):'zeno-of-citium',(30,28):'zeno-of-citium'},None),
  # Alexander the Great in both authored places.
  'Alexander':({(1,6):'alexander',(6,8):'alexander',(18,3):'alexander',
                (19,21):'alexander',(23,7):'alexander',
@@ -49,17 +49,19 @@ SPLIT={
  'Ferdinand':({(2,9):'ferdinand'},None),
  # King John of Hungary at 2:9. Bare "John" elsewhere belongs to John Zisca and
  # to men not yet read, so only the king's own paragraph is keyed.
- 'John':({(2,9):'john-of-hungary',(3,11):'john-zisca'},None),
+ 'John':({(2,9):'john-of-hungary',(3,11):'john-zisca',(26,18):'john-of-castile'},None),
  # The dialectician at 2:21; Diodorus Siculus at 69:532 and 74:18.
  'Diodorus':({(2,21):'diodorus-dialectician'},None),
  # Robert Bruce at 3:11; the King Robert of 33:7 is not identified with him.
  'Robert':({(3,11):'robert-bruce'},None),
  # Philip of Spain at 3:13; Don Philip at 7:0. Philip of Macedon and Alexander's
  # physician Philip wait in later chapters.
- 'Philip':({(3,13):'philip-ii-spain',(7,0):'don-philip',(23,7):'philip-physician'},None),
+ 'Philip':({(3,13):'philip-ii-spain',(7,0):'don-philip',(23,7):'philip-physician',
+            (26,18):'philip-augustus',(30,0):'philip-v-macedon'},None),
  # Cyrus the Great in both authored places; Cyrus the Younger is not yet read.
  'Cyrus':({(3,13):'cyrus-the-great',(4,9):'cyrus-the-great',(18,3):'cyrus-the-great',
-           (24,57):'cyrus-the-great',(24,59):'cyrus-the-great'},None),
+           (24,57):'cyrus-the-great',(24,59):'cyrus-the-great',
+           (27,29):'cyrus-the-great'},None),
  # Socrates's friend at 3:15; the Crito of 69:208 is somebody's brother in
  # another story.
  'Crito':({(3,15):'crito'},None),
@@ -67,7 +69,7 @@ SPLIT={
  'Perseus':({(5,0):'perseus-macedon'},None),
  # The King of Epirus; the Pyrrhus of the transmigration list at 69:473 is not
  # him.
- 'Pyrrhus':({(5,0):'pyrrhus-epirus'},None),
+ 'Pyrrhus':({(5,0):'pyrrhus-epirus',(30,0):'pyrrhus-epirus'},None),
  # Martin the memoirist at 5:9; Cardinal Jean at 10:3; the poet Joachim in
  # chapters 24, 25 and 74.
  r'[Dd]u Bellay':({(5,9):'martin-du-bellay',(10,3):'jean-du-bellay',
@@ -86,12 +88,13 @@ SPLIT={
             (22,21):'darius-i',(23,7):'darius-iii'},None),
  # Charles V, named to place his father; the later Charleses are unread.
  'Charles':({(7,0):'charles-v',(11,14):'charles-v',(12,3):'charles-v',(16,8):'charles-v',
-             (20,22):'charles-iv'},None),
+             (20,22):'charles-iv',(30,43):'charles-ix'},None),
  # The Duke of Alva of the Brussels executions; "the last Duke of Alva" at
  # 74:157 is a later head of the house.
  'Alva':({(7,0):'duke-of-alva'},None),
  # Pliny the Elder; the younger Pliny appears at 38:45 and 39:0.
- 'Pliny':({(9,6):'pliny-elder',(20,4):'pliny-elder',(22,2):'pliny-elder'},None),
+ 'Pliny':({(9,6):'pliny-elder',(20,4):'pliny-elder',(22,2):'pliny-elder',
+           (26,18):'pliny-elder'},None),
  # Francis I in all three authored places.
  'Francis':({(9,8):'francis-i',(9,9):'francis-i',(10,3):'francis-i',(11,14):'francis-i',
              (13,1):'francis-i',(24,49):'francis-brittany'},None),
@@ -115,7 +118,8 @@ SPLIT={
  # "Augustus Caesar" at 4:10 is bound by the longer alias, not by this table.
  'Caesar':({(16,3):'julius-caesar',(19,67):'julius-caesar',(19,71):'julius-caesar',
             (22,54):'julius-caesar',(23,13):'julius-caesar',(23,18):'julius-caesar',
-            (23,1):'augustus',(25,47):'julius-caesar'},None),
+            (23,1):'augustus',(25,47):'julius-caesar',(30,28):'julius-caesar',
+            (26,18):'julius-caesar'},None),
  # Pompey's father-in-law at 18:12. Every other Scipio in the Essays belongs to
  # a chapter not yet authored, and the name runs through a whole family.
  'Scipio':({(18,12):'metellus-scipio',(22,49):'publius-scipio-pontifex',
@@ -129,7 +133,8 @@ SPLIT={
  'Bourbon':({(17,2):'bourbon'},None),
  # Diogenes the Atheist in the temple at Samothrace. Diogenes the Cynic fills
  # chapters 27, 50 and 60, and Diogenes Laertius is cited at 68:61.
- 'Diogenes':({(11,31):'diogenes-the-atheist',(25,103):'diogenes-the-cynic'},None),
+ 'Diogenes':({(11,31):'diogenes-the-atheist',(25,103):'diogenes-the-cynic',
+              (27,28):'diogenes-the-cynic'},None),
  # Xenophanes of Colophon, the one philosopher Cicero says tried to root out
  # divination. The later Xenophanes passages have not been read.
  'Xenophanes':({(11,32):'xenophanes-colophon'},None),
@@ -147,10 +152,16 @@ SPLIT={
  # -------------------------------------------------- added with chapter 25
  # Augustus's wife at 23:1; Signora Livia, whose petticoats a young traveller
  # should not come home able to describe, at 25:26.
- 'Livia':({(23,1):'livia',(25,26):'signora-livia'},None),
+ 'Livia':({(23,1):'livia',(25,26):'signora-livia',(30,39):'livia'},None),
  # Aristo the tragedian at 25:152. The Latin dative "Aristoni" in the quotation
  # at 25:151 is left unbound, like every other name inside the Latin.
- 'Aristo':({(25,152):'aristo-tragedian'},None),
+ 'Aristo':({(25,152):'aristo-tragedian',(27,13):'ariosto'},None),
+ # ---------------------------------------------- added with chapters 26-30
+ # Antony who lost a battle in Germany under Domitian, not Mark Antony.
+ 'Antony':({(26,18):'antony-germany'},None),
+ # King Deiotarus's wife at 30:39; the Stratonice whose beauty gave Antiochus
+ # his fever at 20:4.
+ 'Stratonice':({(20,4):'stratonice',(30,39):'stratonice-deiotarus'},None),
 }
 # Aristo of Chios is bound by his full name rather than by a table, because the
 # bare "Aristo" is three different men in this book: the Stoic of 24:54, a

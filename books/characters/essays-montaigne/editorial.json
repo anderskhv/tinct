@@ -1,11 +1,11 @@
 {
-  "contentVersion": "2026-09-12.4",
-  "coverage": "Both full English editions, chapters 1-25 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.",
+  "contentVersion": "2026-09-12.5",
+  "coverage": "Both full English editions, chapters 1-30 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.",
   "entities": [
     {
       "id": "montaigne",
       "name": "Montaigne",
-      "body": "The author, who says his book and he are one thing, that he is himself the matter of it, and that he wants to be seen here in his simple, natural, ordinary fashion. He names himself rarely and late; where he does, it is usually because someone else has said something about him.",
+      "body": "The author, who says his book and he are one thing, that he is himself the matter of it, and that he wants to be seen here in his simple, natural, ordinary fashion. He names himself rarely and late — twenty-odd times in a hundred and seven chapters — and the first occurrence of his name in either edition is not his own: it is in an editor’s note at 28:2, about the sonnets of La Boétie that the editions no longer print.",
       "aliases": [
         "Montaigne"
       ],
@@ -1133,7 +1133,7 @@
     {
       "id": "ariosto",
       "name": "Ariosto",
-      "body": "The Italian poet of the Orlando Furioso.",
+      "body": "The Italian poet of the Orlando Furioso, quoted for the line that victory is ever worthy of praise whether won by fortune or by wit, and again for the hunter who cares nothing for the hare once he sees it taken. The older edition prints his name Aristo in the second citation — which is also the name of a Stoic and of a tragedian in this book.",
       "aliases": [
         "Ariosto"
       ],
@@ -2343,12 +2343,13 @@
     },
     {
       "id": "jove",
-      "name": "Jove",
-      "body": "Jupiter, whose strong thundering hand, in Horace’s ode, does not move a well-settled soul.",
+      "name": "Jupiter",
+      "body": "Whose strong thundering hand, in Horace’s ode, does not move a well-settled soul — and who, in the story Montaigne says Plato borrowed from some lascivious poet, had not the patience to reach the couch and forgot in the pleasure of it the resolutions he had just taken with the rest of the gods.",
       "aliases": [
-        "Jove"
+        "Jove",
+        "Jupiter"
       ],
-      "category": "reference",
+      "category": "supporting",
       "kind": "deity",
       "subtitle": "",
       "snapshots": []
@@ -2451,9 +2452,7 @@
       "id": "stratonice",
       "name": "Stratonice",
       "body": "Whose beauty gave Antiochus his fever.",
-      "aliases": [
-        "Stratonice"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -3712,6 +3711,8 @@
       "name": "La Boetie",
       "body": "Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.",
       "aliases": [
+        "Estienne de la Boetie",
+        "Estienne de la Boétie",
         "La Boetie",
         "La Boétie"
       ],
@@ -4223,6 +4224,615 @@
       "id": "aristo-tragedian",
       "name": "Aristo the tragedian",
       "body": "A man of good family and fortune, neither of which the profession blemished, nothing of the kind being a disparagement in Greece. Not Aristo of Chios.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chilo",
+      "name": "Chilo",
+      "body": "Who enjoined the rule Ne quid nimis — nothing too much — and who said: love him as if you were one day to hate him, and hate him as if you were one day to love him.",
+      "aliases": [
+        "Chilo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "froissart",
+      "name": "Froissart",
+      "body": "In whom Montaigne finds the Comte de Foix knowing in Bearn, the day after it happened, the defeat of John of Castile.",
+      "aliases": [
+        "Froissart"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "comte-de-foix",
+      "name": "The Comte de Foix",
+      "body": "Who knew in Bearn the day after it happened of John of Castile’s defeat at Aljubarrota, and told Froissart the means by which he came to know it.",
+      "aliases": [
+        "Comte de Foix"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john-of-castile",
+      "name": "John, king of Castile",
+      "body": "Defeated at the battle the older edition calls Jubera and the modern Aljubarrota.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pope-honorius",
+      "name": "Pope Honorius",
+      "body": "Who performed King Philip Augustus’s public obsequies at Rome on the very day the king died at Mantes, and commanded the like throughout Italy.",
+      "aliases": [
+        "Pope Honorius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-augustus",
+      "name": "King Philip Augustus",
+      "body": "Who died at Mantes on the day Pope Honorius buried him at Rome. His name has to be bound whole, or the emperor Augustus takes the second half of it.",
+      "aliases": [
+        "Philip Augustus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "domitian",
+      "name": "Domitian",
+      "body": "In whose time, Plutarch says he knows of certain knowledge, the news of a battle lost in Germany was published at Rome the same day it was fought.",
+      "aliases": [
+        "Domitian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antony-germany",
+      "name": "Antony",
+      "body": "Who lost the battle in Germany whose news reached Rome, Plutarch says, on the day it was fought. Not Mark Antony.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bouchet",
+      "name": "Bouchet",
+      "body": "Whose miracles of St Hilary’s relics Montaigne would wave away — while refusing to condemn all such stories out of hand, which he calls a singular impudence.",
+      "aliases": [
+        "Bouchet"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-hilary",
+      "name": "St Hilary",
+      "body": "Whose relics Bouchet records the miracles of.",
+      "aliases": [
+        "St. Hilary"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-gervasius",
+      "name": "St Gervasius",
+      "body": "On whose relics, with St Protasius’s, St Augustine testifies to having seen a blind child recover its sight at Milan.",
+      "aliases": [
+        "St. Gervasius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-protasius",
+      "name": "St Protasius",
+      "body": "The other of that pair.",
+      "aliases": [
+        "St. Protasius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hesperius",
+      "name": "Hesperius",
+      "body": "St Augustine’s familiar friend, who drove the spirits out of his house with a little earth from the sepulchre of our Lord.",
+      "aliases": [
+        "Hesperius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "st-stephen",
+      "name": "St Stephen",
+      "body": "Whose shrine a woman in a procession touched with a nosegay, and rubbing her eyes with it recovered the sight she had lost many years before.",
+      "aliases": [
+        "St. Stephen"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aurelius-bishop",
+      "name": "Aurelius",
+      "body": "One of the two holy bishops St Augustine calls as witnesses to those miracles.",
+      "aliases": [
+        "Aurelius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maximinus-bishop",
+      "name": "Maximinus",
+      "body": "The other of them.",
+      "aliases": [
+        "Maximinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "laelius",
+      "name": "Laelius",
+      "body": "Who asked Caius Blosius, in front of the Roman consuls prosecuting everyone who had been familiar with Tiberius Gracchus, how much he would have done for him — and got the answer: all things.",
+      "aliases": [
+        "Laelius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tiberius-gracchus",
+      "name": "Tiberius Gracchus",
+      "body": "Whose friends the consuls prosecuted after sentencing him, and whose will Blosius says he had in his sleeve.",
+      "aliases": [
+        "Tiberius Gracchus",
+        "Gracchus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "suidas",
+      "name": "Suidas",
+      "body": "The Greek lexicographer, cited for what he reports of some people of the East who drink only outside their meals.",
+      "aliases": [
+        "Suidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caius-blosius",
+      "name": "Caius Blosius",
+      "body": "Gracchus’s chiefest friend, who told Laelius he would have obeyed him even in firing the temples — because Gracchus would never have commanded it. Montaigne defends the answer: they were more friends to one another than either enemies or friends to their country.",
+      "aliases": [
+        "Caius Blosius",
+        "Blosius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "body": "To whom Aeschylus gave the lover’s part in the loves of Achilles and Patroclus — for which the Academy very much blames him, Achilles being in the first and beardless flower of his adolescence and the handsomest of all the Greeks.",
+      "aliases": [
+        "Achilles"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "patroclus",
+      "name": "Patroclus",
+      "body": "The other of that pair.",
+      "aliases": [
+        "Patroclus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "harmodius",
+      "name": "Harmodius",
+      "body": "Whose healthy love with Aristogiton is the Academy’s instance of the public good such friendship did — and which Montaigne has already told from the other end, in the story of the tyrannicides.",
+      "aliases": [
+        "Harmodius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristogiton-friend",
+      "name": "Aristogiton",
+      "body": "The other of that pair.",
+      "aliases": [
+        "Aristogiton"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eudamidas",
+      "name": "Eudamidas",
+      "body": "A Corinthian who died poor with two rich friends, and left his mother’s maintenance to Areteus and his daughter’s marriage to Charixenus — a will everyone laughed at and the legatees accepted with content. Montaigne says the force of friendship shows more in leaving them the chance of the benefit than in their discharging it.",
+      "aliases": [
+        "Eudamidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charixenus",
+      "name": "Charixenus",
+      "body": "A Sicyonian, one of the two legatees, who died within five days and left the whole charge on his fellow.",
+      "aliases": [
+        "Charixenus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "areteus",
+      "name": "Areteus",
+      "body": "The other, a Corinthian, who nurtured the old woman with great tenderness and married both his own daughter and Eudamidas’s out of the five talents he had, on one and the same day.",
+      "aliases": [
+        "Areteus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "madame-de-grammont",
+      "name": "Madame de Grammont, Comtesse de Guissen",
+      "body": "The dedicatee of La Boétie’s sonnets, which the editions no longer print. The dedication line is all that is left of them here, and it is printed in capitals.",
+      "aliases": [
+        "MADAME DE GRAMMONT",
+        "Madame de Grammont"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pausanias-sparta",
+      "name": "Pausanias",
+      "body": "Whose own mother was the first instructor of his process and threw the first stone towards his death — a virtue Montaigne finds not so much just as strange.",
+      "aliases": [
+        "Pausanias"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "postumius",
+      "name": "Posthumius the dictator",
+      "body": "Who put his own son to death for having pushed upon the enemy a little in advance of his squadron, and successfully. The modern edition spells him Postumius.",
+      "aliases": [
+        "Posthumius",
+        "Postumius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "callicles",
+      "name": "Callicles",
+      "body": "Who says in Plato that the extremity of philosophy is hurtful, and that taken beyond the limits of profit it renders a man brutish, a contemner of religion and the laws, and unfit for any public administration. Montaigne says he says true.",
+      "aliases": [
+        "Callicles"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thomas-aquinas",
+      "name": "St Thomas Aquinas",
+      "body": "Who condemns marriage within the forbidden degrees partly for fear the friendship should be immoderate: a conjugal affection surcharged with the affection of kindred will carry a husband beyond the bounds of reason.",
+      "aliases": [
+        "St. Thomas Aquinas"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "zenobia",
+      "name": "Zenobia",
+      "body": "Who would admit her husband for one encounter only and then left him to himself for the whole time of her conception — a brave and generous example, Montaigne says, of conjugal continence.",
+      "aliases": [
+        "Zenobia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aelius-verus",
+      "name": "AElius Verus",
+      "body": "The emperor who answered his wife’s reproaches about other women by saying that marriage was a name of honour and dignity, not of wanton desire. The modern edition spells him Aelius.",
+      "aliases": [
+        "AElius Verus",
+        "Aelius Verus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gallio",
+      "name": "Gallio",
+      "body": "Exiled to Lesbos and found to be living there as merry as the day was long, so that the Senate recalled him and confined him to his own house with his wife and family — to fit the punishment to his feeling.",
+      "aliases": [
+        "Gallio"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amurath",
+      "name": "Amurath",
+      "body": "Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins.",
+      "aliases": [
+        "Amurath"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fernando-cortez",
+      "name": "Fernando Cortez",
+      "body": "To whom the king of Mexico’s ambassadors boasted that their master was obliged to offer the gods fifty thousand men a year — and for whose welcome, at another town, they sacrificed fifty at once.",
+      "aliases": [
+        "Fernando Cortez",
+        "Cortez"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "flaminius",
+      "name": "Flaminius",
+      "body": "Whose army the Greeks said the same of as Pyrrhus said of the Romans: that whatever these barbarians might be, the order of the army had nothing of barbarism in it.",
+      "aliases": [
+        "Flaminius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-v-macedon",
+      "name": "Philip",
+      "body": "Philip of Macedon, who looked down from a height on the Roman camp Publius Sulpicius Galba had formed in his kingdom and spoke to the same effect.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sulpicius-galba",
+      "name": "Publius Sulpicius Galba",
+      "body": "Who formed that camp.",
+      "aliases": [
+        "Publius Sulpicius Galba"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "villegaignon",
+      "name": "Villegaignon",
+      "body": "Who landed in the part of the New World he called Antarctic France — where the man Montaigne kept in his house had lived ten or twelve years.",
+      "aliases": [
+        "Villegaignon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arsac",
+      "name": "The Sieur d’Arsac",
+      "body": "Montaigne’s brother, who watches an estate of his in Medoc being buried under the sand the sea drives before it, the tops of some houses still showing and his rents turned to barren pasture.",
+      "aliases": [
+        "Sieur d’Arsac",
+        "Arsac"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "claudian",
+      "name": "Claudian",
+      "body": "The late Latin poet, quoted for the line that no victory is complete which the conquered do not admit to be so. The older edition prints him Claudius.",
+      "aliases": [
+        "Claudian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leonidas",
+      "name": "King Leonidas",
+      "body": "Whose discomfiture at the pass of Thermopylae, Montaigne says, outweighs the four sister victories of Salamis, Plataea, Mycale and Sicily put together.",
+      "aliases": [
+        "Leonidas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iscolas",
+      "name": "Captain Iscolas",
+      "body": "Set to hold a pass of Peloponnesus against the Arcadians with no possibility of doing it, he sent the youngest and most active of his men home for their country’s service and held the pass with the rest until every one of them was cut to pieces. Montaigne asks whether the trophy was not more due to the conquered.",
+      "aliases": [
+        "Iscolas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sarah",
+      "name": "Sarah",
+      "body": "Who with Leah and Rachel gave the most beautiful of her handmaids to her husband — Montaigne’s scriptural parallel to the cannibal wives who seek out companions for their husbands.",
+      "aliases": [
+        "Sarah"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leah",
+      "name": "Leah",
+      "body": "One of Jacob’s two wives in that comparison.",
+      "aliases": [
+        "Leah"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rachel",
+      "name": "Rachel",
+      "body": "The other.",
+      "aliases": [
+        "Rachel"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deiotarus",
+      "name": "King Deiotarus",
+      "body": "Whose wife Stratonice gave up a fair young maid of her own to his embraces and then brought up the children carefully and helped them to the succession.",
+      "aliases": [
+        "Deiotarus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "stratonice-deiotarus",
+      "name": "Stratonice",
+      "body": "King Deiotarus’s wife. Not the Stratonice whose beauty gave Antiochus his fever.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-ix",
+      "name": "King Charles IX",
+      "body": "At Rouen when three of the cannibals were brought there, and who talked with them a good while. They said it was strange that so many tall bearded armed men should submit to obey a child.",
       "aliases": [],
       "category": "reference",
       "kind": "person",

@@ -1,5 +1,5 @@
 """Focused checks for Montaigne's Essays.
-Chapters 1-25 of 107 are authored."""
+Chapters 1-30 of 107 are authored."""
 import unittest
 from build_essays_montaigne import compile_package
 
@@ -69,7 +69,7 @@ class EssaysMontaigne(unittest.TestCase):
         # Pliny the Elder of the Natural History at 9:6; the younger Pliny of
         # the letters appears at 38:45 and 39:0 and is not yet authored.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'pliny-elder'),[(9,6),(20,4),(22,2)],ed)
+            self.assertEqual(where(ed,'pliny-elder'),[(9,6),(20,4),(22,2),(26,18)],ed)
             for k in [(38,45),(39,0)]:
                 self.assertNotIn('pliny-elder',ids(ed,*k),(ed,k))
 
@@ -187,14 +187,16 @@ class EssaysMontaigne(unittest.TestCase):
     # ----------------------------------------------------------------- scope
     def test_montaigne_names_himself_late(self):
         # He is the central figure of his own book and names himself twenty-odd
-        # times in a hundred and seven chapters, first at 28:2.
+        # times in a hundred and seven chapters. The first occurrence of the name
+        # in either edition is not his own: 28:2 is an editor's note about the
+        # sonnets of La Boétie that the editions no longer print.
         for ed in ['original-en','modern-en']:
             w=where(ed,'montaigne')
             self.assertEqual(w[0],(28,2),ed)
             self.assertLess(len(w),40,ed)
 
-    def test_only_the_first_twenty_five_chapters_are_authored(self):
-        self.assertIn('chapters 1-25 of 107',REPORT['scope'])
+    def test_only_the_first_thirty_chapters_are_authored(self):
+        self.assertIn('chapters 1-30 of 107',REPORT['scope'])
         self.assertEqual(REPORT['editions']['original-en']['chapters'],107)
         self.assertEqual(REPORT['editions']['original-en']['paragraphs'],4897)
         self.assertEqual(REPORT['editions']['modern-en']['paragraphs'],4897)
@@ -338,7 +340,7 @@ class EssaysMontaigne(unittest.TestCase):
         # 24:55, in both places named among the philosophers.
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'zeno-mamertine'),[(1,5)],ed)
-            self.assertEqual(where(ed,'zeno-of-citium'),[(22,49),(24,55),(25,143)],ed)
+            self.assertEqual(where(ed,'zeno-of-citium'),[(22,49),(24,55),(25,143),(30,28)],ed)
 
     def test_the_three_men_called_scipio(self):
         # Pompey's father-in-law (18:12), the high priest in Cotta's list
@@ -453,7 +455,7 @@ class EssaysMontaigne(unittest.TestCase):
         # Augustus's wife at 23:1; Signora Livia, whose petticoats a young
         # traveller should not come home able to describe, at 25:26.
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'livia'),[(23,1)],ed)
+            self.assertEqual(where(ed,'livia'),[(23,1),(30,39)],ed)
             self.assertEqual(where(ed,'signora-livia'),[(25,26)],ed)
 
     def test_the_two_men_called_aristo(self):
@@ -468,7 +470,7 @@ class EssaysMontaigne(unittest.TestCase):
     def test_the_two_men_called_diogenes(self):
         for ed in ['original-en','modern-en']:
             self.assertEqual(where(ed,'diogenes-the-atheist'),[(11,31)],ed)
-            self.assertEqual(where(ed,'diogenes-the-cynic'),[(25,103)],ed)
+            self.assertEqual(where(ed,'diogenes-the-cynic'),[(25,103),(27,28)],ed)
 
     def test_the_two_spartans_called_cleomenes(self):
         for ed in ['original-en','modern-en']:
@@ -502,5 +504,65 @@ class EssaysMontaigne(unittest.TestCase):
     def test_the_dedication_is_printed_in_capitals(self):
         for ed in ['original-en','modern-en']:
             self.assertIn(('diane-de-foix','DIANE DE FOIX'),spans(ed,25,0),ed)
+
+    # ------------------------------------------- added with chapters 26-30
+    def test_philip_augustus_keeps_the_second_half_of_his_name(self):
+        # The emperor Augustus is alias-bound, so "King Philip Augustus" at 26:18
+        # had the emperor's card on the second half of his name until the full
+        # name was made an alias of its own.
+        for ed in ['original-en','modern-en']:
+            self.assertIn(('philip-augustus','Philip Augustus'),spans(ed,26,18),ed)
+            self.assertNotIn('augustus',[c for c,_ in spans(ed,26,18)],ed)
+
+    def test_the_two_women_called_stratonice(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'stratonice'),[(20,4)],ed)
+            self.assertEqual(where(ed,'stratonice-deiotarus'),[(30,39)],ed)
+
+    def test_the_antony_of_26_18_is_not_mark_antony(self):
+        # He lost a battle in Germany under Domitian. Mark Antony belongs to
+        # chapters not yet authored and carries no card.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'antony-germany'),[(26,18)],ed)
+
+    def test_the_six_men_called_philip(self):
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'philip-ii-spain'),[(3,13)],ed)
+            self.assertEqual(where(ed,'don-philip'),[(7,0)],ed)
+            self.assertEqual(where(ed,'philip-physician'),[(23,7)],ed)
+            # The full name is unambiguous, so it is an alias and binds at 41:10
+            # as well, in a chapter not yet authored.
+            self.assertEqual(where(ed,'philip-augustus'),[(26,18),(41,10)],ed)
+            self.assertEqual(where(ed,'philip-v-macedon'),[(30,0)],ed)
+
+    def test_ariosto_is_one_poet_under_two_spellings(self):
+        # The older edition prints him Aristo at 27:13 and Ariosto at 6:7; the
+        # modern prints Ariosto in both places. One card.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((6,7),where(ed,'ariosto'),ed)
+            self.assertIn((27,13),where(ed,'ariosto'),ed)
+        self.assertIn('Aristo',said('original-en','ariosto'))
+        self.assertNotIn('Aristo',said('modern-en','ariosto'))
+
+    def test_jove_and_jupiter_are_one_god(self):
+        for ed in ['original-en','modern-en']:
+            self.assertIn((19,73),where(ed,'jove'),ed)
+            self.assertIn((29,11),where(ed,'jove'),ed)
+
+    def test_coste_the_annotator_of_chapter_28_is_not_cast(self):
+        # 28:1 is an annotator's summary of the sonnets, signed Coste, and 28:2
+        # an editor's note. Montaigne and La Boétie are named in the second and
+        # carry their cards there; Coste is apparatus and carries none.
+        for ed in ['original-en','modern-en']:
+            for cid,text in spans(ed,28,1)+spans(ed,28,2):
+                self.assertNotIn(text,{'Coste'},(ed,cid,text))
+            self.assertIn(('montaigne','Montaigne'),spans(ed,28,2),ed)
+
+    def test_the_chapters_26_to_30_transliterations(self):
+        for cid,older,newer in [('postumius','Posthumius','Postumius'),
+                                ('aelius-verus','AElius Verus','Aelius Verus'),
+                                ('claudian','Claudian','Claudian')]:
+            self.assertIn(older,said('original-en',cid),cid)
+            self.assertIn(newer,said('modern-en',cid),cid)
 
 if __name__=='__main__':unittest.main()

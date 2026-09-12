@@ -9,7 +9,7 @@ becomes Wycliffe, Zisca becomes Zizka, Trivulcio becomes Trivulzio, Fabricio
 becomes Fabrizio, Juliano becomes Giuliano, Fregosa becomes Fregoso, Sylla
 becomes Sulla, AEneid becomes Aeneid. Both spellings are carried on one card.
 
-Chapters 1-25 are authored. The rest are not.
+Chapters 1-30 are authored. The rest are not.
 
 Scope: named persons — historical, literary, mythological and scriptural — and
 the gods Montaigne treats as agents. Peoples, places, schools of philosophy and
@@ -28,7 +28,7 @@ def add(id,name,body,aliases='',category='reference',kind='person',updates=None)
 
 # =============================================================== the author
 for row in [
-('montaigne','Montaigne','The author, who says his book and he are one thing, that he is himself the matter of it, and that he wants to be seen here in his simple, natural, ordinary fashion. He names himself rarely and late; where he does, it is usually because someone else has said something about him.','Montaigne','central'),
+('montaigne','Montaigne','The author, who says his book and he are one thing, that he is himself the matter of it, and that he wants to be seen here in his simple, natural, ordinary fashion. He names himself rarely and late — twenty-odd times in a hundred and seven chapters — and the first occurrence of his name in either edition is not his own: it is in an editor’s note at 28:2, about the sonnets of La Boétie that the editions no longer print.','Montaigne','central'),
 ]:add(*row)
 
 # =============================================== CHAPTER 1 — the same end
@@ -149,7 +149,7 @@ for row in [
 ('ottaviano-fregoso','Duke Ottaviano Fregosa','Who commanded Genoa under French protection and lost it in the middle of a treaty.','Ottaviano Fregosa|Ottaviano Fregoso|Fregosa|Fregoso'),
 ('brienne','The Count de Brienne','Who commanded at Ligny in Barrois when the emperor beleaguered it in person.','Brienne'),
 ('bertheville','Bertheville','Brienne’s lieutenant, who went out to parley at Ligny and lost the town while he was capitulating.','Bertheville'),
-('ariosto','Ariosto','The Italian poet of the Orlando Furioso.','Ariosto'),
+('ariosto','Ariosto','The Italian poet of the Orlando Furioso, quoted for the line that victory is ever worthy of praise whether won by fortune or by wit, and again for the hunter who cares nothing for the hare once he sees it taken. The older edition prints his name Aristo in the second citation — which is also the name of a Stoic and of a tragedian in this book.','Ariosto'),
 ('chrysippus','Chrysippus','The Stoic philosopher who held that a runner should use every force he has, but may not lay a hand on his adversary to stop him or set a leg before him to throw him down. Montaigne agrees.','Chrysippus'),
 ('polypercon','Polypercon','Who urged Alexander to use the cover of night against Darius, and was told that it was not for such a man as he to steal a victory.','Polypercon'),
 ('darius-iii','Darius','The Persian king Alexander refused to attack by night.'),
@@ -306,7 +306,7 @@ for row in [
 ('silius-italicus','Silius Italicus','The Latin epic poet, quoted for the old custom of enlivening a banquet with men killing each other over the cups.','Silius Italicus'),
 ('dicaearchus','Dicaearchus','Who compiled a register of the deaths of men — the book Montaigne says he would write himself, except that Dicaearchus meant it for a less profitable end. The older edition prints him Dicarchus.','Dicarchus|Dicaearchus'),
 ('maximian','Maximian','The late Latin elegist, quoted for the line: alas, to old men what portion of life remains.','Maximian'),
-('jove','Jove','Jupiter, whose strong thundering hand, in Horace’s ode, does not move a well-settled soul.','Jove','reference','deity'),
+('jove','Jupiter','Whose strong thundering hand, in Horace’s ode, does not move a well-settled soul — and who, in the story Montaigne says Plato borrowed from some lascivious poet, had not the patience to reach the couch and forgot in the pleasure of it the resolutions he had just taken with the rest of the gods.','Jove|Jupiter','supporting','deity'),
 ('manilius','Manilius','The Latin poet of the Astronomica, quoted twice in Nature’s speech: as we are born we die, and your grandsires saw no other thing than you.','Manilius'),
 ('thales','Thales','The most eminent of the sages, whom Nature taught that living and dying were indifferent — which is why, asked why then he did not die, he answered: because it is indifferent.','Thales'),
 ('chiron','Chiron','Who refused to be immortal once his father Saturn, the god of time and its duration, had told him the conditions.','Chiron','reference','mythological-figure'),
@@ -319,7 +319,7 @@ for row in [
 ('gallus-vibius','Gallus Vibius','Who bent his mind so hard on finding out the essence and motions of madness that he went out of his wits and never recovered his judgment — and might brag, Montaigne says, of having become a fool by too much wisdom.','Gallus Vibius'),
 ('cippus','Cippus, King of Italy','Who watched a bullfight with delight, dreamed all night that he had horns on his head, and by the force of imagination grew them.','Cippus'),
 ('antiochus','Antiochus','Who fell into a fever, inflamed with the beauty of Stratonice too deeply imprinted in his soul.'),
-('stratonice','Stratonice','Whose beauty gave Antiochus his fever.','Stratonice'),
+('stratonice','Stratonice','Whose beauty gave Antiochus his fever.'),
 ('lucius-cossitius','Lucius Cossitius','Whom Pliny claims to have seen turned from a woman into a man on her wedding day.','Lucius Cossitius'),
 ('pontanus','Pontanus','Who reports the like change in Italy in more recent times.','Pontanus'),
 ('iphis','Iphis','The boy who paid the vow a girl had made, in the line Montaigne quotes for such changes.','Iphis','reference','mythological-figure'),
@@ -448,7 +448,7 @@ for row in [
 ('pompey-the-dancer','Pompey','The other of the two noted dancers. Not Pompey the Great.'),
 ('signora-livia','Signora Livia','Whose petticoats are one of the things Montaigne says a young traveller ought not to come home able to describe. Not the Livia who was Augustus’s wife.'),
 ('marcellus','Marcellus','Whose death, Montaigne says, the pupil should be taught to judge rather than to locate: not so much where he died as why it was unworthy of his duty that he died there.','Marcellus'),
-('la-boetie','La Boetie','Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.','La Boetie|La Boétie','major'),
+('la-boetie','La Boetie','Étienne de La Boétie, Montaigne’s friend, whose “Voluntary Servitude” may have been prompted by a single sentence of Plutarch’s — that the people of Asia became the vassals of one man for not having been able to pronounce a single syllable, which is No. The modern edition spells him La Boétie.','Estienne de la Boetie|Estienne de la Boétie|La Boetie|La Boétie','major'),
 ('alexandridas','Alexandridas','Who reproached a man for making very good but too long speeches to the Ephori: thou speakest the things thou shouldst speak, but not as thou shouldst speak them.','Alexandridas'),
 ('anaximenes','Anaximenes','Who asked Pythagoras what purpose there was in searching out the secrets of the stars with death or slavery continually before his eyes — the kings of Persia being at that moment preparing to invade his country.','Anaximenes'),
 ('theodorus-gaza','Gaza','The grammarian whose method Montaigne sets against his own: precepts so intricate and harsh, and words so vain and lean, that there is no hold to be taken of them.','Gaza'),
@@ -493,8 +493,81 @@ for row in [
 ('aristo-tragedian','Aristo the tragedian','A man of good family and fortune, neither of which the profession blemished, nothing of the kind being a disparagement in Greece. Not Aristo of Chios.'),
 ]:add(*row)
 
-print(len(entities),'entities authored: chapters 1-25')
+
+# ============= CHAPTER 26 — folly to measure truth by our own capacity
+for row in [
+('chilo','Chilo','Who enjoined the rule Ne quid nimis — nothing too much — and who said: love him as if you were one day to hate him, and hate him as if you were one day to love him.','Chilo'),
+('froissart','Froissart','In whom Montaigne finds the Comte de Foix knowing in Bearn, the day after it happened, the defeat of John of Castile.','Froissart'),
+('comte-de-foix','The Comte de Foix','Who knew in Bearn the day after it happened of John of Castile’s defeat at Aljubarrota, and told Froissart the means by which he came to know it.','Comte de Foix'),
+('john-of-castile','John, king of Castile','Defeated at the battle the older edition calls Jubera and the modern Aljubarrota.'),
+('pope-honorius','Pope Honorius','Who performed King Philip Augustus’s public obsequies at Rome on the very day the king died at Mantes, and commanded the like throughout Italy.','Pope Honorius'),
+('philip-augustus','King Philip Augustus','Who died at Mantes on the day Pope Honorius buried him at Rome. His name has to be bound whole, or the emperor Augustus takes the second half of it.','Philip Augustus'),
+('domitian','Domitian','In whose time, Plutarch says he knows of certain knowledge, the news of a battle lost in Germany was published at Rome the same day it was fought.','Domitian'),
+('antony-germany','Antony','Who lost the battle in Germany whose news reached Rome, Plutarch says, on the day it was fought. Not Mark Antony.'),
+('bouchet','Bouchet','Whose miracles of St Hilary’s relics Montaigne would wave away — while refusing to condemn all such stories out of hand, which he calls a singular impudence.','Bouchet'),
+('st-hilary','St Hilary','Whose relics Bouchet records the miracles of.','St. Hilary','reference','religious-figure'),
+('st-gervasius','St Gervasius','On whose relics, with St Protasius’s, St Augustine testifies to having seen a blind child recover its sight at Milan.','St. Gervasius','reference','religious-figure'),
+('st-protasius','St Protasius','The other of that pair.','St. Protasius','reference','religious-figure'),
+('hesperius','Hesperius','St Augustine’s familiar friend, who drove the spirits out of his house with a little earth from the sepulchre of our Lord.','Hesperius'),
+('st-stephen','St Stephen','Whose shrine a woman in a procession touched with a nosegay, and rubbing her eyes with it recovered the sight she had lost many years before.','St. Stephen','reference','religious-figure'),
+('aurelius-bishop','Aurelius','One of the two holy bishops St Augustine calls as witnesses to those miracles.','Aurelius'),
+('maximinus-bishop','Maximinus','The other of them.','Maximinus'),
+]:add(*row)
+
+# ============================================== CHAPTER 27 — of friendship
+for row in [
+('laelius','Laelius','Who asked Caius Blosius, in front of the Roman consuls prosecuting everyone who had been familiar with Tiberius Gracchus, how much he would have done for him — and got the answer: all things.','Laelius'),
+('tiberius-gracchus','Tiberius Gracchus','Whose friends the consuls prosecuted after sentencing him, and whose will Blosius says he had in his sleeve.','Tiberius Gracchus|Gracchus'),
+('suidas','Suidas','The Greek lexicographer, cited for what he reports of some people of the East who drink only outside their meals.','Suidas'),
+('caius-blosius','Caius Blosius','Gracchus’s chiefest friend, who told Laelius he would have obeyed him even in firing the temples — because Gracchus would never have commanded it. Montaigne defends the answer: they were more friends to one another than either enemies or friends to their country.','Caius Blosius|Blosius'),
+('achilles','Achilles','To whom Aeschylus gave the lover’s part in the loves of Achilles and Patroclus — for which the Academy very much blames him, Achilles being in the first and beardless flower of his adolescence and the handsomest of all the Greeks.','Achilles','reference','mythological-figure'),
+('patroclus','Patroclus','The other of that pair.','Patroclus','reference','mythological-figure'),
+('harmodius','Harmodius','Whose healthy love with Aristogiton is the Academy’s instance of the public good such friendship did — and which Montaigne has already told from the other end, in the story of the tyrannicides.','Harmodius'),
+('aristogiton-friend','Aristogiton','The other of that pair.','Aristogiton'),
+('eudamidas','Eudamidas','A Corinthian who died poor with two rich friends, and left his mother’s maintenance to Areteus and his daughter’s marriage to Charixenus — a will everyone laughed at and the legatees accepted with content. Montaigne says the force of friendship shows more in leaving them the chance of the benefit than in their discharging it.','Eudamidas'),
+('charixenus','Charixenus','A Sicyonian, one of the two legatees, who died within five days and left the whole charge on his fellow.','Charixenus'),
+('areteus','Areteus','The other, a Corinthian, who nurtured the old woman with great tenderness and married both his own daughter and Eudamidas’s out of the five talents he had, on one and the same day.','Areteus'),
+]:add(*row)
+
+# ============= CHAPTER 28 — nine and twenty sonnets of Estienne de la Boitie
+for row in [
+('madame-de-grammont','Madame de Grammont, Comtesse de Guissen','The dedicatee of La Boétie’s sonnets, which the editions no longer print. The dedication line is all that is left of them here, and it is printed in capitals.','MADAME DE GRAMMONT|Madame de Grammont'),
+]:add(*row)
+
+
+# ============================================= CHAPTER 29 — of moderation
+for row in [
+('pausanias-sparta','Pausanias','Whose own mother was the first instructor of his process and threw the first stone towards his death — a virtue Montaigne finds not so much just as strange.','Pausanias'),
+('postumius','Posthumius the dictator','Who put his own son to death for having pushed upon the enemy a little in advance of his squadron, and successfully. The modern edition spells him Postumius.','Posthumius|Postumius'),
+('callicles','Callicles','Who says in Plato that the extremity of philosophy is hurtful, and that taken beyond the limits of profit it renders a man brutish, a contemner of religion and the laws, and unfit for any public administration. Montaigne says he says true.','Callicles','reference','literary-figure'),
+('thomas-aquinas','St Thomas Aquinas','Who condemns marriage within the forbidden degrees partly for fear the friendship should be immoderate: a conjugal affection surcharged with the affection of kindred will carry a husband beyond the bounds of reason.','St. Thomas Aquinas','reference','religious-figure'),
+('zenobia','Zenobia','Who would admit her husband for one encounter only and then left him to himself for the whole time of her conception — a brave and generous example, Montaigne says, of conjugal continence.','Zenobia'),
+('aelius-verus','AElius Verus','The emperor who answered his wife’s reproaches about other women by saying that marriage was a name of honour and dignity, not of wanton desire. The modern edition spells him Aelius.','AElius Verus|Aelius Verus'),
+('gallio','Gallio','Exiled to Lesbos and found to be living there as merry as the day was long, so that the Senate recalled him and confined him to his own house with his wife and family — to fit the punishment to his feeling.','Gallio'),
+('amurath','Amurath','Who at the taking of the Isthmus immolated six hundred young Greeks to his father’s soul as a propitiatory sacrifice for his sins.','Amurath'),
+('fernando-cortez','Fernando Cortez','To whom the king of Mexico’s ambassadors boasted that their master was obliged to offer the gods fifty thousand men a year — and for whose welcome, at another town, they sacrificed fifty at once.','Fernando Cortez|Cortez'),
+]:add(*row)
+
+# ============================================== CHAPTER 30 — of cannibals
+for row in [
+('flaminius','Flaminius','Whose army the Greeks said the same of as Pyrrhus said of the Romans: that whatever these barbarians might be, the order of the army had nothing of barbarism in it.','Flaminius'),
+('philip-v-macedon','Philip','Philip of Macedon, who looked down from a height on the Roman camp Publius Sulpicius Galba had formed in his kingdom and spoke to the same effect.'),
+('sulpicius-galba','Publius Sulpicius Galba','Who formed that camp.','Publius Sulpicius Galba'),
+('villegaignon','Villegaignon','Who landed in the part of the New World he called Antarctic France — where the man Montaigne kept in his house had lived ten or twelve years.','Villegaignon'),
+('arsac','The Sieur d’Arsac','Montaigne’s brother, who watches an estate of his in Medoc being buried under the sand the sea drives before it, the tops of some houses still showing and his rents turned to barren pasture.','Sieur d’Arsac|Arsac'),
+('claudian','Claudian','The late Latin poet, quoted for the line that no victory is complete which the conquered do not admit to be so. The older edition prints him Claudius.','Claudian'),
+('leonidas','King Leonidas','Whose discomfiture at the pass of Thermopylae, Montaigne says, outweighs the four sister victories of Salamis, Plataea, Mycale and Sicily put together.','Leonidas'),
+('iscolas','Captain Iscolas','Set to hold a pass of Peloponnesus against the Arcadians with no possibility of doing it, he sent the youngest and most active of his men home for their country’s service and held the pass with the rest until every one of them was cut to pieces. Montaigne asks whether the trophy was not more due to the conquered.','Iscolas'),
+('sarah','Sarah','Who with Leah and Rachel gave the most beautiful of her handmaids to her husband — Montaigne’s scriptural parallel to the cannibal wives who seek out companions for their husbands.','Sarah','reference','religious-figure'),
+('leah','Leah','One of Jacob’s two wives in that comparison.','Leah','reference','religious-figure'),
+('rachel','Rachel','The other.','Rachel','reference','religious-figure'),
+('deiotarus','King Deiotarus','Whose wife Stratonice gave up a fair young maid of her own to his embraces and then brought up the children carefully and helped them to the succession.','Deiotarus'),
+('stratonice-deiotarus','Stratonice','King Deiotarus’s wife. Not the Stratonice whose beauty gave Antiochus his fever.'),
+('charles-ix','King Charles IX','At Rouen when three of the cannibals were brought there, and who talked with them a good while. They said it was strange that so many tall bearded armed men should submit to obey a child.'),
+]:add(*row)
+
+print(len(entities),'entities authored: chapters 1-30')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-12.4',
- coverage='Both full English editions, chapters 1-25 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.',
+ contentVersion='2026-09-12.5',
+ coverage='Both full English editions, chapters 1-30 of 107. Named persons and the gods Montaigne treats as agents. Peoples, places, schools of philosophy and book titles are not cast.',
  entities=[e for e in entities if e['name']!='unused']),ensure_ascii=False,indent=2)+'\n')
