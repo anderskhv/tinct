@@ -37,7 +37,7 @@ section's entries are numbered 1…N contiguously.  It fired: 186 entries
 matched where the maximum is 187, and **note 29 was missing**.  Note 29's
 opener is **transposed** — `29[] [ The geography of the Ægean…` where all 186
 others read `[29] [ …`.  That is a real transcription defect in the published
-file (**finding I-1** of `findings-v1.md`); it is harmless to this package
+file (**R-3** of `findings-v1.md`); it is harmless to this package
 because the served editions carry no apparatus, but it is the first thing
 anyone has found by reading the FOOTNOTES section's own structure, which is
 the channel `RESUME.md` names as unused.  **The fix is not a tolerant parse.**
@@ -146,7 +146,7 @@ def footnotes_block(raw):
 
 
 #: Entry openers.  The second alternative is not defensive programming — it is
-#: a transcription defect in PG #1727 that this clause found (finding I-1 of
+#: a transcription defect in PG #1727 that this clause found (records finding R-3 of
 #: `findings-v1.md`): note 29 opens `29[] [ The geography of the Ægean…` where
 #: every other one of the 187 opens `[29] [ …`.  The brackets are transposed.
 #: It is matched EXPLICITLY and counted, so the clause reports the malformation
@@ -248,7 +248,7 @@ def main():
     contiguous = markers == list(range(markers[0], markers[-1] + 1))
     print("clause 4: the apparatus numbers 1…%d contiguously — but note %d's "
           "opener is transposed, `29[]` for `[29]`, the only one of the %d "
-          "(finding I-1). It carries %d note-to-note cross-references, every "
+          "(R-3). It carries %d note-to-note cross-references, every "
           "target in range and none self-referential (%s). The markers inside "
           "the located span are %d…%d, %s — a gap would mean the span had "
           "jumped a Book."
