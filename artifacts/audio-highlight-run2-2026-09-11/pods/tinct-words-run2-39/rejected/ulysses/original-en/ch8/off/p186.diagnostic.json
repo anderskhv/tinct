@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "1b600195bf493afd4c40b827716e2b5f961bcd41aba73e717a4037505f261127",
+  "attempts": [
+    {
+      "asr_seconds": 0.11265937192365527,
+      "alignment_seconds": 0.00027530803345143795,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Two stouts here.",
+          "start": 0.05,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Two",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.787109375
+            },
+            {
+              "text": " stouts",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.784423828125
+            },
+            {
+              "text": " here.",
+              "start": 0.89,
+              "end": 1.13,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "stouts",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "raw": "here.",
+          "start": 0.89,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "—Two",
+        "stouts",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Two",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "two",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "stouts",
+          "start": 0.55,
+          "end": 0.89,
+          "key": "stouts",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 0.89,
+          "end": 1.13,
+          "key": "here",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Two",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "stouts",
+          "start": 0.55,
+          "end": 0.89
+        },
+        {
+          "text": "here.",
+          "start": 0.89,
+          "end": 1.13
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11302720685489476
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6e94988619e7e2fafd57f54acf289a2bd6d731b22e60bec497e4c275fa7a6671",
+  "selected_reasons": []
+}

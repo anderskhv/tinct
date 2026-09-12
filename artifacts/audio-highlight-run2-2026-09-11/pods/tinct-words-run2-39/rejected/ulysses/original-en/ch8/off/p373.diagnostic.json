@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "dfa8ff12ea164cac1961e6dfbab925ef1f1ef35bc36307ad0aa6426951e8ba90",
+  "attempts": [
+    {
+      "asr_seconds": 0.19454634888097644,
+      "alignment_seconds": 0.00025599892251193523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No didn't see me after two just at the gate",
+          "start": 0.02,
+          "end": 3.26,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.8623046875
+            },
+            {
+              "text": " didn't",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.681884765625
+            },
+            {
+              "text": " see",
+              "start": 1.06,
+              "end": 1.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " me",
+              "start": 1.22,
+              "end": 1.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " after",
+              "start": 1.54,
+              "end": 1.98,
+              "probability": 0.41845703125
+            },
+            {
+              "text": " two",
+              "start": 1.98,
+              "end": 2.3,
+              "probability": 0.7314453125
+            },
+            {
+              "text": " just",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.89306640625
+            },
+            {
+              "text": " at",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.88,
+              "end": 2.98,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gate",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "didn't",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "see",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "raw": "me",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "raw": "after",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "raw": "two",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "raw": "just",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "at",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "the",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "raw": "gate",
+          "start": 2.98,
+          "end": 3.26
+        }
+      ],
+      "expected_tokens": [
+        "No.",
+        "Didn't",
+        "see",
+        "me.",
+        "After",
+        "two.",
+        "Just",
+        "at",
+        "the",
+        "gate."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "didn't",
+          "start": 0.68,
+          "end": 1.06,
+          "key": "didnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 1.06,
+          "end": 1.22,
+          "key": "see",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.22,
+          "end": 1.54,
+          "key": "me",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.54,
+          "end": 1.98,
+          "key": "after",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "two",
+          "start": 1.98,
+          "end": 2.3,
+          "key": "two",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.3,
+          "end": 2.72,
+          "key": "just",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.88,
+          "end": 2.98,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "gate",
+          "start": 2.98,
+          "end": 3.26,
+          "key": "gate",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "No.",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "Didn't",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "see",
+          "start": 1.06,
+          "end": 1.22
+        },
+        {
+          "text": "me.",
+          "start": 1.22,
+          "end": 1.54
+        },
+        {
+          "text": "After",
+          "start": 1.54,
+          "end": 1.98
+        },
+        {
+          "text": "two.",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "text": "Just",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "text": "at",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "the",
+          "start": 2.88,
+          "end": 2.98
+        },
+        {
+          "text": "gate.",
+          "start": 2.98,
+          "end": 3.26
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19491493399254978
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "349deffb1628cbb355c218117785c58fce1526628126afcb9d859e99cf2977e2",
+  "selected_reasons": []
+}

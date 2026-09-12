@@ -1,0 +1,766 @@
+{
+  "complete": true,
+  "signature": "7443e813e603625dc71d9f6bb13f73a5620362b4de82fc251af4b8a7ab640835",
+  "attempts": [
+    {
+      "asr_seconds": 0.3585479408502579,
+      "alignment_seconds": 0.0006710540037602186,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Philip Beaufoy I was thinking. Playgoers' Club. Matcham often thinks of the masterstroke. Did I pull the chain? Yes. The last act.",
+        "hotwords": "Philip, Beaufoy, I, Playgoers, Club, Matcham, Did, Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Philip Beaufoy I was thinking. Playgoers' Club. Matcham often thinks of the masterstroke. Did I pull the chain? Yes. The last act.",
+          "start": 0.05,
+          "end": 8.35,
+          "words": [
+            {
+              "text": " Philip",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " Beaufoy",
+              "start": 0.61,
+              "end": 1.15,
+              "probability": 0.2985027035077413
+            },
+            {
+              "text": " I",
+              "start": 1.15,
+              "end": 1.19,
+              "probability": 0.167236328125
+            },
+            {
+              "text": " was",
+              "start": 1.19,
+              "end": 1.29,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " thinking.",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Playgoers'",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.76318359375
+            },
+            {
+              "text": " Club.",
+              "start": 2.71,
+              "end": 2.89,
+              "probability": 0.55615234375
+            },
+            {
+              "text": " Matcham",
+              "start": 3.59,
+              "end": 3.81,
+              "probability": 0.3578033447265625
+            },
+            {
+              "text": " often",
+              "start": 3.81,
+              "end": 4.11,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thinks",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 4.35,
+              "end": 4.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 4.51,
+              "end": 4.59,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " masterstroke.",
+              "start": 4.59,
+              "end": 5.29,
+              "probability": 0.440673828125
+            },
+            {
+              "text": " Did",
+              "start": 5.77,
+              "end": 5.85,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " I",
+              "start": 5.85,
+              "end": 5.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " pull",
+              "start": 5.99,
+              "end": 6.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 6.13,
+              "end": 6.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " chain?",
+              "start": 6.31,
+              "end": 6.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Yes.",
+              "start": 7.11,
+              "end": 7.33,
+              "probability": 0.955078125
+            },
+            {
+              "text": " The",
+              "start": 7.69,
+              "end": 7.71,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " last",
+              "start": 7.71,
+              "end": 7.97,
+              "probability": 0.9140625
+            },
+            {
+              "text": " act.",
+              "start": 7.97,
+              "end": 8.35,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Philip",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "Beaufoy",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "raw": "was",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "raw": "thinking.",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "Playgoers'",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "Club.",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "raw": "Matcham",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "raw": "often",
+          "start": 3.81,
+          "end": 4.11
+        },
+        {
+          "raw": "thinks",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "raw": "of",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "raw": "the",
+          "start": 4.51,
+          "end": 4.59
+        },
+        {
+          "raw": "masterstroke.",
+          "start": 4.59,
+          "end": 5.29
+        },
+        {
+          "raw": "Did",
+          "start": 5.77,
+          "end": 5.85
+        },
+        {
+          "raw": "I",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "raw": "pull",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "raw": "the",
+          "start": 6.13,
+          "end": 6.31
+        },
+        {
+          "raw": "chain?",
+          "start": 6.31,
+          "end": 6.57
+        },
+        {
+          "raw": "Yes.",
+          "start": 7.11,
+          "end": 7.33
+        },
+        {
+          "raw": "The",
+          "start": 7.69,
+          "end": 7.71
+        },
+        {
+          "raw": "last",
+          "start": 7.71,
+          "end": 7.97
+        },
+        {
+          "raw": "act.",
+          "start": 7.97,
+          "end": 8.35
+        }
+      ],
+      "expected_tokens": [
+        "Philip",
+        "Beaufoy",
+        "I",
+        "was",
+        "thinking.",
+        "Playgoers'",
+        "Club.",
+        "Matcham",
+        "often",
+        "thinks",
+        "of",
+        "the",
+        "masterstroke.",
+        "Did",
+        "I",
+        "pull",
+        "the",
+        "chain?",
+        "Yes.",
+        "The",
+        "last",
+        "act."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Philip",
+          "start": 0.05,
+          "end": 0.61,
+          "key": "philip",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Beaufoy",
+          "start": 0.61,
+          "end": 1.15,
+          "key": "beaufoy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.15,
+          "end": 1.19,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "was",
+          "start": 1.19,
+          "end": 1.29,
+          "key": "was",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "thinking.",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "thinking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Playgoers'",
+          "start": 2.15,
+          "end": 2.49,
+          "key": "playgoers",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "Club.",
+          "start": 2.71,
+          "end": 2.89,
+          "key": "club",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "Matcham",
+          "start": 3.59,
+          "end": 3.81,
+          "key": "matcham",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 3.81,
+          "end": 4.11,
+          "key": "often",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "thinks",
+          "start": 4.11,
+          "end": 4.35,
+          "key": "thinks",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.35,
+          "end": 4.51,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.51,
+          "end": 4.59,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "masterstroke.",
+          "start": 4.59,
+          "end": 5.29,
+          "key": "masterstroke",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Did",
+          "start": 5.77,
+          "end": 5.85,
+          "key": "did",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 5.85,
+          "end": 5.99,
+          "key": "i",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "pull",
+          "start": 5.99,
+          "end": 6.13,
+          "key": "pull",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 6.13,
+          "end": 6.31,
+          "key": "the",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "chain?",
+          "start": 6.31,
+          "end": 6.57,
+          "key": "chain",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "Yes.",
+          "start": 7.11,
+          "end": 7.33,
+          "key": "yes",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.69,
+          "end": 7.71,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "last",
+          "start": 7.71,
+          "end": 7.97,
+          "key": "last",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "act.",
+          "start": 7.97,
+          "end": 8.35,
+          "key": "act",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Philip",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "Beaufoy",
+          "start": 0.61,
+          "end": 1.15
+        },
+        {
+          "text": "I",
+          "start": 1.15,
+          "end": 1.19
+        },
+        {
+          "text": "was",
+          "start": 1.19,
+          "end": 1.29
+        },
+        {
+          "text": "thinking.",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "Playgoers'",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "Club.",
+          "start": 2.71,
+          "end": 2.89
+        },
+        {
+          "text": "Matcham",
+          "start": 3.59,
+          "end": 3.81
+        },
+        {
+          "text": "often",
+          "start": 3.81,
+          "end": 4.11
+        },
+        {
+          "text": "thinks",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "of",
+          "start": 4.35,
+          "end": 4.51
+        },
+        {
+          "text": "the",
+          "start": 4.51,
+          "end": 4.59
+        },
+        {
+          "text": "masterstroke.",
+          "start": 4.59,
+          "end": 5.29
+        },
+        {
+          "text": "Did",
+          "start": 5.77,
+          "end": 5.85
+        },
+        {
+          "text": "I",
+          "start": 5.85,
+          "end": 5.99
+        },
+        {
+          "text": "pull",
+          "start": 5.99,
+          "end": 6.13
+        },
+        {
+          "text": "the",
+          "start": 6.13,
+          "end": 6.31
+        },
+        {
+          "text": "chain?",
+          "start": 6.31,
+          "end": 6.57
+        },
+        {
+          "text": "Yes.",
+          "start": 7.11,
+          "end": 7.33
+        },
+        {
+          "text": "The",
+          "start": 7.69,
+          "end": 7.71
+        },
+        {
+          "text": "last",
+          "start": 7.71,
+          "end": 7.97
+        },
+        {
+          "text": "act.",
+          "start": 7.97,
+          "end": 8.35
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3595079348888248
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4be2fffb8f612b26e32bfa3fa5c1c72742bf226d12d62e07ade4fef472a6dcf4",
+  "selected_reasons": []
+}

@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "6d155ae6709886f94c14dc77db13887f274af7bb1c4551ae32676c57bd747bec",
+  "attempts": [
+    {
+      "asr_seconds": 0.10204039001837373,
+      "alignment_seconds": 0.00019248900935053825,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His gorge rose.",
+          "start": 0.02,
+          "end": 1.18,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.6220703125
+            },
+            {
+              "text": " gorge",
+              "start": 0.54,
+              "end": 0.82,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " rose.",
+              "start": 0.82,
+              "end": 1.18,
+              "probability": 0.783203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "gorge",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "raw": "rose.",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "gorge",
+        "rose."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.54,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "gorge",
+          "start": 0.54,
+          "end": 0.82,
+          "key": "gorge",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rose.",
+          "start": 0.82,
+          "end": 1.18,
+          "key": "rose",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "gorge",
+          "start": 0.54,
+          "end": 0.82
+        },
+        {
+          "text": "rose.",
+          "start": 0.82,
+          "end": 1.18
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10230818786658347
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "60c339e189d5dab902848050ee1a6b19019a664d5cb7f76146b1fad3430c1c3c",
+  "selected_reasons": []
+}

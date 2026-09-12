@@ -1,0 +1,220 @@
+{
+  "complete": true,
+  "signature": "215aa23c9bc534ede5612846f5c14c44f255ed8dc40a27338d2545cc11532134",
+  "attempts": [
+    {
+      "asr_seconds": 0.176455870969221,
+      "alignment_seconds": 0.000335511052981019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mind, let this man pass.",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Mind,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " let",
+              "start": 1.05,
+              "end": 1.15,
+              "probability": 0.974609375
+            },
+            {
+              "text": " this",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " man",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.99609375
+            },
+            {
+              "text": " pass.",
+              "start": 1.51,
+              "end": 1.93,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mind,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "raw": "this",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "man",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "pass.",
+          "start": 1.51,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "—Mind!",
+        "Let",
+        "this",
+        "man",
+        "pass."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mind,",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "mind",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 1.05,
+          "end": 1.15,
+          "key": "let",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "this",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 1.31,
+          "end": 1.51,
+          "key": "man",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "pass.",
+          "start": 1.51,
+          "end": 1.93,
+          "key": "pass",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mind!",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Let",
+          "start": 1.05,
+          "end": 1.15
+        },
+        {
+          "text": "this",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "man",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "pass.",
+          "start": 1.51,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1769125210121274
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4cb72a08ec5bda7aa72a23dd36ab7c2975fa154f3e487605b4c31145e794dc5",
+  "selected_reasons": []
+}

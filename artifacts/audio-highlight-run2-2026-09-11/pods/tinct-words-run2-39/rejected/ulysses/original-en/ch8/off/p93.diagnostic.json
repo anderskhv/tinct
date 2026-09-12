@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "signature": "ca2ef511bca3d79fe6308979c2f0d484167945496f02a8fa8dfaaae06c0648d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3249461760278791,
+      "alignment_seconds": 0.0003364458680152893,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His heavy-pitying gaze absorbed her news. His tongue clacked in compassion. DTH DTH",
+          "start": 0.02,
+          "end": 6.8,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " heavy",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-pitying",
+              "start": 0.78,
+              "end": 1.22,
+              "probability": 0.72882080078125
+            },
+            {
+              "text": " gaze",
+              "start": 1.22,
+              "end": 1.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " absorbed",
+              "start": 1.48,
+              "end": 1.9,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " her",
+              "start": 1.9,
+              "end": 2.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " news.",
+              "start": 2.16,
+              "end": 2.48,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " His",
+              "start": 3.14,
+              "end": 3.22,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " tongue",
+              "start": 3.22,
+              "end": 3.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " clacked",
+              "start": 3.5,
+              "end": 3.92,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " in",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.99609375
+            },
+            {
+              "text": " compassion.",
+              "start": 4.06,
+              "end": 4.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " DTH",
+              "start": 5.42,
+              "end": 5.88,
+              "probability": 0.729736328125
+            },
+            {
+              "text": " DTH",
+              "start": 5.88,
+              "end": 6.8,
+              "probability": 0.69189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "heavy",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "-pitying",
+          "start": 0.78,
+          "end": 1.22
+        },
+        {
+          "raw": "gaze",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "raw": "absorbed",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "raw": "her",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "raw": "news.",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "raw": "His",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "raw": "tongue",
+          "start": 3.22,
+          "end": 3.5
+        },
+        {
+          "raw": "clacked",
+          "start": 3.5,
+          "end": 3.92
+        },
+        {
+          "raw": "in",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "compassion.",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "raw": "DTH",
+          "start": 5.42,
+          "end": 5.88
+        },
+        {
+          "raw": "DTH",
+          "start": 5.88,
+          "end": 6.8
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "heavy",
+        "pitying",
+        "gaze",
+        "absorbed",
+        "her",
+        "news.",
+        "His",
+        "tongue",
+        "clacked",
+        "in",
+        "compassion.",
+        "Dth!",
+        "Dth!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "heavy",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "heavy",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "-pitying",
+          "start": 0.78,
+          "end": 1.22,
+          "key": "pitying",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "gaze",
+          "start": 1.22,
+          "end": 1.48,
+          "key": "gaze",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "absorbed",
+          "start": 1.48,
+          "end": 1.9,
+          "key": "absorbed",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "her",
+          "start": 1.9,
+          "end": 2.16,
+          "key": "her",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "news.",
+          "start": 2.16,
+          "end": 2.48,
+          "key": "news",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "His",
+          "start": 3.14,
+          "end": 3.22,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tongue",
+          "start": 3.22,
+          "end": 3.5,
+          "key": "tongue",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "clacked",
+          "start": 3.5,
+          "end": 3.92,
+          "key": "clacked",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.92,
+          "end": 4.06,
+          "key": "in",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "compassion.",
+          "start": 4.06,
+          "end": 4.6,
+          "key": "compassion",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "DTH",
+          "start": 5.42,
+          "end": 5.88,
+          "key": "dth",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "DTH",
+          "start": 5.88,
+          "end": 6.8,
+          "key": "dth",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "heavy",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "pitying",
+          "start": 0.78,
+          "end": 1.22
+        },
+        {
+          "text": "gaze",
+          "start": 1.22,
+          "end": 1.48
+        },
+        {
+          "text": "absorbed",
+          "start": 1.48,
+          "end": 1.9
+        },
+        {
+          "text": "her",
+          "start": 1.9,
+          "end": 2.16
+        },
+        {
+          "text": "news.",
+          "start": 2.16,
+          "end": 2.48
+        },
+        {
+          "text": "His",
+          "start": 3.14,
+          "end": 3.22
+        },
+        {
+          "text": "tongue",
+          "start": 3.22,
+          "end": 3.5
+        },
+        {
+          "text": "clacked",
+          "start": 3.5,
+          "end": 3.92
+        },
+        {
+          "text": "in",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "compassion.",
+          "start": 4.06,
+          "end": 4.6
+        },
+        {
+          "text": "Dth!",
+          "start": 5.42,
+          "end": 5.88
+        },
+        {
+          "text": "Dth!",
+          "start": 5.88,
+          "end": 6.8
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32543448894284666
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "baf4359c305adb44801ad4bf35233987fdc7c890c078bb76c5ef0663c2302eeb",
+  "selected_reasons": []
+}

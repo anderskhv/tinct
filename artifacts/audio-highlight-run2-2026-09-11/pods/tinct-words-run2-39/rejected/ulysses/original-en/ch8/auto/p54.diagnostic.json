@@ -1,0 +1,478 @@
+{
+  "complete": true,
+  "signature": "20a31f972d54f2c1a1b1487d55b66a8a93e8cd1d4cec74921338cab6dea9f0d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.26137641398236156,
+      "alignment_seconds": 0.00044110603630542755,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "—O, dear me, Mrs Breen said. I hope it wasn't any near relation.",
+        "hotwords": "O, Mrs, Breen, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, dear me, Mrs. Breen said. I hope it wasn't any near relation.",
+          "start": 0.08,
+          "end": 4.34,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.0005121231079101562
+            },
+            {
+              "text": " dear",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " me,",
+              "start": 0.98,
+              "end": 1.28,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Mrs.",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.990234375
+            },
+            {
+              "text": " Breen",
+              "start": 2.04,
+              "end": 2.1,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " said.",
+              "start": 2.1,
+              "end": 2.44,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " I",
+              "start": 2.92,
+              "end": 3.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hope",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " it",
+              "start": 3.18,
+              "end": 3.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wasn't",
+              "start": 3.3,
+              "end": 3.54,
+              "probability": 0.988037109375
+            },
+            {
+              "text": " any",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " near",
+              "start": 3.7,
+              "end": 3.92,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " relation.",
+              "start": 3.92,
+              "end": 4.34,
+              "probability": 0.96142578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "dear",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "me,",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "Breen",
+          "start": 2.04,
+          "end": 2.1
+        },
+        {
+          "raw": "said.",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "raw": "hope",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "raw": "it",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "raw": "wasn't",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "raw": "any",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "near",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "raw": "relation.",
+          "start": 3.92,
+          "end": 4.34
+        }
+      ],
+      "expected_tokens": [
+        "—O,",
+        "dear",
+        "me,",
+        "Mrs",
+        "Breen",
+        "said.",
+        "I",
+        "hope",
+        "it",
+        "wasn't",
+        "any",
+        "near",
+        "relation."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "O,",
+          "start": 0.08,
+          "end": 0.66,
+          "key": "o",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "dear",
+          "start": 0.88,
+          "end": 0.98,
+          "key": "dear",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "me,",
+          "start": 0.98,
+          "end": 1.28,
+          "key": "me",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Mrs.",
+          "start": 1.62,
+          "end": 1.8,
+          "key": "mrs",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Breen",
+          "start": 2.04,
+          "end": 2.1,
+          "key": "breen",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.1,
+          "end": 2.44,
+          "key": "said",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 2.92,
+          "end": 3.04,
+          "key": "i",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "hope",
+          "start": 3.04,
+          "end": 3.18,
+          "key": "hope",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "it",
+          "start": 3.18,
+          "end": 3.3,
+          "key": "it",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "wasn't",
+          "start": 3.3,
+          "end": 3.54,
+          "key": "wasnt",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 3.54,
+          "end": 3.7,
+          "key": "any",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "near",
+          "start": 3.7,
+          "end": 3.92,
+          "key": "near",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "relation.",
+          "start": 3.92,
+          "end": 4.34,
+          "key": "relation",
+          "pieces": [
+            12
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—O,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "dear",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "text": "me,",
+          "start": 0.98,
+          "end": 1.28
+        },
+        {
+          "text": "Mrs",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "Breen",
+          "start": 2.04,
+          "end": 2.1
+        },
+        {
+          "text": "said.",
+          "start": 2.1,
+          "end": 2.44
+        },
+        {
+          "text": "I",
+          "start": 2.92,
+          "end": 3.04
+        },
+        {
+          "text": "hope",
+          "start": 3.04,
+          "end": 3.18
+        },
+        {
+          "text": "it",
+          "start": 3.18,
+          "end": 3.3
+        },
+        {
+          "text": "wasn't",
+          "start": 3.3,
+          "end": 3.54
+        },
+        {
+          "text": "any",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "near",
+          "start": 3.7,
+          "end": 3.92
+        },
+        {
+          "text": "relation.",
+          "start": 3.92,
+          "end": 4.34
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26199132995679975
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8868d71cd20572972225ea0b8df0eda0cd0b0739be3cbe8c4488672e431e42f",
+  "selected_reasons": []
+}

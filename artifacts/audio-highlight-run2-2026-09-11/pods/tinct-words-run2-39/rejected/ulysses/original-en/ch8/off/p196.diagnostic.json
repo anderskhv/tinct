@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "6a212493ec88d97824306aaf9859b01e97e855b92c8840d90b8bf1c2c4e64295",
+  "attempts": [
+    {
+      "asr_seconds": 0.3109245190862566,
+      "alignment_seconds": 0.0003742850385606289,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Every fellow for his own tooth and nail. Gulp. Grub. Gulp. Gobstuff.",
+          "start": 0.08,
+          "end": 4.94,
+          "words": [
+            {
+              "text": " Every",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " fellow",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " for",
+              "start": 0.86,
+              "end": 1.1,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " his",
+              "start": 1.1,
+              "end": 1.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 1.26,
+              "end": 1.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tooth",
+              "start": 1.46,
+              "end": 1.8,
+              "probability": 0.33642578125
+            },
+            {
+              "text": " and",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " nail.",
+              "start": 2.0,
+              "end": 2.34,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Gulp.",
+              "start": 3.08,
+              "end": 3.36,
+              "probability": 0.975341796875
+            },
+            {
+              "text": " Grub.",
+              "start": 3.7,
+              "end": 3.84,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " Gulp.",
+              "start": 4.14,
+              "end": 4.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Gobstuff.",
+              "start": 4.66,
+              "end": 4.94,
+              "probability": 0.716552734375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Every",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "fellow",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "for",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "raw": "his",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "raw": "own",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "raw": "tooth",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "nail.",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "raw": "Gulp.",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "raw": "Grub.",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "raw": "Gulp.",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "raw": "Gobstuff.",
+          "start": 4.66,
+          "end": 4.94
+        }
+      ],
+      "expected_tokens": [
+        "Every",
+        "fellow",
+        "for",
+        "his",
+        "own,",
+        "tooth",
+        "and",
+        "nail.",
+        "Gulp.",
+        "Grub.",
+        "Gulp.",
+        "Gobstuff."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Every",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "every",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "fellow",
+          "start": 0.62,
+          "end": 0.86,
+          "key": "fellow",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "for",
+          "start": 0.86,
+          "end": 1.1,
+          "key": "for",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.1,
+          "end": 1.26,
+          "key": "his",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 1.26,
+          "end": 1.46,
+          "key": "own",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tooth",
+          "start": 1.46,
+          "end": 1.8,
+          "key": "tooth",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.8,
+          "end": 2.0,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "nail.",
+          "start": 2.0,
+          "end": 2.34,
+          "key": "nail",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Gulp.",
+          "start": 3.08,
+          "end": 3.36,
+          "key": "gulp",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Grub.",
+          "start": 3.7,
+          "end": 3.84,
+          "key": "grub",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Gulp.",
+          "start": 4.14,
+          "end": 4.46,
+          "key": "gulp",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Gobstuff.",
+          "start": 4.66,
+          "end": 4.94,
+          "key": "gobstuff",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Every",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "fellow",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "for",
+          "start": 0.86,
+          "end": 1.1
+        },
+        {
+          "text": "his",
+          "start": 1.1,
+          "end": 1.26
+        },
+        {
+          "text": "own,",
+          "start": 1.26,
+          "end": 1.46
+        },
+        {
+          "text": "tooth",
+          "start": 1.46,
+          "end": 1.8
+        },
+        {
+          "text": "and",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "nail.",
+          "start": 2.0,
+          "end": 2.34
+        },
+        {
+          "text": "Gulp.",
+          "start": 3.08,
+          "end": 3.36
+        },
+        {
+          "text": "Grub.",
+          "start": 3.7,
+          "end": 3.84
+        },
+        {
+          "text": "Gulp.",
+          "start": 4.14,
+          "end": 4.46
+        },
+        {
+          "text": "Gobstuff.",
+          "start": 4.66,
+          "end": 4.94
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3114708140492439
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "01075f660d7aeb8f07db43b3eed6b56c3ebbfadc9943151827810e67e28a7f23",
+  "selected_reasons": []
+}

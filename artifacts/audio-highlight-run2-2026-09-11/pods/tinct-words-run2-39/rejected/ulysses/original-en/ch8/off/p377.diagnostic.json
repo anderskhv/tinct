@@ -1,0 +1,691 @@
+{
+  "complete": true,
+  "signature": "df7f585f954a6893d4393d8523ae2678bc5fbc5e283088e7cc60ae4aaafd7f36",
+  "attempts": [
+    {
+      "asr_seconds": 0.31847341707907617,
+      "alignment_seconds": 0.00046777399256825447,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His hasty hand went quick into a pocket took out red unfolded a jendath net aim. Where did I?",
+          "start": 0.02,
+          "end": 6.46,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " hasty",
+              "start": 0.52,
+              "end": 0.88,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " hand",
+              "start": 0.88,
+              "end": 1.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " went",
+              "start": 1.3,
+              "end": 1.5,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " quick",
+              "start": 1.5,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 1.7,
+              "end": 1.92,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " pocket",
+              "start": 2.06,
+              "end": 2.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " took",
+              "start": 2.42,
+              "end": 2.96,
+              "probability": 0.269775390625
+            },
+            {
+              "text": " out",
+              "start": 2.96,
+              "end": 3.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " red",
+              "start": 3.3,
+              "end": 3.86,
+              "probability": 0.869140625
+            },
+            {
+              "text": " unfolded",
+              "start": 3.86,
+              "end": 4.48,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " a",
+              "start": 4.48,
+              "end": 4.64,
+              "probability": 0.432373046875
+            },
+            {
+              "text": " jendath",
+              "start": 4.64,
+              "end": 5.08,
+              "probability": 0.7273763020833334
+            },
+            {
+              "text": " net",
+              "start": 5.08,
+              "end": 5.28,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " aim.",
+              "start": 5.28,
+              "end": 5.58,
+              "probability": 0.869140625
+            },
+            {
+              "text": " Where",
+              "start": 5.58,
+              "end": 6.14,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " did",
+              "start": 6.14,
+              "end": 6.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I?",
+              "start": 6.24,
+              "end": 6.46,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "hasty",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "raw": "hand",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "raw": "went",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "raw": "quick",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "raw": "into",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "pocket",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "raw": "took",
+          "start": 2.42,
+          "end": 2.96
+        },
+        {
+          "raw": "out",
+          "start": 2.96,
+          "end": 3.3
+        },
+        {
+          "raw": "red",
+          "start": 3.3,
+          "end": 3.86
+        },
+        {
+          "raw": "unfolded",
+          "start": 3.86,
+          "end": 4.48
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.64
+        },
+        {
+          "raw": "jendath",
+          "start": 4.64,
+          "end": 5.08
+        },
+        {
+          "raw": "net",
+          "start": 5.08,
+          "end": 5.28
+        },
+        {
+          "raw": "aim.",
+          "start": 5.28,
+          "end": 5.58
+        },
+        {
+          "raw": "Where",
+          "start": 5.58,
+          "end": 6.14
+        },
+        {
+          "raw": "did",
+          "start": 6.14,
+          "end": 6.24
+        },
+        {
+          "raw": "I?",
+          "start": 6.24,
+          "end": 6.46
+        }
+      ],
+      "expected_tokens": [
+        "His",
+        "hasty",
+        "hand",
+        "went",
+        "quick",
+        "into",
+        "a",
+        "pocket,",
+        "took",
+        "out,",
+        "read",
+        "unfolded",
+        "Agendath",
+        "Netaim.",
+        "Where",
+        "did",
+        "I?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          16
+        ],
+        [
+          "equal",
+          14,
+          17,
+          16,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "replace",
+          12,
+          14,
+          12,
+          16
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "his",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "hasty",
+          "start": 0.52,
+          "end": 0.88,
+          "key": "hasty",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "hand",
+          "start": 0.88,
+          "end": 1.3,
+          "key": "hand",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 1.3,
+          "end": 1.5,
+          "key": "went",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "quick",
+          "start": 1.5,
+          "end": 1.7,
+          "key": "quick",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 1.7,
+          "end": 1.92,
+          "key": "into",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.92,
+          "end": 2.06,
+          "key": "a",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "pocket",
+          "start": 2.06,
+          "end": 2.42,
+          "key": "pocket",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "took",
+          "start": 2.42,
+          "end": 2.96,
+          "key": "took",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 2.96,
+          "end": 3.3,
+          "key": "out",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "red",
+          "start": 3.3,
+          "end": 3.86,
+          "key": "red",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "unfolded",
+          "start": 3.86,
+          "end": 4.48,
+          "key": "unfolded",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.48,
+          "end": 4.64,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "jendath",
+          "start": 4.64,
+          "end": 5.08,
+          "key": "jendath",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "net",
+          "start": 5.08,
+          "end": 5.28,
+          "key": "net",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "aim.",
+          "start": 5.28,
+          "end": 5.58,
+          "key": "aim",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Where",
+          "start": 5.58,
+          "end": 6.14,
+          "key": "where",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 6.14,
+          "end": 6.24,
+          "key": "did",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "I?",
+          "start": 6.24,
+          "end": 6.46,
+          "key": "i",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "His",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "hasty",
+          "start": 0.52,
+          "end": 0.88
+        },
+        {
+          "text": "hand",
+          "start": 0.88,
+          "end": 1.3
+        },
+        {
+          "text": "went",
+          "start": 1.3,
+          "end": 1.5
+        },
+        {
+          "text": "quick",
+          "start": 1.5,
+          "end": 1.7
+        },
+        {
+          "text": "into",
+          "start": 1.7,
+          "end": 1.92
+        },
+        {
+          "text": "a",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "pocket,",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "text": "took",
+          "start": 2.42,
+          "end": 2.96
+        },
+        {
+          "text": "out,",
+          "start": 2.96,
+          "end": 3.3
+        },
+        {
+          "text": "read",
+          "start": 3.3,
+          "end": 3.58
+        },
+        {
+          "text": "unfolded",
+          "start": 3.86,
+          "end": 4.48
+        },
+        {
+          "text": "Agendath",
+          "start": 4.48,
+          "end": 5.03
+        },
+        {
+          "text": "Netaim.",
+          "start": 5.03,
+          "end": 5.305
+        },
+        {
+          "text": "Where",
+          "start": 5.58,
+          "end": 6.14
+        },
+        {
+          "text": "did",
+          "start": 6.14,
+          "end": 6.24
+        },
+        {
+          "text": "I?",
+          "start": 6.24,
+          "end": 6.46
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 19,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3191654500551522
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca1b8128edbde4eaa510843cd21d076effcf370d0912a8f6b26cb8315c9357ba",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

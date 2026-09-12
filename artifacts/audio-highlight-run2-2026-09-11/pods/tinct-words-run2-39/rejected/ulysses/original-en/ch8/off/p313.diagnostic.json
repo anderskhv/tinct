@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "231619f6f69cb4af040d06035978c7a84be049a2837395e0b7531c6e44ad6a48",
+  "attempts": [
+    {
+      "asr_seconds": 0.2792886558454484,
+      "alignment_seconds": 0.0005103640723973513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Say nothing bantam Leon winked. I'm going to plunge five Bob on my own",
+          "start": 0.08,
+          "end": 4.74,
+          "words": [
+            {
+              "text": " Say",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.927734375
+            },
+            {
+              "text": " nothing",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " bantam",
+              "start": 0.96,
+              "end": 1.68,
+              "probability": 0.6719970703125
+            },
+            {
+              "text": " Leon",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.333740234375
+            },
+            {
+              "text": " winked.",
+              "start": 1.94,
+              "end": 2.66,
+              "probability": 0.984375
+            },
+            {
+              "text": " I'm",
+              "start": 2.66,
+              "end": 3.0,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " going",
+              "start": 3.0,
+              "end": 3.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 3.1,
+              "end": 3.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " plunge",
+              "start": 3.22,
+              "end": 3.48,
+              "probability": 0.986328125
+            },
+            {
+              "text": " five",
+              "start": 3.48,
+              "end": 3.82,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " Bob",
+              "start": 3.82,
+              "end": 4.1,
+              "probability": 0.75390625
+            },
+            {
+              "text": " on",
+              "start": 4.1,
+              "end": 4.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " my",
+              "start": 4.26,
+              "end": 4.4,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " own",
+              "start": 4.4,
+              "end": 4.74,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Say",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "nothing",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "bantam",
+          "start": 0.96,
+          "end": 1.68
+        },
+        {
+          "raw": "Leon",
+          "start": 1.68,
+          "end": 1.94
+        },
+        {
+          "raw": "winked.",
+          "start": 1.94,
+          "end": 2.66
+        },
+        {
+          "raw": "I'm",
+          "start": 2.66,
+          "end": 3.0
+        },
+        {
+          "raw": "going",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "raw": "to",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "raw": "plunge",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "raw": "five",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "raw": "Bob",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "raw": "on",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "raw": "my",
+          "start": 4.26,
+          "end": 4.4
+        },
+        {
+          "raw": "own",
+          "start": 4.4,
+          "end": 4.74
+        }
+      ],
+      "expected_tokens": [
+        "—Say",
+        "nothing!",
+        "Bantam",
+        "Lyons",
+        "winked.",
+        "I'm",
+        "going",
+        "to",
+        "plunge",
+        "five",
+        "bob",
+        "on",
+        "my",
+        "own."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ],
+        [
+          "equal",
+          4,
+          14,
+          4,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          4
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Say",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "say",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 0.58,
+          "end": 0.96,
+          "key": "nothing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bantam",
+          "start": 0.96,
+          "end": 1.68,
+          "key": "bantam",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Leon",
+          "start": 1.68,
+          "end": 1.94,
+          "key": "leon",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "winked.",
+          "start": 1.94,
+          "end": 2.66,
+          "key": "winked",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I'm",
+          "start": 2.66,
+          "end": 3.0,
+          "key": "im",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "going",
+          "start": 3.0,
+          "end": 3.1,
+          "key": "going",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.1,
+          "end": 3.22,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "plunge",
+          "start": 3.22,
+          "end": 3.48,
+          "key": "plunge",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "five",
+          "start": 3.48,
+          "end": 3.82,
+          "key": "five",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Bob",
+          "start": 3.82,
+          "end": 4.1,
+          "key": "bob",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "on",
+          "start": 4.1,
+          "end": 4.26,
+          "key": "on",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "my",
+          "start": 4.26,
+          "end": 4.4,
+          "key": "my",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 4.4,
+          "end": 4.74,
+          "key": "own",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Say",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "nothing!",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "Bantam",
+          "start": 0.96,
+          "end": 1.68
+        },
+        {
+          "text": "Lyons",
+          "start": 1.68,
+          "end": 1.81
+        },
+        {
+          "text": "winked.",
+          "start": 1.94,
+          "end": 2.66
+        },
+        {
+          "text": "I'm",
+          "start": 2.66,
+          "end": 3.0
+        },
+        {
+          "text": "going",
+          "start": 3.0,
+          "end": 3.1
+        },
+        {
+          "text": "to",
+          "start": 3.1,
+          "end": 3.22
+        },
+        {
+          "text": "plunge",
+          "start": 3.22,
+          "end": 3.48
+        },
+        {
+          "text": "five",
+          "start": 3.48,
+          "end": 3.82
+        },
+        {
+          "text": "bob",
+          "start": 3.82,
+          "end": 4.1
+        },
+        {
+          "text": "on",
+          "start": 4.1,
+          "end": 4.26
+        },
+        {
+          "text": "my",
+          "start": 4.26,
+          "end": 4.4
+        },
+        {
+          "text": "own.",
+          "start": 4.4,
+          "end": 4.74
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.2799821139778942
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0e21737184c952a1de7cf44f67bb3abbbed3b8ecb2808c881bc372738a7aa125",
+  "selected_reasons": []
+}

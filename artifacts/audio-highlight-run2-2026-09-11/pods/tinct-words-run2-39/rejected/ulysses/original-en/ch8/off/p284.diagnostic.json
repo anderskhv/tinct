@@ -1,0 +1,440 @@
+{
+  "complete": true,
+  "signature": "bf73e9a8ecba403c1af523823438ad8a3c98fd9bd8b141172d7b86ef76cff553",
+  "attempts": [
+    {
+      "asr_seconds": 0.19567801197990775,
+      "alignment_seconds": 0.0004431609995663166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Davey Byan, sated after his yawn, said with tear-washed eyes.",
+          "start": 0.08,
+          "end": 3.86,
+          "words": [
+            {
+              "text": " Davey",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.6419677734375
+            },
+            {
+              "text": " Byan,",
+              "start": 0.76,
+              "end": 1.22,
+              "probability": 0.553466796875
+            },
+            {
+              "text": " sated",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.916748046875
+            },
+            {
+              "text": " after",
+              "start": 1.74,
+              "end": 2.02,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 2.02,
+              "end": 2.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " yawn,",
+              "start": 2.18,
+              "end": 2.46,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " said",
+              "start": 2.64,
+              "end": 2.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " with",
+              "start": 2.76,
+              "end": 2.96,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " tear",
+              "start": 2.96,
+              "end": 3.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": "-washed",
+              "start": 3.2,
+              "end": 3.42,
+              "probability": 0.885498046875
+            },
+            {
+              "text": " eyes.",
+              "start": 3.42,
+              "end": 3.86,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Davey",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "Byan,",
+          "start": 0.76,
+          "end": 1.22
+        },
+        {
+          "raw": "sated",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "raw": "after",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "raw": "his",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "raw": "yawn,",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "raw": "said",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "raw": "with",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "raw": "tear",
+          "start": 2.96,
+          "end": 3.2
+        },
+        {
+          "raw": "-washed",
+          "start": 3.2,
+          "end": 3.42
+        },
+        {
+          "raw": "eyes.",
+          "start": 3.42,
+          "end": 3.86
+        }
+      ],
+      "expected_tokens": [
+        "Davy",
+        "Byrne,",
+        "sated",
+        "after",
+        "his",
+        "yawn,",
+        "said",
+        "with",
+        "tearwashed",
+        "eyes:"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "equal",
+          2,
+          8,
+          2,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          10,
+          10,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Davey",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "davey",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Byan,",
+          "start": 0.76,
+          "end": 1.22,
+          "key": "byan",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "sated",
+          "start": 1.48,
+          "end": 1.74,
+          "key": "sated",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "after",
+          "start": 1.74,
+          "end": 2.02,
+          "key": "after",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 2.02,
+          "end": 2.18,
+          "key": "his",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "yawn,",
+          "start": 2.18,
+          "end": 2.46,
+          "key": "yawn",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 2.64,
+          "end": 2.76,
+          "key": "said",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 2.76,
+          "end": 2.96,
+          "key": "with",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "tear",
+          "start": 2.96,
+          "end": 3.2,
+          "key": "tear",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "-washed",
+          "start": 3.2,
+          "end": 3.42,
+          "key": "washed",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "eyes.",
+          "start": 3.42,
+          "end": 3.86,
+          "key": "eyes",
+          "pieces": [
+            10
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Davy",
+          "start": 0.0,
+          "end": 0.74
+        },
+        {
+          "text": "Byrne,",
+          "start": 0.74,
+          "end": 1.11
+        },
+        {
+          "text": "sated",
+          "start": 1.48,
+          "end": 1.74
+        },
+        {
+          "text": "after",
+          "start": 1.74,
+          "end": 2.02
+        },
+        {
+          "text": "his",
+          "start": 2.02,
+          "end": 2.18
+        },
+        {
+          "text": "yawn,",
+          "start": 2.18,
+          "end": 2.46
+        },
+        {
+          "text": "said",
+          "start": 2.64,
+          "end": 2.76
+        },
+        {
+          "text": "with",
+          "start": 2.76,
+          "end": 2.96
+        },
+        {
+          "text": "tearwashed",
+          "start": 2.96,
+          "end": 3.19
+        },
+        {
+          "text": "eyes:",
+          "start": 3.42,
+          "end": 3.86
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 7
+      },
+      "match_ratio": 0.7,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1962987850420177
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8a47d1e8f7a0fed218b43282ed6c7dc3a8a62e8efc34aee16094b34103276faf",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

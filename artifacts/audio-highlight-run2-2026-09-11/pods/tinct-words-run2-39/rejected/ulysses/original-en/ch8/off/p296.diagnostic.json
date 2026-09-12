@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "a2af1431dfd26fd35bae75ec1c51815e18d3c251dd8ca79cd4bf812b8988d640",
+  "attempts": [
+    {
+      "asr_seconds": 0.1784364168997854,
+      "alignment_seconds": 0.00041759596206247807,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Who's standing? Patti Leonard asked.",
+          "start": 0.05,
+          "end": 2.39,
+          "words": [
+            {
+              "text": " Who's",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.6376953125
+            },
+            {
+              "text": " standing?",
+              "start": 0.65,
+              "end": 1.03,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " Patti",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.744384765625
+            },
+            {
+              "text": " Leonard",
+              "start": 1.69,
+              "end": 1.87,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " asked.",
+              "start": 1.87,
+              "end": 2.39,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "standing?",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "raw": "Patti",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "Leonard",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "raw": "asked.",
+          "start": 1.87,
+          "end": 2.39
+        }
+      ],
+      "expected_tokens": [
+        "—Who's",
+        "standing?",
+        "Paddy",
+        "Leonard",
+        "asked."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          "equal",
+          3,
+          5,
+          3,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          3
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Who's",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "whos",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "standing?",
+          "start": 0.65,
+          "end": 1.03,
+          "key": "standing",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Patti",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "patti",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Leonard",
+          "start": 1.69,
+          "end": 1.87,
+          "key": "leonard",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "asked.",
+          "start": 1.87,
+          "end": 2.39,
+          "key": "asked",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Who's",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "standing?",
+          "start": 0.65,
+          "end": 1.03
+        },
+        {
+          "text": "Paddy",
+          "start": 1.03,
+          "end": 1.36
+        },
+        {
+          "text": "Leonard",
+          "start": 1.69,
+          "end": 1.87
+        },
+        {
+          "text": "asked.",
+          "start": 1.87,
+          "end": 2.39
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1789768550079316
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "276cef18a1439ecd17e6f37b5a24b086c1a3bf94727f0b004561634b8298bd3e",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

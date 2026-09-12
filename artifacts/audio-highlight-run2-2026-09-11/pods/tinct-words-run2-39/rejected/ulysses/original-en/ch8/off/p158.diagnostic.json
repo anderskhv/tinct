@@ -1,0 +1,403 @@
+{
+  "complete": true,
+  "signature": "668835810eb46b3960d789ff84035981261e72b8e8371057409e58929a6c4fcd",
+  "attempts": [
+    {
+      "asr_seconds": 0.19468150194734335,
+      "alignment_seconds": 0.00042157317511737347,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mr. Bloom, quick breathing slowly or walking past Adam Court.",
+          "start": 0.05,
+          "end": 3.91,
+          "words": [
+            {
+              "text": " Mr.",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " Bloom,",
+              "start": 0.97,
+              "end": 0.99,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " quick",
+              "start": 1.53,
+              "end": 1.69,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " breathing",
+              "start": 1.69,
+              "end": 1.97,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " slowly",
+              "start": 1.97,
+              "end": 2.39,
+              "probability": 0.615234375
+            },
+            {
+              "text": " or",
+              "start": 2.39,
+              "end": 2.65,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " walking",
+              "start": 2.65,
+              "end": 3.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " past",
+              "start": 3.01,
+              "end": 3.29,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Adam",
+              "start": 3.29,
+              "end": 3.61,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " Court.",
+              "start": 3.61,
+              "end": 3.91,
+              "probability": 0.74267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Bloom,",
+          "start": 0.97,
+          "end": 0.99
+        },
+        {
+          "raw": "quick",
+          "start": 1.53,
+          "end": 1.69
+        },
+        {
+          "raw": "breathing",
+          "start": 1.69,
+          "end": 1.97
+        },
+        {
+          "raw": "slowly",
+          "start": 1.97,
+          "end": 2.39
+        },
+        {
+          "raw": "or",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "raw": "walking",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "raw": "past",
+          "start": 3.01,
+          "end": 3.29
+        },
+        {
+          "raw": "Adam",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "raw": "Court.",
+          "start": 3.61,
+          "end": 3.91
+        }
+      ],
+      "expected_tokens": [
+        "Mr",
+        "Bloom,",
+        "quickbreathing,",
+        "slowlier",
+        "walking",
+        "passed",
+        "Adam",
+        "court."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          4,
+          2,
+          6
+        ],
+        [
+          "equal",
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          "equal",
+          6,
+          8,
+          8,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          4,
+          2,
+          6
+        ],
+        [
+          "replace",
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mr.",
+          "start": 0.05,
+          "end": 0.67,
+          "key": "mr",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Bloom,",
+          "start": 0.97,
+          "end": 0.99,
+          "key": "bloom",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quick",
+          "start": 1.53,
+          "end": 1.69,
+          "key": "quick",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "breathing",
+          "start": 1.69,
+          "end": 1.97,
+          "key": "breathing",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slowly",
+          "start": 1.97,
+          "end": 2.39,
+          "key": "slowly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.39,
+          "end": 2.65,
+          "key": "or",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "walking",
+          "start": 2.65,
+          "end": 3.01,
+          "key": "walking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "past",
+          "start": 3.01,
+          "end": 3.29,
+          "key": "past",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "Adam",
+          "start": 3.29,
+          "end": 3.61,
+          "key": "adam",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Court.",
+          "start": 3.61,
+          "end": 3.91,
+          "key": "court",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mr",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Bloom,",
+          "start": 0.97,
+          "end": 0.99
+        },
+        {
+          "text": "quickbreathing,",
+          "start": 0.99,
+          "end": 1.82
+        },
+        {
+          "text": "slowlier",
+          "start": 1.82,
+          "end": 2.235
+        },
+        {
+          "text": "walking",
+          "start": 2.65,
+          "end": 3.01
+        },
+        {
+          "text": "passed",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "text": "Adam",
+          "start": 3.29,
+          "end": 3.61
+        },
+        {
+          "text": "court.",
+          "start": 3.61,
+          "end": 3.91
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 10,
+        "matched_words": 5
+      },
+      "match_ratio": 0.625,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.19527221284806728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e11f13796e0e6b424b738d4449c3058023fd61c157f7c36cbf8f50df0c6ed4f4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

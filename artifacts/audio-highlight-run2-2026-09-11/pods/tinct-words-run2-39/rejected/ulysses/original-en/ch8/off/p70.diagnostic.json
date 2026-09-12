@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "af4b97f07cb447bfbec4cc069c636ca41fa3a0a1eb28c7a5bd9c340c6e5b6e0d",
+  "attempts": [
+    {
+      "asr_seconds": 0.11347095598466694,
+      "alignment_seconds": 0.00019709812477231026,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " ends.",
+          "start": 0.0,
+          "end": 0.62,
+          "words": [
+            {
+              "text": " ends.",
+              "start": 0.0,
+              "end": 0.62,
+              "probability": 0.242919921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "ends.",
+          "start": 0.0,
+          "end": 0.62
+        }
+      ],
+      "expected_tokens": [
+        "Indiges."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "ends.",
+          "start": 0.0,
+          "end": 0.62,
+          "key": "ends",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Indiges.",
+          "start": 0.0,
+          "end": 0.31
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1137348369229585
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "03364d28ecb41850789bcadf342ce1c5eb37832936c1f1e40baa6d9e936c1126",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

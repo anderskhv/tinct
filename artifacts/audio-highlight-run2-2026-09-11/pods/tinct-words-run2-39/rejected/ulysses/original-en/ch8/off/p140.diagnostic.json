@@ -1,0 +1,867 @@
+{
+  "complete": true,
+  "signature": "948d91cc1a79755993250bb36a2f04099f69b39f53771d01125a9ac2876c24bb",
+  "attempts": [
+    {
+      "asr_seconds": 0.3858667970634997,
+      "alignment_seconds": 0.00045552803203463554,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The sun freed itself slowly and lit glints of light among the silverware opposite in",
+          "start": 0.02,
+          "end": 5.06,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " sun",
+              "start": 0.48,
+              "end": 0.72,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " freed",
+              "start": 0.72,
+              "end": 1.06,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " itself",
+              "start": 1.06,
+              "end": 1.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " slowly",
+              "start": 1.36,
+              "end": 1.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 1.9,
+              "end": 2.48,
+              "probability": 0.6337890625
+            },
+            {
+              "text": " lit",
+              "start": 2.48,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " glints",
+              "start": 2.64,
+              "end": 3.0,
+              "probability": 0.917236328125
+            },
+            {
+              "text": " of",
+              "start": 3.0,
+              "end": 3.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " light",
+              "start": 3.16,
+              "end": 3.38,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " among",
+              "start": 3.38,
+              "end": 3.66,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 3.66,
+              "end": 3.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " silverware",
+              "start": 3.86,
+              "end": 4.4,
+              "probability": 0.982421875
+            },
+            {
+              "text": " opposite",
+              "start": 4.4,
+              "end": 4.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " in",
+              "start": 4.78,
+              "end": 5.06,
+              "probability": 0.98486328125
+            }
+          ]
+        },
+        {
+          "text": " Walter Sexton's window by which John Howard Parnell passed, unseeing.",
+          "start": 5.06,
+          "end": 9.68,
+          "words": [
+            {
+              "text": " Walter",
+              "start": 5.06,
+              "end": 5.4,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Sexton's",
+              "start": 5.4,
+              "end": 6.12,
+              "probability": 0.9856770833333334
+            },
+            {
+              "text": " window",
+              "start": 6.12,
+              "end": 6.42,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " by",
+              "start": 6.42,
+              "end": 6.96,
+              "probability": 0.58740234375
+            },
+            {
+              "text": " which",
+              "start": 6.96,
+              "end": 7.18,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " John",
+              "start": 7.18,
+              "end": 7.46,
+              "probability": 0.982421875
+            },
+            {
+              "text": " Howard",
+              "start": 7.46,
+              "end": 7.9,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Parnell",
+              "start": 7.9,
+              "end": 8.3,
+              "probability": 0.9767252604166666
+            },
+            {
+              "text": " passed,",
+              "start": 8.3,
+              "end": 8.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " unseeing.",
+              "start": 9.24,
+              "end": 9.68,
+              "probability": 0.87451171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "sun",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "raw": "freed",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "raw": "itself",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "raw": "slowly",
+          "start": 1.36,
+          "end": 1.9
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.48
+        },
+        {
+          "raw": "lit",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "raw": "glints",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "raw": "of",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "raw": "light",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "raw": "among",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "raw": "silverware",
+          "start": 3.86,
+          "end": 4.4
+        },
+        {
+          "raw": "opposite",
+          "start": 4.4,
+          "end": 4.78
+        },
+        {
+          "raw": "in",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "raw": "Walter",
+          "start": 5.06,
+          "end": 5.4
+        },
+        {
+          "raw": "Sexton's",
+          "start": 5.4,
+          "end": 6.12
+        },
+        {
+          "raw": "window",
+          "start": 6.12,
+          "end": 6.42
+        },
+        {
+          "raw": "by",
+          "start": 6.42,
+          "end": 6.96
+        },
+        {
+          "raw": "which",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "raw": "John",
+          "start": 7.18,
+          "end": 7.46
+        },
+        {
+          "raw": "Howard",
+          "start": 7.46,
+          "end": 7.9
+        },
+        {
+          "raw": "Parnell",
+          "start": 7.9,
+          "end": 8.3
+        },
+        {
+          "raw": "passed,",
+          "start": 8.3,
+          "end": 8.86
+        },
+        {
+          "raw": "unseeing.",
+          "start": 9.24,
+          "end": 9.68
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "sun",
+        "freed",
+        "itself",
+        "slowly",
+        "and",
+        "lit",
+        "glints",
+        "of",
+        "light",
+        "among",
+        "the",
+        "silverware",
+        "opposite",
+        "in",
+        "Walter",
+        "Sexton's",
+        "window",
+        "by",
+        "which",
+        "John",
+        "Howard",
+        "Parnell",
+        "passed,",
+        "unseeing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sun",
+          "start": 0.48,
+          "end": 0.72,
+          "key": "sun",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "freed",
+          "start": 0.72,
+          "end": 1.06,
+          "key": "freed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "itself",
+          "start": 1.06,
+          "end": 1.36,
+          "key": "itself",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "slowly",
+          "start": 1.36,
+          "end": 1.9,
+          "key": "slowly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.9,
+          "end": 2.48,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "lit",
+          "start": 2.48,
+          "end": 2.64,
+          "key": "lit",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "glints",
+          "start": 2.64,
+          "end": 3.0,
+          "key": "glints",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.0,
+          "end": 3.16,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "light",
+          "start": 3.16,
+          "end": 3.38,
+          "key": "light",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 3.38,
+          "end": 3.66,
+          "key": "among",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 3.66,
+          "end": 3.86,
+          "key": "the",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "silverware",
+          "start": 3.86,
+          "end": 4.4,
+          "key": "silverware",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "opposite",
+          "start": 4.4,
+          "end": 4.78,
+          "key": "opposite",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 4.78,
+          "end": 5.06,
+          "key": "in",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "Walter",
+          "start": 5.06,
+          "end": 5.4,
+          "key": "walter",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Sexton's",
+          "start": 5.4,
+          "end": 6.12,
+          "key": "sextons",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "window",
+          "start": 6.12,
+          "end": 6.42,
+          "key": "window",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 6.42,
+          "end": 6.96,
+          "key": "by",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 6.96,
+          "end": 7.18,
+          "key": "which",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "John",
+          "start": 7.18,
+          "end": 7.46,
+          "key": "john",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Howard",
+          "start": 7.46,
+          "end": 7.9,
+          "key": "howard",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "Parnell",
+          "start": 7.9,
+          "end": 8.3,
+          "key": "parnell",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "passed,",
+          "start": 8.3,
+          "end": 8.86,
+          "key": "passed",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "unseeing.",
+          "start": 9.24,
+          "end": 9.68,
+          "key": "unseeing",
+          "pieces": [
+            24
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "sun",
+          "start": 0.48,
+          "end": 0.72
+        },
+        {
+          "text": "freed",
+          "start": 0.72,
+          "end": 1.06
+        },
+        {
+          "text": "itself",
+          "start": 1.06,
+          "end": 1.36
+        },
+        {
+          "text": "slowly",
+          "start": 1.36,
+          "end": 1.9
+        },
+        {
+          "text": "and",
+          "start": 1.9,
+          "end": 2.48
+        },
+        {
+          "text": "lit",
+          "start": 2.48,
+          "end": 2.64
+        },
+        {
+          "text": "glints",
+          "start": 2.64,
+          "end": 3.0
+        },
+        {
+          "text": "of",
+          "start": 3.0,
+          "end": 3.16
+        },
+        {
+          "text": "light",
+          "start": 3.16,
+          "end": 3.38
+        },
+        {
+          "text": "among",
+          "start": 3.38,
+          "end": 3.66
+        },
+        {
+          "text": "the",
+          "start": 3.66,
+          "end": 3.86
+        },
+        {
+          "text": "silverware",
+          "start": 3.86,
+          "end": 4.4
+        },
+        {
+          "text": "opposite",
+          "start": 4.4,
+          "end": 4.78
+        },
+        {
+          "text": "in",
+          "start": 4.78,
+          "end": 5.06
+        },
+        {
+          "text": "Walter",
+          "start": 5.06,
+          "end": 5.4
+        },
+        {
+          "text": "Sexton's",
+          "start": 5.4,
+          "end": 6.12
+        },
+        {
+          "text": "window",
+          "start": 6.12,
+          "end": 6.42
+        },
+        {
+          "text": "by",
+          "start": 6.42,
+          "end": 6.96
+        },
+        {
+          "text": "which",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "text": "John",
+          "start": 7.18,
+          "end": 7.46
+        },
+        {
+          "text": "Howard",
+          "start": 7.46,
+          "end": 7.9
+        },
+        {
+          "text": "Parnell",
+          "start": 7.9,
+          "end": 8.3
+        },
+        {
+          "text": "passed,",
+          "start": 8.3,
+          "end": 8.86
+        },
+        {
+          "text": "unseeing.",
+          "start": 9.24,
+          "end": 9.68
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3865028601139784
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b311ac70e1b532a0751e9c915d9d40e41417613f1a62cb1ce27556408bd644ca",
+  "selected_reasons": []
+}

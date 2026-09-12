@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "f2320a804043a1753d04355831f483730f9101e51ed4754f785b12a24e918ca2",
+  "attempts": [
+    {
+      "asr_seconds": 0.11599122895859182,
+      "alignment_seconds": 0.00032895617187023163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Roast and mashed here.",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " Roast",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.818115234375
+            },
+            {
+              "text": " and",
+              "start": 0.73,
+              "end": 0.85,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " mashed",
+              "start": 0.85,
+              "end": 1.15,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " here.",
+              "start": 1.15,
+              "end": 1.41,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Roast",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "raw": "mashed",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "raw": "here.",
+          "start": 1.15,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "—Roast",
+        "and",
+        "mashed",
+        "here."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Roast",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "roast",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.73,
+          "end": 0.85,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "mashed",
+          "start": 0.85,
+          "end": 1.15,
+          "key": "mashed",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "here.",
+          "start": 1.15,
+          "end": 1.41,
+          "key": "here",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Roast",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "and",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "text": "mashed",
+          "start": 0.85,
+          "end": 1.15
+        },
+        {
+          "text": "here.",
+          "start": 1.15,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11643785401247442
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14038cedf6391ca90f33418c929fc3757134fdaa3121ef56e92cd501fb11028d",
+  "selected_reasons": []
+}

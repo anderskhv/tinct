@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "62ef6b8e9ba37e055b33836c68cbe76220b3f7e5f06f03bd105efe088b91c5da",
+  "attempts": [
+    {
+      "asr_seconds": 0.11018345109187067,
+      "alignment_seconds": 0.0002800840884447098,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " She broke off suddenly",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " She",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.884765625
+            },
+            {
+              "text": " broke",
+              "start": 0.53,
+              "end": 0.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " off",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " suddenly",
+              "start": 0.95,
+              "end": 1.31,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "broke",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "raw": "off",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "suddenly",
+          "start": 0.95,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "She",
+        "broke",
+        "off",
+        "suddenly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "She",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "she",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "broke",
+          "start": 0.53,
+          "end": 0.71,
+          "key": "broke",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "off",
+          "start": 0.71,
+          "end": 0.95,
+          "key": "off",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "suddenly",
+          "start": 0.95,
+          "end": 1.31,
+          "key": "suddenly",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "She",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "broke",
+          "start": 0.53,
+          "end": 0.71
+        },
+        {
+          "text": "off",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "suddenly.",
+          "start": 0.95,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11058346903882921
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "96c46c83e7ab7477ecf4ae807fda1ea1e5b517033a1f7962e37061559de63af5",
+  "selected_reasons": []
+}

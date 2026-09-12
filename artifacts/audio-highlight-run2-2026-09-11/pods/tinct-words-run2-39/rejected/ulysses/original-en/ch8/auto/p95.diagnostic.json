@@ -1,0 +1,158 @@
+{
+  "complete": true,
+  "signature": "637327899749627a88c4d9c142a41de7cce4462e155387d17df6ad89766b4640",
+  "attempts": [
+    {
+      "asr_seconds": 0.12313735391944647,
+      "alignment_seconds": 0.0002900639083236456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Mrs Breen nodded.",
+        "hotwords": "Mrs, Breen"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Mrs. Breen nodded.",
+          "start": 0.02,
+          "end": 1.28,
+          "words": [
+            {
+              "text": " Mrs.",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " Breen",
+              "start": 0.88,
+              "end": 0.96,
+              "probability": 0.931884765625
+            },
+            {
+              "text": " nodded.",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.95947265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "Breen",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "raw": "nodded.",
+          "start": 0.96,
+          "end": 1.28
+        }
+      ],
+      "expected_tokens": [
+        "Mrs",
+        "Breen",
+        "nodded."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mrs.",
+          "start": 0.02,
+          "end": 0.66,
+          "key": "mrs",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Breen",
+          "start": 0.88,
+          "end": 0.96,
+          "key": "breen",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "nodded.",
+          "start": 0.96,
+          "end": 1.28,
+          "key": "nodded",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Mrs",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "Breen",
+          "start": 0.88,
+          "end": 0.96
+        },
+        {
+          "text": "nodded.",
+          "start": 0.96,
+          "end": 1.28
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12353919795714319
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e372b7c6a0372eb82243e04cc77274afe0934a9801fb5f04a736c449fb9a2f48",
+  "selected_reasons": []
+}

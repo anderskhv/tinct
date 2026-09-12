@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "a46ce499f8b36a65f3ba820f5318e37187f7b0e4b120635f123742b0f8645090",
+  "attempts": [
+    {
+      "asr_seconds": 0.09474673704244196,
+      "alignment_seconds": 0.00015363912098109722,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Mustard, sir.",
+          "start": 0.02,
+          "end": 1.1,
+          "words": [
+            {
+              "text": " Mustard,",
+              "start": 0.02,
+              "end": 0.88,
+              "probability": 0.942626953125
+            },
+            {
+              "text": " sir.",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.8046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Mustard,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "raw": "sir.",
+          "start": 0.98,
+          "end": 1.1
+        }
+      ],
+      "expected_tokens": [
+        "—Mustard,",
+        "sir?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Mustard,",
+          "start": 0.02,
+          "end": 0.88,
+          "key": "mustard",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "sir.",
+          "start": 0.98,
+          "end": 1.1,
+          "key": "sir",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—Mustard,",
+          "start": 0.02,
+          "end": 0.88
+        },
+        {
+          "text": "sir?",
+          "start": 0.98,
+          "end": 1.1
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09495778591372073
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c1949949bcb7206767d8a05d6bb256e79bdd8b7ce4da387a2b34b38a9c898e88",
+  "selected_reasons": []
+}

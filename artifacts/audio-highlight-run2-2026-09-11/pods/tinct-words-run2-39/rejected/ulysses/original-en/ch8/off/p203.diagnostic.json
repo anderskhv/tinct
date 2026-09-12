@@ -1,0 +1,523 @@
+{
+  "complete": true,
+  "signature": "ae9bd0fb37770ffbdee16e8147cf8fc136769ea5e612639f0c1caae52b888774",
+  "attempts": [
+    {
+      "asr_seconds": 0.21638661110773683,
+      "alignment_seconds": 0.0004828220698982477,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What will I take now? He drew his watch. Let me see now, Shandigaf.",
+          "start": 0.02,
+          "end": 4.12,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.66796875
+            },
+            {
+              "text": " will",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 0.62,
+              "end": 0.76,
+              "probability": 0.994140625
+            },
+            {
+              "text": " take",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " now?",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " He",
+              "start": 1.5,
+              "end": 1.58,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " drew",
+              "start": 1.58,
+              "end": 1.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 1.74,
+              "end": 1.92,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " watch.",
+              "start": 1.92,
+              "end": 2.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Let",
+              "start": 2.72,
+              "end": 2.78,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " me",
+              "start": 2.78,
+              "end": 2.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 2.9,
+              "end": 3.1,
+              "probability": 0.998046875
+            },
+            {
+              "text": " now,",
+              "start": 3.1,
+              "end": 3.38,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Shandigaf.",
+              "start": 3.68,
+              "end": 4.12,
+              "probability": 0.59515380859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "raw": "take",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "now?",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "He",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "raw": "drew",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "raw": "watch.",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "raw": "Let",
+          "start": 2.72,
+          "end": 2.78
+        },
+        {
+          "raw": "me",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "raw": "see",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "raw": "now,",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "raw": "Shandigaf.",
+          "start": 3.68,
+          "end": 4.12
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "will",
+        "I",
+        "take",
+        "now?",
+        "He",
+        "drew",
+        "his",
+        "watch.",
+        "Let",
+        "me",
+        "see",
+        "now.",
+        "Shandygaff?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          13,
+          14,
+          13,
+          14
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.62,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.76,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 0.76,
+          "end": 0.94,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "now?",
+          "start": 0.94,
+          "end": 1.26,
+          "key": "now",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "He",
+          "start": 1.5,
+          "end": 1.58,
+          "key": "he",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "drew",
+          "start": 1.58,
+          "end": 1.74,
+          "key": "drew",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 1.74,
+          "end": 1.92,
+          "key": "his",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "watch.",
+          "start": 1.92,
+          "end": 2.26,
+          "key": "watch",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Let",
+          "start": 2.72,
+          "end": 2.78,
+          "key": "let",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 2.78,
+          "end": 2.9,
+          "key": "me",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "see",
+          "start": 2.9,
+          "end": 3.1,
+          "key": "see",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "now,",
+          "start": 3.1,
+          "end": 3.38,
+          "key": "now",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "Shandigaf.",
+          "start": 3.68,
+          "end": 4.12,
+          "key": "shandigaf",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "will",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "I",
+          "start": 0.62,
+          "end": 0.76
+        },
+        {
+          "text": "take",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "now?",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "He",
+          "start": 1.5,
+          "end": 1.58
+        },
+        {
+          "text": "drew",
+          "start": 1.58,
+          "end": 1.74
+        },
+        {
+          "text": "his",
+          "start": 1.74,
+          "end": 1.92
+        },
+        {
+          "text": "watch.",
+          "start": 1.92,
+          "end": 2.26
+        },
+        {
+          "text": "Let",
+          "start": 2.72,
+          "end": 2.78
+        },
+        {
+          "text": "me",
+          "start": 2.78,
+          "end": 2.9
+        },
+        {
+          "text": "see",
+          "start": 2.9,
+          "end": 3.1
+        },
+        {
+          "text": "now.",
+          "start": 3.1,
+          "end": 3.38
+        },
+        {
+          "text": "Shandygaff?",
+          "start": 3.38,
+          "end": 3.75
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 13
+      },
+      "match_ratio": 0.9285714285714286,
+      "rejection_reasons": [],
+      "seconds": 0.21705343504436314
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bbe70027dbb8bd9d64694d9e42fb53660ff3f78144585a2183d1f62c4eaac1fd",
+  "selected_reasons": []
+}

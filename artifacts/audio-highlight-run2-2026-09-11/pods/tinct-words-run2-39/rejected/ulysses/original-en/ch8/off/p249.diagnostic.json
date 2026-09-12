@@ -1,0 +1,530 @@
+{
+  "complete": true,
+  "signature": "2c2bcb053d93e892550335c854f1999c0952944d861eaf24a652b2d034ddde49",
+  "attempts": [
+    {
+      "asr_seconds": 0.2528586951084435,
+      "alignment_seconds": 0.000477195018902421,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He went towards the window and, taking up the PETA Cashbook, scanned its pages.",
+          "start": 0.05,
+          "end": 4.45,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " went",
+              "start": 0.49,
+              "end": 0.63,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " towards",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " the",
+              "start": 0.89,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " window",
+              "start": 1.11,
+              "end": 1.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and,",
+              "start": 1.43,
+              "end": 1.87,
+              "probability": 0.6875
+            },
+            {
+              "text": " taking",
+              "start": 1.97,
+              "end": 2.13,
+              "probability": 0.99609375
+            },
+            {
+              "text": " up",
+              "start": 2.13,
+              "end": 2.31,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.49,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " PETA",
+              "start": 2.49,
+              "end": 2.67,
+              "probability": 0.4984130859375
+            },
+            {
+              "text": " Cashbook,",
+              "start": 2.67,
+              "end": 3.27,
+              "probability": 0.5548095703125
+            },
+            {
+              "text": " scanned",
+              "start": 3.65,
+              "end": 3.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " its",
+              "start": 3.91,
+              "end": 4.13,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " pages.",
+              "start": 4.13,
+              "end": 4.45,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "went",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "raw": "towards",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "raw": "window",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "raw": "and,",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "raw": "taking",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "raw": "up",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "raw": "PETA",
+          "start": 2.49,
+          "end": 2.67
+        },
+        {
+          "raw": "Cashbook,",
+          "start": 2.67,
+          "end": 3.27
+        },
+        {
+          "raw": "scanned",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "raw": "its",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "raw": "pages.",
+          "start": 4.13,
+          "end": 4.45
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "went",
+        "towards",
+        "the",
+        "window",
+        "and,",
+        "taking",
+        "up",
+        "the",
+        "pettycash",
+        "book,",
+        "scanned",
+        "its",
+        "pages."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          11,
+          9,
+          11
+        ],
+        [
+          "equal",
+          11,
+          14,
+          11,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          11,
+          9,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "went",
+          "start": 0.49,
+          "end": 0.63,
+          "key": "went",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "towards",
+          "start": 0.63,
+          "end": 0.89,
+          "key": "towards",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.89,
+          "end": 1.11,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "window",
+          "start": 1.11,
+          "end": 1.43,
+          "key": "window",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and,",
+          "start": 1.43,
+          "end": 1.87,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "taking",
+          "start": 1.97,
+          "end": 2.13,
+          "key": "taking",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "up",
+          "start": 2.13,
+          "end": 2.31,
+          "key": "up",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "PETA",
+          "start": 2.49,
+          "end": 2.67,
+          "key": "peta",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Cashbook,",
+          "start": 2.67,
+          "end": 3.27,
+          "key": "cashbook",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "scanned",
+          "start": 3.65,
+          "end": 3.91,
+          "key": "scanned",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "its",
+          "start": 3.91,
+          "end": 4.13,
+          "key": "its",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "pages.",
+          "start": 4.13,
+          "end": 4.45,
+          "key": "pages",
+          "pieces": [
+            13
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "went",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "text": "towards",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "text": "the",
+          "start": 0.89,
+          "end": 1.11
+        },
+        {
+          "text": "window",
+          "start": 1.11,
+          "end": 1.43
+        },
+        {
+          "text": "and,",
+          "start": 1.43,
+          "end": 1.87
+        },
+        {
+          "text": "taking",
+          "start": 1.97,
+          "end": 2.13
+        },
+        {
+          "text": "up",
+          "start": 2.13,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "pettycash",
+          "start": 2.49,
+          "end": 3.07
+        },
+        {
+          "text": "book,",
+          "start": 3.07,
+          "end": 3.36
+        },
+        {
+          "text": "scanned",
+          "start": 3.65,
+          "end": 3.91
+        },
+        {
+          "text": "its",
+          "start": 3.91,
+          "end": 4.13
+        },
+        {
+          "text": "pages.",
+          "start": 4.13,
+          "end": 4.45
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 12
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.25351733691059053
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b440bd3d066312c17c0c9afe69fb02af671b94286182a7be4196d6c5b515a262",
+  "selected_reasons": []
+}

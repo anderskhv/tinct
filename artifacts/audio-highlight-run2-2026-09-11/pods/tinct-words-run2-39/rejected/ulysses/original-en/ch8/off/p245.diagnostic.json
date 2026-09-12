@@ -1,0 +1,729 @@
+{
+  "complete": true,
+  "signature": "4132c6c3b33a684e99a97e636c59a0324580bffa3b15fe8c6bf21884af9bf54c",
+  "attempts": [
+    {
+      "asr_seconds": 0.3141462130006403,
+      "alignment_seconds": 0.00035914708860218525,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I wouldn't do anything at all in that line,\" Davy Byan said.",
+          "start": 0.08,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.35888671875
+            },
+            {
+              "text": " wouldn't",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.989501953125
+            },
+            {
+              "text": " do",
+              "start": 0.78,
+              "end": 0.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anything",
+              "start": 0.9,
+              "end": 1.18,
+              "probability": 0.998046875
+            },
+            {
+              "text": " at",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 1.5,
+              "end": 1.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " line,\"",
+              "start": 1.8,
+              "end": 2.62,
+              "probability": 0.75341796875
+            },
+            {
+              "text": " Davy",
+              "start": 2.62,
+              "end": 2.84,
+              "probability": 0.673828125
+            },
+            {
+              "text": " Byan",
+              "start": 2.84,
+              "end": 3.14,
+              "probability": 0.4864501953125
+            },
+            {
+              "text": " said.",
+              "start": 3.14,
+              "end": 3.42,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " It ruined many a man the same horses.",
+          "start": 3.96,
+          "end": 5.84,
+          "words": [
+            {
+              "text": " It",
+              "start": 3.96,
+              "end": 4.12,
+              "probability": 0.57958984375
+            },
+            {
+              "text": " ruined",
+              "start": 4.12,
+              "end": 4.38,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " many",
+              "start": 4.38,
+              "end": 4.6,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 4.6,
+              "end": 4.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " man",
+              "start": 4.74,
+              "end": 5.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.90234375
+            },
+            {
+              "text": " same",
+              "start": 5.26,
+              "end": 5.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " horses.",
+              "start": 5.48,
+              "end": 5.84,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "wouldn't",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "raw": "anything",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "raw": "at",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "all",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "in",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "line,\"",
+          "start": 1.8,
+          "end": 2.62
+        },
+        {
+          "raw": "Davy",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "raw": "Byan",
+          "start": 2.84,
+          "end": 3.14
+        },
+        {
+          "raw": "said.",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "raw": "It",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "raw": "ruined",
+          "start": 4.12,
+          "end": 4.38
+        },
+        {
+          "raw": "many",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "raw": "man",
+          "start": 4.74,
+          "end": 5.02
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "same",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "raw": "horses.",
+          "start": 5.48,
+          "end": 5.84
+        }
+      ],
+      "expected_tokens": [
+        "—I",
+        "wouldn't",
+        "do",
+        "anything",
+        "at",
+        "all",
+        "in",
+        "that",
+        "line,",
+        "Davy",
+        "Byrne",
+        "said.",
+        "It",
+        "ruined",
+        "many",
+        "a",
+        "man,",
+        "the",
+        "same",
+        "horses."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          20,
+          11,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.5,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "wouldn't",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "wouldnt",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 0.78,
+          "end": 0.9,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "anything",
+          "start": 0.9,
+          "end": 1.18,
+          "key": "anything",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.18,
+          "end": 1.34,
+          "key": "at",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 1.34,
+          "end": 1.5,
+          "key": "all",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.5,
+          "end": 1.66,
+          "key": "in",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.66,
+          "end": 1.8,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "line,\"",
+          "start": 1.8,
+          "end": 2.62,
+          "key": "line",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "Davy",
+          "start": 2.62,
+          "end": 2.84,
+          "key": "davy",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Byan",
+          "start": 2.84,
+          "end": 3.14,
+          "key": "byan",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 3.14,
+          "end": 3.42,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "It",
+          "start": 3.96,
+          "end": 4.12,
+          "key": "it",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "ruined",
+          "start": 4.12,
+          "end": 4.38,
+          "key": "ruined",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "many",
+          "start": 4.38,
+          "end": 4.6,
+          "key": "many",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.6,
+          "end": 4.74,
+          "key": "a",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 4.74,
+          "end": 5.02,
+          "key": "man",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.02,
+          "end": 5.26,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 5.26,
+          "end": 5.48,
+          "key": "same",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "horses.",
+          "start": 5.48,
+          "end": 5.84,
+          "key": "horses",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "—I",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "wouldn't",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "do",
+          "start": 0.78,
+          "end": 0.9
+        },
+        {
+          "text": "anything",
+          "start": 0.9,
+          "end": 1.18
+        },
+        {
+          "text": "at",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "all",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "in",
+          "start": 1.5,
+          "end": 1.66
+        },
+        {
+          "text": "that",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "line,",
+          "start": 1.8,
+          "end": 2.62
+        },
+        {
+          "text": "Davy",
+          "start": 2.62,
+          "end": 2.84
+        },
+        {
+          "text": "Byrne",
+          "start": 2.84,
+          "end": 2.99
+        },
+        {
+          "text": "said.",
+          "start": 3.14,
+          "end": 3.42
+        },
+        {
+          "text": "It",
+          "start": 3.96,
+          "end": 4.12
+        },
+        {
+          "text": "ruined",
+          "start": 4.12,
+          "end": 4.38
+        },
+        {
+          "text": "many",
+          "start": 4.38,
+          "end": 4.6
+        },
+        {
+          "text": "a",
+          "start": 4.6,
+          "end": 4.74
+        },
+        {
+          "text": "man,",
+          "start": 4.74,
+          "end": 5.02
+        },
+        {
+          "text": "the",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "same",
+          "start": 5.26,
+          "end": 5.48
+        },
+        {
+          "text": "horses.",
+          "start": 5.48,
+          "end": 5.84
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.31467433110810816
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4fe46e89b6ab896ae6297d11be2834c72f0da3554a371331f205b2deb66f79df",
+  "selected_reasons": []
+}
