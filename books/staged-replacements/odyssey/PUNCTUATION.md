@@ -98,6 +98,17 @@ needs no record. If it does — or if it renames the object (`work-box` →
 *basket*) or moves its sense — it is a **rendering decision**, and it is
 recorded in the Book's `continuity.md` like any other.
 
+**A known gap in the check, found at Book 5 and not yet closed.**
+`scripts/build_book3_v2.py`'s `hyphen_drift()` compares a compound
+**hyphenated** in one accepted Book against the **open** form in another. It is
+**blind to closed against open** — `seashore` in one Book beside `sea shore` in
+another passes it silently. Book 5 met exactly that: accepted Book 4 asserts
+the open `sea shore`, while this rule's *modern standard form* test arguably
+gives the closed `seashore`. Book 5 keeps the accepted Book's form and puts the
+question to its reviewer (`book05/review-instructions.md`, question 1) rather
+than creating the drift; if the ruling is `seashore`, a Book 4 successor
+answers it, as Book 3's finding 27.1 produced `book02/candidate-v3.json`.
+
 **The failure mode the rule exists to prevent** is landing on a third form.
 `sea-side` → `sea side` is neither Butler's hyphen nor modern English's
 `seaside`; it was corrected to `seaside` at Book 4 (finding 37.1, both

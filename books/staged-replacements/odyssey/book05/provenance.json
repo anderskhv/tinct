@@ -1,0 +1,74 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/odyssey-modern-en-20260911",
+ "staged_original_path": "app/public/data/editions/odyssey-original-en.json",
+ "staged_original_sha256": "da03f6ac9dfd5a19b9912adabfb9b0b48ed66bd85d8e1507a6b323a374822f07",
+ "chapter_extracted": {
+  "number": 5,
+  "title_source": "Book 5 — Calypso—Ulysses reaches Scheria on a raft",
+  "title_candidate": "Book 5 — Calypso—Odysseus reaches Scheria on a raft",
+  "title_note": "Mapped through the closed table by scripts/build_book_package.py; the one row that fires is Ulysses -> Odysseus.",
+  "paragraphs": 37,
+  "extraction": "found by chapter.number == 5 in odyssey-original-en.json; paragraphs byte-identical"
+ },
+ "source_book5_json_sha256": "c84e4bb2924d89250e4a943721703213bba0530c09641b662c93c4a8de02cd57",
+ "candidate_v1_json_sha256": "7acc5c346154e7d23c85eaa3c31ef25654600e4e122f455eb93a1bf3737a59cf",
+ "candidate_v1_readable_md_sha256": "a04aee04058004d3f23c3f4d63cf436392348e5c6fc282a4091e6e1d9555bc3b",
+ "manifest_json_sha256": "0336e5883a5c0ba7d42ab996e990f34b1aa07bad4baa642bbcef8c822b11ba0d",
+ "pg_source_sha256": "ffbdb29c3dda284b65c11243db1a98167826a70c81bca2ed4b6232f86c905fb9",
+ "translation_source": "Samuel Butler, 1900. Project Gutenberg #1727 (source-texts/pg1727-butler-1900.txt). The only translation used for the candidate; no other translation consulted for wording (Fagles, Lattimore, Wilson, Fitzgerald not read). The served odyssey-modern-en.json was not consulted for wording; it was opened once, to count Ceres/Demeter for the name table, and for nothing else.",
+ "source_verification": {
+  "script": "scripts/verify_source_book5.py",
+  "method": "A SIXTH kind of rule, and the first that does not search for the Book it verifies. The five before it all located Book N and then proved something about what they found (Book 2 drafter: PG's footnote-entry list, positionally. Book 3 drafter: the BOOK III / BOOK IV headings, bytes, apparatus-in diff. Book 3 reviewer: anchorless and digit-blind, one contiguous token block. Book 4 drafter: occurrence-unique needles and a derived region. Book 4 reviewer: global per-paragraph fingerprint alignment over the whole file). This one locates the OTHER TWENTY-THREE served chapters in PG, each independently and each required to occur EXACTLY ONCE in the whole file, and identifies Book 5 as the RESIDUE - the stretch of PG that everything else is not. The region is therefore an output of twenty-three alignments none of which can see Book 5, which closes the failure mode every search-then-verify rule shares: that the thing being checked chooses where the check looks.",
+  "crlf": "PG #1727 is CRLF throughout - asserted as 12,246 CRLF pairs with no bare CR and no bare LF. The file is read as BYTES and split on the newline byte, with the carriage return stripped explicitly.",
+  "result": "The 23 spans are pairwise disjoint and strictly ordered by chapter number. Residue between chapter 4 and chapter 6: 4,733 tokens, PG lines 2274-2684, an OUTPUT. The served chapter 5 (4,716 tokens) lies inside it, and the residue is EXHAUSTED by chapter 5's heading, the served chapter 5, and chapter 6's heading - each heading checked against the served file's OWN title field. The located region cuts into 37 blank-line blocks with the apparatus still in, against 37 served paragraphs. 32 of 37 byte-identical; 5 classified footnote markers (50-54, ascending, no repeats), one of them SPACE-SET (51, at the end of PG line 2338); 0 letter-case, 0 whitespace and 0 other differences; 4,666 words compared word for word, 0 mismatches.",
+  "chapter_3_exception": "Chapter 3 cannot participate because its served paragraph 38 is the base-text defect A3 (196 of 208 words are not Butler's; ruled on as D14). Its first 37 paragraphs are used, and the script ASSERTS that paragraph 38 occurs nowhere in PG and that the other 37 match contiguously and uniquely - so the exception is a result, not a skip.",
+  "declared_blindness": "A paragraph MERGE leaves the token stream untouched, so this rule cannot see one. Paragraph division is carried by step 3's blank-line block count, and the merge control is run against THAT check, together with a split control.",
+  "negative_controls": "Eight, all firing: two paragraphs swapped; two merged (against the block count); one split (against the block count); one letter changed; one word dropped; a paragraph that is not Butler's; a changed NUMBER-WORD. The last is the digit-blind limit paid for: every digit run inside the located region is a classified footnote marker, so Butler writes every quantity of Book 5 in words.",
+  "audit_of_the_rule": "Two negative controls were first written as paragraph.replace('the', ...), which is a NO-OP on a paragraph that does not contain 'the' - a control that cannot fail. They are now built from the paragraph's own words, and the script asserts each mutation actually changed the text before claiming the control fired.",
+  "bracket_census": "No square bracket occurs in the served Book 5 or in the candidate. D12 does not fire."
+ },
+ "word_counts": {
+  "source": 4666,
+  "candidate": 4660,
+  "ratio": 0.999,
+  "min_paragraph_ratio": 0.968,
+  "min_paragraph_id": "B05-P028",
+  "butler_token_retention": 0.94211,
+  "butler_token_retention_book1_v2_accepted": 0.72703,
+  "butler_token_retention_book1_v3": 0.72751,
+  "butler_token_retention_book2_v3": 0.90232,
+  "butler_token_retention_book3_v2": 0.89662,
+  "butler_token_retention_book4_v2_accepted": 0.95872,
+  "retention_note": "The measure is the aggregate-join form of token_retention() and only that form - see GLOSSARY.md, 'The retention measure'. Book 1's figure was quoted as 0.721 across the package until 2026-09-12 and does not reproduce (records finding R2 of Book 4's round 1).",
+  "paragraphs_byte_identical_to_butler": [],
+  "paragraphs_byte_identical_note": "NONE. Book 4 carried seven and asserted the exact list; Book 5 asserts the empty list.",
+  "per_paragraph_word_counts": "book05/word-counts-v1.json (records finding R5 of Book 4's round 1)"
+ },
+ "splitting_rate": {
+  "note": "D17, added at Book 4's round 1: retention alone cannot tell a modernization from a touch-up, so the splitting rate is reported beside it. The splitter is the Book 4 reviewer's own, taken verbatim from book04/review/retention_measure.py.",
+  "sentences_source": 153,
+  "sentences_candidate": 189,
+  "percent_added": 23.5,
+  "sixty_word_sentences_source": 9,
+  "sixty_word_sentences_candidate": 3,
+  "percent_broken": 67,
+  "accepted_books_percent_added": {"1": 20.5, "2": 16.1, "3": 5.5, "4": 8.9},
+  "accepted_books_percent_broken": {"1": 100, "2": 43, "3": 33, "4": 82},
+  "three_left_long": "B05-P030 (65-word simile, the children rejoicing over a recovering father), B05-P037 (60-word simile, the man banking fire-seed in the ashes, the Book's last sentence) and B05-P017 (62 words, Calypso's offer of immortality). The first two are the B04-P038 disposition applied to similes; the third is put to the reviewer as question 5."
+ },
+ "naming": {
+  "decision": "Greek forms per GLOSSARY.md D5-D8, applied from the closed table.",
+  "counts": "Ulysses->Odysseus 29, Jove->Zeus 12, Mercury->Hermes 9, Minerva->Athena 6, Neptune->Poseidon 6, Diana->Artemis 1, Ceres->Demeter 1; every one matching the source's count exactly. No Roman form survives.",
+  "table_extension": "Book 5 is the FIRST Book to meet Ceres. The row rests on D5's RULE - the modern edition uses the Greek forms for the Olympians who have Roman ones - which is the warrant as corrected at records finding R3 of Book 4's round 1. The product's counts are corroboration only, and they are thin exactly as R3 predicted for a figure outside the Cast: threads.json Ceres 0 / Demeter 0, onboarding 0 / 0, served modern-en Demeter 1 / Ceres 0. Added to GLOSSARY.md by enumeration (D6), never generated.",
+  "d8_does_not_fire": "The Cast has a display name for Calypso and spells it as Butler does. No other figure in this Book has one.",
+  "heaven": "4 in the candidate against 4 in the source - NO break is taken. B05-P023's 'making heaven with his clouds' is kept as heaven rather than rendered 'the sky', unlike Book 4's 'mid heaven', because it is not a position being measured and the metonymic reading is live. Recorded as a deliberate difference and put to the reviewer as question 3.",
+  "possessive": "D7 applied: Odysseus's (x3, from Butler's bare Ulysses'), Zeus's, Calypso's, Ino's. No bare possessive survives."
+ },
+ "punctuation": {
+  "d4": "DOES NOT FIRE. 31 opening and 31 closing double marks in both source and candidate, and NO unbalanced paragraph in either. Asserted both ways, so the absence is a result.",
+  "d16_repair": "B05-P011: Butler prints the period OUTSIDE the closing quotation mark ('punish you”.'). Repaired to 'punish you.”' under PUNCTUATION.md section 5. Mark totals unchanged, so the repair does not hide inside a count.",
+  "defective_clause": "B05-P012: Butler's 'Calypso then went close up to him said:' has no conjunction. One word supplied - 'and' - the smallest repair available, and the same class as accepted B03-P028."
+ },
+ "generation": "All candidate text drafted in the agent conversation and written to scripts/candidates/book5.py. Zero Anthropic API spend; generate-editions.cjs was not run."
+}

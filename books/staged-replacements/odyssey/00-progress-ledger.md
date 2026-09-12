@@ -254,8 +254,25 @@ Kept current at every push.
    the served paragraph division is PG's own blank-line division). Two further
    decisions came out of the round: **D16** (one rule for punctuation slips)
    and **D17** (the splitting rate, a gate the build enforces).
-4. **Book 5** after Book 4, in numerical order. Nothing blocks it.
-5. Book 10's disposition still needs a coordinator decision — see A2 below,
+4. **Book 5 is frozen at `book05/candidate-v1.json`** (sha256
+   `7acc5c34…3737a59cf`, 37 paragraphs, ratio 0.999, retention **0.94211**,
+   **sentences 153 → 189 (+23.5%), sixty-word 9 → 3 (67% broken)**, 13 packets)
+   and **waiting on the coordinator for step 4, the independent review**.
+   Steps 1–3 done: the source is verified by a **sixth** kind of rule
+   (`scripts/verify_source_book5.py`) which **never looks for Book 5** — it
+   locates the other twenty-three served chapters, each exactly once in the
+   whole file, and takes Book 5 as the residue, so the region cannot be moved
+   by a defect in the thing being checked. 37 of 37 paragraphs accounted for,
+   32 byte-identical, 5 classified footnote markers, 4,666 words word for word,
+   0 mismatches, 8 negative controls. The closed name table gains **one** row,
+   `Ceres` → `Demeter`, the first added under R3's corrected warrant.
+   **Five things are put to that reviewer explicitly**: the open `sea shore`
+   and the cross-Book hazard behind it; the one word supplied at B05-P012;
+   the **unbroken** `heaven` census, against Book 4's one break; `battledore
+   and shuttlecock` → `batting it back and forth`; and the 62-word sentence
+   left standing at B05-P017.
+5. **Book 6** after Book 5, in numerical order. Nothing blocks it.
+6. Book 10's disposition still needs a coordinator decision — see A2 below,
    now narrowed.
 
 ## Needs Anders (listed, not waited on)

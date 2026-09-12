@@ -53,6 +53,7 @@ modern edition is not Butler and does not owe them.
 | 9 | **Venus** | **Aphrodite** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2, the first Book to meet her (B04-P001, B04-P021).* |
 | 10 | **Juno** | **Hera** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P043).* |
 | 11 | **Vulcan** | **Hephaestus** | 0 in Book 1 | *Added 2026-09-12 at Book 4 step 2 (B04-P051).* |
+| 12 | **Ceres** | **Demeter** | 0 in Book 1 | *Added 2026-09-12 at Book 5 step 2, the first Book to meet her (B05-P010).* The first row added under the **corrected warrant**: it rests on D5's rule, not on a count. The product's corroboration is thin, exactly as R3 predicted for a figure outside the Cast — Cast `Ceres` 0 / `Demeter` 0, onboarding 0 / 0, served `modern-en` **Demeter 1 / Ceres 0**. |
 
 **The table is extended by enumeration when a Book meets a Roman name it does
 not yet carry, and never generated** (hazard 1). Each addition is recorded here

@@ -13,7 +13,7 @@ Updated continuously. Read this first, then `WORKFLOW.md`.
 | 2 | 8 — accepted, with recorded successor `candidate-v3.json` | `candidate-v2.json` (successor v3) | v3 `dcf1e301…6f24088ac` | 0.902 | +16.1%, 60+ 7 → 4 |
 | 3 | 8 — accepted | `candidate-v2.json` | `7095ef4f…4989b905` | 0.897 | +5.5%, 60+ 9 → 6 |
 | 4 | **8 — accepted** | `candidate-v2.json` | `b3bef2f3…9674c446` | **0.95872** | **+8.9%, 60+ 17 → 3** |
-| 5 | see "Next" | — | — | — | — |
+| 5 | **3 — frozen at `candidate-v1.json`, waiting on step 4** | — | v1 `7acc5c34…3737a59cf` | 0.94211 | +23.5%, 60+ 9 → 3 |
 
 **Book 1's retention was quoted as 0.721 everywhere until 2026-09-12 and that
 figure does not reproduce** — records finding R2 of Book 4's round 1. The
@@ -52,21 +52,50 @@ only that form — see `GLOSSARY.md`, "The retention measure".
   not stop at Hamming distance zero, and the 81 per-paragraph word counts.
   Its report is `book04/checks-v2.md`.
 
+## Book 5 — done to step 3, frozen, waiting on the review
+
+- **Steps 1–3 are done and `book05/candidate-v1.json` is frozen** at
+  `7acc5c346154e7d23c85eaa3c31ef25654600e4e122f455eb93a1bf3737a59cf`: 37
+  paragraphs, ratio 0.999, retention **0.94211**, **sentences 153 → 189
+  (+23.5%), sixty-word sentences 9 → 3 (67% broken)**, 13 packets,
+  `review-instructions.md` written with five questions put explicitly.
+- **The source is verified by a sixth kind of rule that never looks for
+  Book 5.** `scripts/verify_source_book5.py` locates the **other twenty-three**
+  served chapters in PG, each required to occur exactly once in the whole file,
+  and identifies Book 5 as the **residue**. The region is an output of
+  twenty-three alignments none of which can see Book 5 — which closes the
+  failure mode every search-then-verify rule shares, that the thing being
+  checked chooses where the check looks. The residue is **exhausted** by
+  chapter 5's heading, the served chapter 5 and chapter 6's heading, each
+  heading checked against the served file's own `title` field.
+- **The rule was audited before it was trusted, and the audit found a bug in
+  it**: two negative controls were `replace("the", …)` on a paragraph that
+  might not contain `the` — a control that cannot fail. Both are now built from
+  the paragraph's own words, with the mutation asserted.
+- **Its blindness is declared and covered**: a paragraph merge leaves the token
+  stream untouched, so the merge and split controls run against the blank-line
+  block count instead.
+
 ## Next, in order
 
-1. **Book 5.** Same eight steps. Verify the source by an independent
-   reconstruction using a rule that differs from the five already used
-   (Book 2 drafter: PG's footnote-entry list, positionally. Book 3 drafter:
-   the `BOOK III`/`BOOK IV` headings, bytes, apparatus-in diff. Book 3
-   reviewer: anchorless and digit-blind, one contiguous token block. Book 4
-   drafter: occurrence-unique needles and a derived region. Book 4 reviewer:
-   global per-paragraph fingerprint alignment). **Audit the rule before
-   trusting it**, then diff word for word; byte-identity to a re-run of your
-   own build script is not verification.
-2. **Report the splitting rate beside the retention figure** (**D17**). It is a
+1. **Book 5 step 4**: independent review by a separate reviewer session,
+   `book05/review-instructions.md`, findings under `book05/review/`.
+2. **Book 6** after that, in numerical order. Verify its source by a rule that
+   differs from the **six** now used (Book 2 drafter: PG's footnote-entry list,
+   positionally. Book 3 drafter: the `BOOK III`/`BOOK IV` headings, bytes,
+   apparatus-in diff. Book 3 reviewer: anchorless and digit-blind, one
+   contiguous token block. Book 4 drafter: occurrence-unique needles and a
+   derived region. Book 4 reviewer: global per-paragraph fingerprint alignment.
+   Book 5 drafter: identification by residue). **Audit the rule before trusting
+   it**, then diff word for word; byte-identity to a re-run of your own build
+   script is not verification.
+3. **Report the splitting rate beside the retention figure** (**D17**). It is a
    floor to clear, not a target, and it convicts on sentence division only.
-3. **Book 6** after that, in numerical order.
-4. Book 10's disposition still needs a coordinator decision — see
+4. **Open, for Book 5's reviewer**: whether `sea shore` should be the closed
+   `seashore` under **D15**. Accepted Book 4 asserts the open form, so a ruling
+   for `seashore` means a Book 4 successor. The package's own `hyphen_drift()`
+   check is blind to *closed against open* and would never have raised it.
+5. Book 10's disposition still needs a coordinator decision — see
    `00-progress-ledger.md`, A2.
 
 ## Hard rules
